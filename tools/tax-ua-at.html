@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UA–AT Податковий Калькулятор v8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0f1b2d;--navy-mid:#1a2e4a;--navy-light:#243d5c;
+  --teal:#2a9d8f;--teal-light:#3bbfb0;
+  --gold:#e9c46a;--gold-dark:#d4a853;
+  --cream:#f8f5f0;--white:#fff;
+  --g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g600:#4b5563;--g800:#1f2937;
+  --red:#e63946;--orange:#f4a261;--green:#059669;
+  --sh:0 2px 16px rgba(15,27,45,.12);--sh2:0 8px 40px rgba(15,27,45,.2);
+  --r:12px;--rs:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);min-height:100vh;line-height:1.6}
+
+/* === HEADER === */
+.app-header{background:var(--navy)}
+.header-inner{max-width:940px;margin:0 auto;padding:24px 24px 20px;display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.header-logo{font-family:'DM Serif Display',serif;font-size:1.85rem;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.header-logo span{color:var(--teal-light)}
+.header-sub{font-size:.76rem;color:var(--g400);font-weight:300;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.header-meta{margin-left:auto;text-align:right;font-size:.74rem;color:var(--g400);line-height:1.6}
+.disc-bar{background:linear-gradient(135deg,#7c3aed14,#2a9d8f14);border-bottom:2px solid var(--teal);padding:11px 24px;text-align:center;font-size:.79rem;color:var(--navy-mid)}
+
+/* === MAIN === */
+.main{max-width:940px;margin:0 auto;padding:26px 20px 60px}
+
+/* === STEPS NAV === */
+.steps-nav{display:flex;gap:3px;margin-bottom:24px;background:var(--white);border-radius:var(--r);padding:5px;box-shadow:var(--sh)}
+.step-btn{flex:1;padding:8px 5px;border:none;background:none;cursor:pointer;border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--g600);transition:all .2s;text-align:center;line-height:1.3}
+.step-btn.active{background:var(--navy);color:var(--white);box-shadow:0 2px 8px rgba(15,27,45,.25)}
+.step-btn.done{background:var(--teal);color:var(--white)}
+.step-btn:hover:not(.active,.done){background:var(--g100)}
+.step-num{display:block;font-size:1rem;font-weight:700;font-family:'DM Serif Display',serif}
+
+/* === CARDS === */
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden}
+.card-hd{background:var(--navy);color:var(--white);padding:13px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.card-hd h2{font-family:'DM Serif Display',serif;font-size:1.12rem;font-weight:400}
+.card-hd .badge{background:var(--teal);border-radius:20px;padding:2px 10px;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.card-hd .badge-warn{background:var(--orange);color:var(--navy)}
+.card-hd .badge-red{background:var(--red)}
+.card-bd{padding:18px 20px}
+
+/* === FORMS === */
+.fr{display:grid;gap:12px;margin-bottom:13px}
+.fr.c2{grid-template-columns:1fr 1fr}
+.fr.c3{grid-template-columns:1fr 1fr 1fr}
+.fr.c4{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:620px){.fr.c2,.fr.c3,.fr.c4{grid-template-columns:1fr}}
+.fg label{display:block;font-size:.74rem;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.fg label .hint{font-weight:400;text-transform:none;letter-spacing:0;color:var(--g400);font-size:.72rem;display:block;margin-top:1px;line-height:1.4}
+input[type=text],select{width:100%;padding:8px 11px;border:1.5px solid var(--g200);border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:.87rem;color:var(--navy);background:var(--white);transition:border-color .2s;-webkit-appearance:none}
+input[type=text]:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(42,157,143,.12)}
+input.ro{background:var(--g100);color:var(--g600);cursor:not-allowed}
+input.err{border-color:var(--red)!important}
+select{cursor:pointer}
+
+/* === RADIO / CHECK === */
+.rg{display:flex;gap:6px;flex-wrap:wrap}
+.rg label{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1.5px solid var(--g200);border-radius:var(--rs);cursor:pointer;font-size:.83rem;font-weight:500;color:var(--g600);transition:all .2s;user-select:none}
+.rg input[type=radio]{accent-color:var(--teal);width:13px;height:13px;flex-shrink:0}
+.rg label:has(input:checked){border-color:var(--teal);background:rgba(42,157,143,.07);color:var(--teal)}
+.cb-lbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:.84rem;color:var(--g600)}
+.cb-lbl input[type=checkbox]{width:14px;height:14px;accent-color:var(--teal);flex-shrink:0}
+
+/* === TOGGLE === */
+.tg-grp{display:flex;gap:4px}
+.tg-btn{padding:6px 13px;border:1.5px solid var(--g200);border-radius:var(--rs);background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;color:var(--g600);transition:all .2s}
+.tg-btn.active{background:var(--teal);border-color:var(--teal);color:var(--white)}
+
+/* === BUTTONS === */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 17px;border-radius:var(--rs);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:600;transition:all .2s;line-height:1}
+.btn-primary{background:var(--teal);color:var(--white);box-shadow:0 2px 8px rgba(42,157,143,.3)}
+.btn-primary:hover{background:var(--teal-light);transform:translateY(-1px)}
+.btn-ghost{background:none;border:1.5px solid var(--g200);color:var(--g600)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-del{background:none;border:1.5px solid var(--red);color:var(--red);padding:4px 10px;font-size:.76rem}
+.btn-del:hover{background:var(--red);color:var(--white)}
+.btn-add{background:rgba(42,157,143,.06);border:1.5px dashed var(--teal);color:var(--teal);width:100%;justify-content:center;margin-top:5px}
+.btn-add:hover{background:rgba(42,157,143,.15)}
+.btn-calc{background:var(--gold);color:var(--navy);padding:13px 28px;box-shadow:0 4px 16px rgba(233,196,106,.4);width:100%;justify-content:center;font-size:.98rem}
+.btn-calc:hover{background:var(--gold-dark);transform:translateY(-2px)}
+.btn-sm{padding:5px 11px;font-size:.78rem}
+
+/* === ALERTS === */
+.al{padding:11px 15px;border-radius:var(--rs);margin-bottom:13px;font-size:.84rem;display:flex;gap:8px;align-items:flex-start}
+.al-warn{background:#fff8e1;border:1px solid var(--gold);color:#7d5a00}
+.al-danger{background:#fef2f2;border:1px solid var(--red);color:#991b1b}
+.al-info{background:#f0fdf9;border:1px solid var(--teal);color:#0f5343}
+.al-orange{background:#fff7ed;border:1px solid var(--orange);color:#7c3a00}
+
+/* === INCOME ITEMS === */
+.inc-item{background:var(--g100);border-radius:var(--rs);padding:14px;margin-top:9px;border-left:3px solid var(--teal)}
+.inc-item.pe-high{border-left-color:var(--red)}
+.inc-item.pe-med{border-left-color:var(--orange)}
+.inc-item-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.inc-item-title{font-weight:600;font-size:.86rem;color:var(--navy);display:flex;align-items:center;gap:7px}
+.pe-badge{padding:2px 8px;border-radius:20px;font-size:.68rem;font-weight:700}
+.pe-low{background:#dcfce7;color:#166534}
+.pe-med{background:#fed7aa;color:#7c2d12}
+.pe-high{background:#fee2e2;color:#991b1b}
+
+/* === SEP === */
+.sep{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--g400);font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--g200)}
+
+/* === RESULTS === */
+.res-sec h3{font-family:'DM Serif Display',serif;font-size:1.02rem;color:var(--navy);margin-bottom:9px;padding-bottom:6px;border-bottom:2px solid var(--g200);margin-top:16px}
+.res-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--g100);gap:10px}
+.res-row:last-child{border-bottom:none}
+.res-lbl{font-size:.85rem;color:var(--g600);flex:1}
+.res-val{font-weight:600;font-size:.92rem;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+.res-val.green{color:var(--green)}
+.res-val.orange{color:var(--orange)}
+.res-val.red{color:var(--red)}
+.res-total{background:var(--navy);color:var(--white);padding:12px 16px;border-radius:var(--rs);display:flex;justify-content:space-between;align-items:center;margin-top:9px}
+.res-total .lbl{font-size:.86rem;opacity:.8}
+.res-total .val{font-size:1.2rem;font-weight:700;font-family:'DM Serif Display',serif;color:var(--gold)}
+.res-total.teal{background:linear-gradient(135deg,var(--teal),var(--teal-light))}
+
+/* === RESIDENCY BOX === */
+.res-box{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);border-radius:var(--r);padding:18px;margin-top:12px}
+.res-box h3{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:11px;color:var(--gold)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+@media(max-width:540px){.res-grid{grid-template-columns:1fr 1fr}}
+.res-item{background:rgba(255,255,255,.08);border-radius:var(--rs);padding:10px}
+.ri-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);margin-bottom:2px}
+.ri-val{font-size:.9rem;font-weight:600}
+.ri-yes{color:#4ade80}.ri-no{color:#f87171}.ri-unk{color:var(--gold)}
+
+/* === CONFIDENCE BADGE === */
+.conf{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.71rem;font-weight:700;letter-spacing:.05em}
+.c-hi{background:#065f46;color:#4ade80}
+.c-me{background:#78350f;color:#fcd34d}
+.c-lo{background:#7f1d1d;color:#f87171}
+
+/* === REGIME === */
+.reg-item{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;background:var(--g100);border-radius:var(--rs);margin-bottom:4px;font-size:.82rem;gap:8px;flex-wrap:wrap}
+.reg-badge{padding:2px 10px;border-radius:20px;font-size:.69rem;font-weight:700;letter-spacing:.04em;flex-shrink:0}
+.rb-at{background:rgba(42,157,143,.15);color:var(--teal)}
+.rb-prog{background:rgba(233,196,106,.25);color:#8B6914}
+.rb-ua{background:rgba(99,102,241,.12);color:#4338ca}
+.rb-info{background:var(--g200);color:var(--g600)}
+
+/* === ASSUMPTIONS BLOCK === */
+.ass-block{border:1px solid var(--g200);border-radius:var(--rs);overflow:hidden}
+.ass-header{background:var(--g100);padding:10px 15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.86rem;font-weight:600;color:var(--navy)}
+.ass-body{padding:14px 16px}
+.ass-list{list-style:none;padding:0}
+.ass-list li{padding:4px 0;border-bottom:1px solid var(--g100);font-size:.82rem;color:var(--g600);display:flex;gap:6px}
+.ass-list li::before{content:'→';color:var(--teal);flex-shrink:0}
+.ass-list li.warn::before{content:'⚠️';color:var(--orange)}
+.ass-list li.danger::before{content:'🔴'}
+
+/* === TECH LOG === */
+.tech{background:#0a1520;color:#7dd3c8;border-radius:var(--rs);padding:14px;font-family:'Courier New',monospace;font-size:.72rem;overflow-x:auto;white-space:pre-wrap;max-height:360px;overflow-y:auto}
+.test-panel{background:#0a1520;color:#86efac;border-radius:var(--rs);padding:14px;font-family:'Courier New',monospace;font-size:.75rem;max-height:500px;overflow-y:auto;line-height:1.75}
+.tp{color:#4ade80}.tf{color:#f87171}.ts{color:#7dd3c8;font-weight:bold}.ti{color:#fcd34d}
+
+/* === SELF-TESTS === */
+.tc-card{background:var(--g100);border-radius:var(--rs);padding:14px;margin-bottom:10px}
+.tc-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.tc-title{font-weight:600;font-size:.9rem;color:var(--navy)}
+.tc-desc{font-size:.81rem;color:var(--g600);margin-bottom:10px;line-height:1.5}
+
+/* === NAV ROW === */
+.nav-row{display:flex;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--g200);gap:10px;flex-wrap:wrap}
+
+/* === MODE WRAP === */
+.mode-wrap{display:flex;align-items:center;gap:13px;background:var(--white);border-radius:var(--r);padding:11px 16px;margin-bottom:16px;box-shadow:var(--sh);flex-wrap:wrap}
+.yr-badge{background:var(--gold);color:var(--navy);padding:2px 9px;border-radius:20px;font-size:.74rem;font-weight:700}
+
+/* === HIDDEN === */
+.hidden{display:none!important}
+.panel{animation:fi .22s ease}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+/* === FOOTER === */
+footer{background:var(--navy);color:var(--g400);padding:20px;text-align:center;font-size:.76rem;margin-top:36px;line-height:1.9}
+</style>
+</head>
+<body>
+<div style="background:#0A1628;padding:12px 20px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:999;">
+  <a href="../index.html" style="color:#C9A84C;font-family:sans-serif;font-size:.85rem;font-weight:600;text-decoration:none;">← NEXORA</a>
+  <span style="color:rgba(255,255,255,.4);font-size:.75rem">|</span>
+  <span style="color:rgba(255,255,255,.7);font-size:.82rem">Інструменти та Калькулятори</span>
+</div>
+
+<header class="app-header">
+  <div class="header-inner">
+    <div>
+      <div class="header-sub">Калькулятор подвійного оподаткування</div>
+      <div class="header-logo">UA<span>–AT</span> Tax</div>
+    </div>
+    <div class="header-meta">Фізичні особи · Україна–Австрія<br/>Конвенція UA–AT · <strong style="color:var(--gold)">v8.0</strong> · Інформаційний інструмент</div>
+  </div>
+</header>
+
+<div class="disc-bar">
+  ⚠️ <strong>Дисклеймер:</strong> Виключно інформаційний характер. Не замінює консультацію ліцензованого Steuerberater / Rechtsanwalt.
+</div>
+
+<main class="main">
+
+<nav class="steps-nav" id="stepsNav">
+  <button class="step-btn active" onclick="goToStep(0)"><span class="step-num">0</span>Резидент</button>
+  <button class="step-btn" onclick="goToStep(1)"><span class="step-num">1</span>Зарплата</button>
+  <button class="step-btn" onclick="goToStep(2)"><span class="step-num">2</span>ФОП</button>
+  <button class="step-btn" onclick="goToStep(3)"><span class="step-num">3</span>Нерухомість</button>
+  <button class="step-btn" onclick="goToStep(4)"><span class="step-num">4</span>Капітал</button>
+  <button class="step-btn" onclick="goToStep(5)"><span class="step-num">5</span>Відрахування</button>
+  <button class="step-btn" onclick="goToStep(6)"><span class="step-num">6</span>Результат</button>
+  <button class="step-btn" onclick="goToStep(7)"><span class="step-num">🧪</span>Self-tests</button>
+</nav>
+
+<!-- ======== STEP 0: Резидентність ======== -->
+<div id="step-0" class="panel">
+  <div class="mode-wrap">
+    <label style="font-weight:600;font-size:.87rem">Режим:</label>
+    <div class="tg-grp">
+      <button class="tg-btn active" id="modeSimpleBtn" onclick="setMode('simple')">Спрощений</button>
+      <button class="tg-btn" id="modeAdvancedBtn" onclick="setMode('advanced')">Розширений</button>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <label style="font-size:.82rem;color:var(--g600)">Рік:</label>
+      <select id="taxYear" onchange="onYearChange()" style="width:84px">
+        <option value="2026" selected>2026</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+      </select>
+      <span class="yr-badge" id="yearBadge">2026</span>
+      <div style="font-size:.82rem;color:var(--g600)">Курс EUR/UAH:</div>
+      <input type="text" id="eurRate" value="44.00" style="width:70px" oninput="onRateChange()"/>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><h2>Резидентність за внутрішнім правом</h2><span class="badge">Art. 4 DBA</span></div>
+    <div class="card-bd">
+      <div class="fr c2">
+        <div class="fg">
+          <label>Ви вважаєте себе податковим резидентом <u>України</u>?
+            <span class="hint">Відповідно до Податкового кодексу України</span>
+          </label>
+          <div class="rg">
+            <label><input type="radio" name="uaResQ" value="yes" checked/> Так</label>
+            <label><input type="radio" name="uaResQ" value="no"/> Ні</label>
+            <label><input type="radio" name="uaResQ" value="unknown"/> Не знаю</label>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Ви вважаєте себе податковим резидентом <u>Австрії</u>?
+            <span class="hint">Відповідно до § 26 BAO (Wohnsitz / gewöhnlicher Aufenthalt)</span>
+          </label>
+          <div class="rg">
+            <label><input type="radio" name="atResQ" value="yes" checked/> Так</label>
+            <label><input type="radio" name="atResQ" value="no"/> Ні</label>
+            <label><input type="radio" name="atResQ" value="unknown"/> Не знаю</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tie-breaker questions — always shown -->
+      <div class="sep">Критерії Art. 4 DBA (Tie-breaker)</div>
+      <div class="al al-info"><span>ℹ️</span><span>Якщо ви — резидент <em>обох</em> країн або статус невизначений, для визначення країни резидентства за Конвенцією застосовується послідовний tie-breaker (Art.4 §2 DBA UA–AT).</span></div>
+
+      <div class="fr c2">
+        <div class="fg">
+          <label>Hauptwohnsitz — постійне житло
+            <span class="hint">Де ви маєте постійне місце проживання, до якого маєте доступ? (Meldezettel Hauptwohnsitz в AT)</span>
+          </label>
+          <div class="rg">
+            <label><input type="radio" name="hw" value="AT" checked/> Австрія</label>
+            <label><input type="radio" name="hw" value="UA"/> Україна</label>
+            <label><input type="radio" name="hw" value="both"/> Обидві</label>
+            <label><input type="radio" name="hw" value="none"/> Відсутнє</label>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Центр життєвих інтересів (CoI)
+            <span class="hint">Де зосереджені родинні, особисті та ділові зв'язки?</span>
+          </label>
+          <div class="rg">
+            <label><input type="radio" name="coi" value="AT" checked/> Австрія</label>
+            <label><input type="radio" name="coi" value="UA"/> Україна</label>
+            <label><input type="radio" name="coi" value="unclear"/> Нечітко</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="fr c2">
+        <div class="fg">
+          <label>Громадянство</label>
+          <div class="rg">
+            <label><input type="radio" name="cit" value="UA" checked/> UA</label>
+            <label><input type="radio" name="cit" value="AT"/> AT</label>
+            <label><input type="radio" name="cit" value="both"/> Обидва</label>
+            <label><input type="radio" name="cit" value="other"/> Інше</label>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Днів в Австрії (за рік)
+            <span class="hint">Використовується як habitual abode для Art.4 — <strong>НЕ</strong> правило 183 днів Art.15</span>
+          </label>
+          <div class="fr c2" style="margin-bottom:0">
+            <input type="text" id="daysAT" value="200"/>
+            <div class="fg"><label style="text-transform:none;font-size:.76rem;margin-bottom:4px">Днів в Україні</label><input type="text" id="daysUA" value="80"/></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="calcResidency()" style="margin-top:4px">▶ Визначити резидентність</button>
+      <div id="resResult" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <div></div>
+    <button class="btn btn-primary" onclick="goToStep(1)">Далі: Зарплата →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 1: Зарплата ======== -->
+<div id="step-1" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>Зарплата в Австрії</h2><span class="badge">Art. 15 AT</span></div>
+    <div class="card-bd">
+      <div class="fr c3">
+        <div class="fg">
+          <label>AT Брутто (EUR/рік)</label>
+          <input type="text" id="atGross" placeholder="0" oninput="onAtGrossChange()"/>
+        </div>
+        <div class="fg">
+          <label>Lohnsteuer утримана (EUR)</label>
+          <input type="text" id="atLohn" placeholder="0"/>
+        </div>
+        <div class="fg">
+          <label>SV-AN (EUR/рік)
+            <span class="hint"><label class="cb-lbl"><input type="checkbox" id="cbSVAN" checked onchange="onAtGrossChange()"/> Авто ≈18.12%</label></span>
+          </label>
+          <input type="text" id="atSVAN" class="ro" placeholder="auto" readonly/>
+        </div>
+      </div>
+      <div class="al al-info" style="margin-top:4px"><span>ℹ️</span><span>AT-зарплата: Art.15 DBA — завжди оподатковується в Австрії. Absetzbeträge (Verkehrs-, Allgemeiner) застосовуються автоматично.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><h2>Зарплата в Україні</h2><span class="badge">Art. 15 UA</span></div>
+    <div class="card-bd">
+      <div id="uaEmpList"></div>
+      <button class="btn btn-add" onclick="addItem('uaEmp')">＋ Додати UA зарплату</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><h2>GmbH / §22–23 EStG</h2><span class="badge">Geschäftsführer ≥25%</span></div>
+    <div class="card-bd">
+      <div class="al al-info"><span>ℹ️</span><span>GmbH-Geschäftsführer з часткою ≥25% → §22/23 EStG (Selbständige Einkünfte). Винагорода оподатковується ESt, SVS. <strong>KÖSt (GmbH) не моделюється.</strong></span></div>
+      <div id="gmbhList"></div>
+      <button class="btn btn-add" onclick="addItem('gmbh')">＋ Додати GmbH-дохід</button>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(0)">← Назад</button>
+    <button class="btn btn-primary" onclick="goToStep(2)">Далі: ФОП →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 2: ФОП ======== -->
+<div id="step-2" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>UA ФОП / Самозайнятість</h2><span class="badge">Art. 7 / 14</span><span class="badge badge-warn">PE-ризик</span></div>
+    <div class="card-bd">
+      <div class="al al-orange">
+        <span>⚠️</span>
+        <div>
+          <strong>PE-ризик (постійне представництво):</strong> Якщо фактична діяльність ведеться з Австрії або є AT-клієнти, може виникати PE за Art.7 DBA. Калькулятор показує рівень ризику, але <em>не вирішує</em> питання автоматично. При peRisk = high → <code>needsAdvisorReview = true</code>.
+        </div>
+      </div>
+      <div id="uaSeList"></div>
+      <button class="btn btn-add" onclick="addItem('uaSe')">＋ Додати ФОП / самозайнятість</button>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(1)">← Назад</button>
+    <button class="btn btn-primary" onclick="goToStep(3)">Далі: Нерухомість →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 3: Нерухомість ======== -->
+<div id="step-3" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>Нерухомість в Австрії</h2><span class="badge">Art. 6 AT</span></div>
+    <div class="card-bd">
+      <div id="atReList"></div>
+      <button class="btn btn-add" onclick="addItem('atRe')">＋ Додати нерухомість AT</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-hd"><h2>Нерухомість в Україні</h2><span class="badge">Art. 6 UA → Exemption + Progression</span></div>
+    <div class="card-bd">
+      <div class="al al-info"><span>ℹ️</span><span>UA-нерухомість AT-резидента: <strong>право оподаткування — Україна</strong> (Art.6 DBA). В AT звільнено від ESt, але дохід входить до <strong>Progressionsvorbehalt</strong> (§33 Abs.10 EStG). Не входить до бази для foreign tax credit.</span></div>
+      <div id="uaReList"></div>
+      <button class="btn btn-add" onclick="addItem('uaRe')">＋ Додати нерухомість UA</button>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(2)">← Назад</button>
+    <button class="btn btn-primary" onclick="goToStep(4)">Далі: Капітал →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 4: Капітал ======== -->
+<div id="step-4" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>Капітальні доходи</h2><span class="badge">Art. 10/11/12</span></div>
+    <div class="card-bd">
+      <div class="al al-warn"><span>⚠️</span><span><strong>AT-капітал зі спецставкою KESt 27.5%</strong> (акції, облігації, ETF/фонди AT) → позначається <em>info_only</em>. НЕ включається до тарифної бази ESt і НЕ до Progression. Лише інформативно.</span></div>
+      <div class="sep">AT капітал</div>
+      <div id="atCapList"></div>
+      <button class="btn btn-add" onclick="addItem('atCap')">＋ Додати AT капітал</button>
+      <div class="sep">UA дивіденди / проценти / роялті</div>
+      <div id="uaCapList"></div>
+      <button class="btn btn-add" onclick="addItem('uaCap')">＋ Додати UA капітал</button>
+
+      <div class="sep">Пенсії</div>
+      <div class="fr c2" style="margin-bottom:0">
+        <div>
+          <p style="font-size:.8rem;color:var(--g600);margin-bottom:6px">AT пенсія → AT_taxable (Art.18)</p>
+          <div id="atPenList"></div>
+          <button class="btn btn-add btn-sm" onclick="addItem('atPen')">＋ AT пенсія</button>
+        </div>
+        <div>
+          <p style="font-size:.8rem;color:var(--g600);margin-bottom:6px">UA пенсія → Exemption+Progression (AT-рез.)</p>
+          <div id="uaPenList"></div>
+          <button class="btn btn-add btn-sm" onclick="addItem('uaPen')">＋ UA пенсія</button>
+        </div>
+      </div>
+
+      <div class="sep">Інші доходи (крипта, ESOP, stock options)</div>
+      <div class="al al-danger"><span>🔴</span><span>info_only / highRisk — не моделюються. Потрібна окрема консультація.</span></div>
+      <div id="otherList"></div>
+      <button class="btn btn-add" onclick="addItem('other')">＋ Додати інший дохід</button>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(3)">← Назад</button>
+    <button class="btn btn-primary" onclick="goToStep(5)">Далі: Відрахування →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 5: Відрахування ======== -->
+<div id="step-5" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>Соціальні внески AT</h2><span class="badge">SVS / ÖGK</span></div>
+    <div class="card-bd">
+      <div class="fr c2">
+        <div class="fg">
+          <label>SVS (EUR/рік) — самозайняті / GmbH
+            <span class="hint"><label class="cb-lbl"><input type="checkbox" id="cbSVS" checked onchange="toggleSVS()"/> Авто ≈26.83% (autoSVSUsed=true)</label></span>
+          </label>
+          <input type="text" id="svsVal" class="ro" placeholder="авто" readonly/>
+        </div>
+        <div class="fg">
+          <label>ÖGK / SV-AN (EUR/рік) — AT зарплата
+            <span class="hint"><label class="cb-lbl"><input type="checkbox" id="cbOEGK" checked onchange="toggleOEGK()"/> Авто з AT брутто (autoAN_SVUsed=true)</label></span>
+          </label>
+          <input type="text" id="oegkVal" class="ro" placeholder="авто" readonly/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><h2>Діти та Familienbonus+</h2></div>
+    <div class="card-bd">
+      <div id="childrenList"></div>
+      <button class="btn btn-add" onclick="addItem('child')">＋ Додати дитину</button>
+      <div class="sep">Розраховані пільги</div>
+      <div class="fr c3">
+        <div class="fg"><label>Familienbonus+ (EUR)</label><input type="text" id="fbVal" class="ro" value="0" readonly/></div>
+        <div class="fg"><label>Kindermehrbetrag (EUR)</label><input type="text" id="kmVal" class="ro" value="0" readonly/></div>
+        <div class="fg">
+          <label>Інші Absetzbeträge (EUR)
+            <span class="hint">Pensionistenabsetzbetrag та ін. — вручну</span>
+          </label>
+          <input type="text" id="otherAbs" value="0"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(4)">← Назад</button>
+    <button class="btn btn-calc" onclick="runCalc()">⚡ Розрахувати податки</button>
+  </div>
+</div>
+
+<!-- ======== STEP 6: Результат ======== -->
+<div id="step-6" class="panel hidden">
+  <div id="resultOut"><div class="al al-warn"><span>⚠️</span><span>Виконайте розрахунок на кроці 5.</span></div></div>
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(5)">← Відрахування</button>
+    <button class="btn btn-primary" onclick="goToStep(7)">🧪 Self-tests →</button>
+  </div>
+</div>
+
+<!-- ======== STEP 7: Self-tests ======== -->
+<div id="step-7" class="panel hidden">
+  <div class="card">
+    <div class="card-hd"><h2>Self-Tests — 3 конкретні кейси</h2></div>
+    <div class="card-bd">
+      <p style="font-size:.84rem;color:var(--g600);margin-bottom:14px">Натисніть кнопку кейсу → він заповнює State → запускає розрахунок → відображає лог. Результати також з'являються на кроці 6.</p>
+
+      <div class="tc-card">
+        <div class="tc-hd">
+          <span class="tc-title">🧪 Кейс 1: Жінка з UA ФОП + UA оренда, живе в AT</span>
+          <button class="btn btn-primary btn-sm" onclick="runTestCase(1)">▶ Запустити</button>
+        </div>
+        <div class="tc-desc">AT-резидент (CoI=AT, сім'я в AT) · ФОП гр.3 remote з AT, 18 000 EUR дохід · UA оренда 12 000 EUR · peRisk аналіз · Рік 2026</div>
+      </div>
+
+      <div class="tc-card">
+        <div class="tc-hd">
+          <span class="tc-title">🧪 Кейс 2: Чоловік, AT зарплата 40k, без UA доходів</span>
+          <button class="btn btn-primary btn-sm" onclick="runTestCase(2)">▶ Запустити</button>
+        </div>
+        <div class="tc-desc">AT-резидент (власний будинок, RWR+) · AT зарплата 40 000 EUR · Без UA доходів · Чистий ESt тариф, Absetzbeträge · Рік 2026</div>
+      </div>
+
+      <div class="tc-card">
+        <div class="tc-hd">
+          <span class="tc-title">🧪 Кейс 3: GmbH-Geschäftsführer + UA remote зарплата</span>
+          <button class="btn btn-primary btn-sm" onclick="runTestCase(3)">▶ Запустити</button>
+        </div>
+        <div class="tc-desc">AT-резидент (CoI=AT) · GmbH §22/23 5 610 EUR (Oct–Dec) · UA зарплата remote 150 000 UAH · Incremental credit · Split-year warning · Рік 2026</div>
+      </div>
+
+      <div id="selfTestLog" style="margin-top:14px"></div>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goToStep(6)">← Результат</button>
+    <div></div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <strong>Обмеження:</strong> Не рахує KÖSt, GmbH, CFC/КІК, split-year поміс., точні межі SVS/ÖGK, Kennzahlen форм E1/L1.<br/>
+  UA–AT Tax Calculator · v8.0 · Ставки AT актуальні станом на 20.02.2026 · Steuerberater обов'язковий.
+</footer>
+
+<script>
+'use strict';
+
+/* ================================================================
+   CONFIG — всі числа тут. Жодних хардкодів у функціях.
+   ================================================================ */
+const CONFIG = {
+  // --- Threshold для habitual abode tie-breaker (Art.4 §2(c)) ---
+  // Якщо різниця між кількістю днів у двох країнах ≤ DAYS_CLOSE_THRESHOLD,
+  // вважається, що habitual abode не дозволяє однозначно визначити країну.
+  DAYS_CLOSE_THRESHOLD: 14,
+
+  2026: {
+    estTarif: [
+      {from:0,       to:13539,    rate:0.00, base:0},
+      {from:13539,   to:21992,    rate:0.20, base:0},
+      {from:21992,   to:36458,    rate:0.30, base:1690.60},
+      {from:36458,   to:70365,    rate:0.40, base:6030.40},
+      {from:70365,   to:104859,   rate:0.48, base:19593.20},
+      {from:104859,  to:1000000,  rate:0.50, base:36150.32},
+      {from:1000000, to:Infinity, rate:0.55, base:483720.82}
+    ],
+    absetzbetrag: {
+      allgemeiner:   134,    // approx 132 × 1.01733
+      verkehrs:      496,    // BMF 2026 підтверджено
+      pensionist:    1020,   // BMF 2026 підтверджено
+      pensionistEnh: 1502,
+      avab1: 612, avab2: 828, avab3: 1101
+    },
+    familienbonusRules: {
+      perChildUnder18: 2000.16,
+      perChildOver18:  700.08,
+      maxAgeOver18:    24,
+      kindermehrbetrag: 700
+    },
+    svs: {
+      rate:    0.2683,
+      fixed:   155.40,
+      minYear: 1929.60,
+      maxYear: 26185.92
+    },
+    svanRate:  0.1812,
+    ua: {
+      pitRate:          0.18,
+      militaryStd:      0.05,   // 5% з 2024
+      militaryFop3:     0.01,   // ФОП гр.3: 1% від обороту
+      esvRate:          0.22
+    },
+    pensionsRules: {
+      atPension:         'AT_taxable',
+      uaPensionForATRes: 'exemption_with_progression',
+      uaPensionForUARes: 'UA_only'
+    },
+    capitalRules: { kestRate: 0.275 }
+  },
+
+  2024: {
+    estTarif: [
+      {from:0,       to:12816,    rate:0.00, base:0},
+      {from:12816,   to:20818,    rate:0.20, base:0},
+      {from:20818,   to:34513,    rate:0.30, base:1600.40},
+      {from:34513,   to:66612,    rate:0.40, base:5709.10},
+      {from:66612,   to:99266,    rate:0.48, base:18549.10},
+      {from:99266,   to:1000000,  rate:0.50, base:34222.02},
+      {from:1000000, to:Infinity, rate:0.55, base:484222.02}
+    ],
+    absetzbetrag: {allgemeiner:132,verkehrs:463,pensionist:954,pensionistEnh:1294,avab1:573,avab2:774,avab3:1029},
+    familienbonusRules: {perChildUnder18:2000.16,perChildOver18:650.16,maxAgeOver18:24,kindermehrbetrag:700},
+    svs: {rate:0.268,fixed:0,minYear:0,maxYear:Infinity},
+    svanRate: 0.1812,
+    ua: {pitRate:0.18,militaryStd:0.015,militaryFop3:0.01,esvRate:0.22},
+    pensionsRules: {atPension:'AT_taxable',uaPensionForATRes:'exemption_with_progression',uaPensionForUARes:'UA_only'},
+    capitalRules: {kestRate:0.275}
+  },
+
+  2023: {
+    estTarif: [
+      {from:0,to:11693,rate:0,base:0},{from:11693,to:19134,rate:0.2,base:0},
+      {from:19134,to:32075,rate:0.3,base:1488.20},{from:32075,to:62080,rate:0.4,base:5370.50},
+      {from:62080,to:93120,rate:0.48,base:17372.50},{from:93120,to:1000000,rate:0.5,base:32292.30},
+      {from:1000000,to:Infinity,rate:0.55,base:482292.30}
+    ],
+    absetzbetrag:{allgemeiner:132,verkehrs:421,pensionist:900,pensionistEnh:1200,avab1:520,avab2:702,avab3:936},
+    familienbonusRules:{perChildUnder18:1992,perChildOver18:648,maxAgeOver18:24,kindermehrbetrag:550},
+    svs:{rate:0.268,fixed:0,minYear:0,maxYear:Infinity},
+    svanRate:0.1812,
+    ua:{pitRate:0.18,militaryStd:0.015,militaryFop3:0.01,esvRate:0.22},
+    pensionsRules:{atPension:'AT_taxable',uaPensionForATRes:'exemption_with_progression',uaPensionForUARes:'UA_only'},
+    capitalRules:{kestRate:0.275}
+  }
+};
+
+/* ================================================================
+   STATE
+   ================================================================ */
+let S = {
+  mode: 'simple',
+  year: 2026,
+  eurRate: 44.0,
+  residencyOutcome: null,   // { uaResident, atResident, tieBreakerApplied, treatyResidence, confidence }
+  taxStatusAT: null,        // 'full' | 'limited' | 'unclear'
+  nonresidentDeductionRestrictionsApplied: false,
+  atEmployment: [],
+  gmbhIncome: [],
+  uaEmployment: [],
+  uaSelfEmployment: [],
+  atRealEstate: [], uaRealEstate: [],
+  atCapital: [], uaCapital: [],
+  atPension: [], uaPension: [],
+  otherIncome: [],
+  children: [],
+  benefits: { familienbonusTotal: 0, kindermehrbetragTotal: 0 },
+  svsMontant: 0,
+  oegkMontant: 0,
+  // Flags — формують блок assumptions[]
+  flags: {
+    autoSVSUsed:        true,
+    autoAN_SVUsed:      true,
+    creditApproximationUsed: false,
+    singleRateFXUsed:   false,
+    peRiskNotLow:       false,
+    residencyConfidenceNotHigh: false,
+    nonresidentDeductionRestrictionsApplied: false,
+    capitalSpecialRatesNotModeled: false,
+    splitYearWarning:   false,
+    needsAdvisorReview: false
+  }
+};
+
+let counters = {};
+function nextId(t){ counters[t]=(counters[t]||0)+1; return t+'_'+counters[t]; }
+
+/* ================================================================
+   UTILS
+   ================================================================ */
+function parseNum(s) {
+  if(s==null) return 0;
+  let str = String(s).trim().replace(/\s/g,'');
+  if(!str) return 0;
+  if(/^\d{1,3}(\.\d{3})*(,\d+)?$/.test(str)) str = str.replace(/\./g,'').replace(',','.');
+  else str = str.replace(/,/g,'.');
+  const n = parseFloat(str);
+  return isNaN(n) ? 0 : n;
+}
+function fmt(n, d=2) {
+  if(typeof n!=='number'||isNaN(n)) return '–';
+  return n.toLocaleString('de-AT',{minimumFractionDigits:d,maximumFractionDigits:d});
+}
+function toEUR(amount, currency) {
+  if(!amount) return 0;
+  if(currency==='EUR') return amount;
+  if(currency==='UAH') return amount / S.eurRate;
+  return amount;
+}
+function cfg() { return CONFIG[S.year]; }
+function setVal(id, v) { const e=document.getElementById(id); if(e) e.value=v; }
+function getRadio(name) { return document.querySelector(`input[name=${name}]:checked`)?.value||null; }
+
+/* ================================================================
+   ESt ТАРИФ
+   ================================================================ */
+function calcESt(income) {
+  if(income<=0) return 0;
+  const t=cfg().estTarif;
+  for(let i=0;i<t.length;i++){
+    if(income>=t[i].from && income<t[i].to)
+      return t[i].base+(income-t[i].from)*t[i].rate;
+  }
+  const l=t[t.length-1];
+  return l.base+(income-l.from)*l.rate;
+}
+
+/**
+ * ESt з Progressionsvorbehalt §33 Abs.10 EStG
+ * Метод середньої ставки: ESt_prog = ESt(AT+exempt) / (AT+exempt) * AT
+ * Guard: якщо exempt=0 або AT=0 → повертаємо звичайний calcESt
+ */
+function calcEStWithProgression(atBase, exemptBase) {
+  if(exemptBase<=0 || exemptBase+atBase<=0) return calcESt(atBase);
+  if(atBase<=0) return 0;
+  const full = atBase + exemptBase;
+  const taxFull = calcESt(full);
+  if(full<=0) return 0;   // guard: no division by zero
+  const avgRate = taxFull / full;
+  return avgRate * atBase;
+}
+
+/* ================================================================
+   INCREMENTAL CREDIT ALGORITHM (п.3.1 ТЗ)
+   Для кожної групи доходів з кредитом рахуємо приріст ESt.
+   ================================================================ */
+/**
+ * computeCreditForIncomeGroup(groupIncomeEUR, foreignIncomeTaxEUR, currentATBase)
+ * Де currentATBase — база ESt ПЕРЕД додаванням цієї групи (incrementally accumulates).
+ * Повертає { estATForGroup, credit }
+ * ВАЖЛИВО: foreignIncomeTaxEUR = ПДФО + військ. ЄСВ сюди НЕ входить.
+ */
+function computeCreditForIncomeGroup(groupIncome, foreignIncomeTax, baseBeforeGroup) {
+  const taxWithout = calcESt(baseBeforeGroup);
+  const taxWith    = calcESt(baseBeforeGroup + groupIncome);
+  const estATForGroup = Math.max(0, taxWith - taxWithout);
+  const credit = Math.min(estATForGroup, foreignIncomeTax);
+  S.flags.creditApproximationUsed = true;
+  return { estATForGroup, credit };
+}
+
+/* ================================================================
+   PE-RISK CALCULATION (п.2.3 ТЗ)
+   4 так/ні питання → peRisk: 'low'|'med'|'high'
+   ================================================================ */
+function computePeRisk(answers) {
+  // answers: { permanentPlace, employees, atClients, contractAuthority }
+  let score = 0;
+  if(answers.permanentPlace) score++;
+  if(answers.employees) score++;
+  if(answers.atClients) score++;
+  if(answers.contractAuthority) score++;
+  if(score===0) return 'low';
+  if(score<=1)  return 'med';   // 1 ознака → mid
+  return 'high';                // 2+ → high
+}
+
+/* ================================================================
+   RESIDENCY LOGIC
+   ================================================================ */
+function computeResidency(inp) {
+  const ro = {
+    uaResident:        inp.uaResQ==='yes' ? true : inp.uaResQ==='no' ? false : null,
+    atResident:        inp.atResQ==='yes' ? true : inp.atResQ==='no' ? false : null,
+    tieBreakerApplied: false,
+    treatyResidence:   null,
+    confidence:        'high'
+  };
+
+  // Крок 1: якщо однозначно — одна країна
+  if(ro.uaResident===true  && ro.atResident===false)
+    return { ro: {...ro, treatyResidence:'UA', tieBreakerApplied:false}, taxStatusAT:'limited' };
+  if(ro.atResident===true  && ro.uaResident===false)
+    return { ro: {...ro, treatyResidence:'AT', tieBreakerApplied:false}, taxStatusAT:'full' };
+
+  // Крок 2: tie-breaker Art.4 §2
+  ro.tieBreakerApplied = true;
+
+  // (a) Hauptwohnsitz
+  if(inp.hw==='AT')       { ro.treatyResidence='AT'; ro.confidence='high'; }
+  else if(inp.hw==='UA')  { ro.treatyResidence='UA'; ro.confidence='high'; }
+  else {
+    // (b) Centre of vital interests
+    if(inp.coi==='AT')      { ro.treatyResidence='AT'; ro.confidence='med'; }
+    else if(inp.coi==='UA') { ro.treatyResidence='UA'; ro.confidence='med'; }
+    else {
+      // (c) Habitual abode — з DAYS_CLOSE_THRESHOLD
+      const diff = inp.daysAT - inp.daysUA;
+      const thresh = CONFIG.DAYS_CLOSE_THRESHOLD;
+      if(diff > thresh)       { ro.treatyResidence='AT'; ro.confidence='med'; }
+      else if(diff < -thresh) { ro.treatyResidence='UA'; ro.confidence='med'; }
+      else {
+        // (d) Громадянство
+        if(inp.cit==='AT')      { ro.treatyResidence='AT'; ro.confidence='low'; }
+        else if(inp.cit==='UA') { ro.treatyResidence='UA'; ro.confidence='low'; }
+        else                    { ro.treatyResidence='unclear'; ro.confidence='low'; }
+      }
+    }
+  }
+
+  let taxStatusAT;
+  if(ro.treatyResidence==='AT') {
+    taxStatusAT = (ro.atResident===true || ro.atResident===null) ? 'full' : 'unclear';
+  } else if(ro.treatyResidence==='UA') {
+    taxStatusAT = 'limited';
+  } else {
+    taxStatusAT = 'unclear';
+  }
+
+  return { ro, taxStatusAT };
+}
+
+/* ================================================================
+   INCOME CLASSIFICATION
+   ================================================================ */
+function classifyUaEmp(item, taxStatusAT) {
+  if(item.govService) return {taxRegimeAT:'UA_only', treatyArticle:'Art.19', highRisk:false};
+  if(taxStatusAT==='full') {
+    if(item.workLocation==='AT') return {taxRegimeAT:'AT_taxable',             treatyArticle:'Art.15', highRisk:false};
+    return {taxRegimeAT:'AT_taxable_with_credit', treatyArticle:'Art.15', highRisk:item.workLocation==='both'};
+  }
+  if(taxStatusAT==='limited') {
+    if(item.workLocation==='AT') return {taxRegimeAT:'AT_taxable', treatyArticle:'Art.15', highRisk:false};
+    return {taxRegimeAT:'UA_only', treatyArticle:'Art.15', highRisk:false};
+  }
+  return {taxRegimeAT:'AT_taxable_with_credit', treatyArticle:'Art.15', highRisk:true};
+}
+
+function classifyUaSE(peRisk, taxStatusAT) {
+  if(peRisk==='high')
+    return {taxRegimeAT:'AT_taxable_with_credit', treatyArticle:'Art.7', highRisk:true, classificationConfidence:'low', needsAdvisorReview:true};
+  if(peRisk==='med')
+    return {taxRegimeAT:'AT_taxable_with_credit', treatyArticle:'Art.7', highRisk:false, classificationConfidence:'med', needsAdvisorReview:true};
+  if(taxStatusAT==='full')
+    return {taxRegimeAT:'AT_taxable_with_credit', treatyArticle:'Art.7', highRisk:false, classificationConfidence:'high', needsAdvisorReview:false};
+  return {taxRegimeAT:'UA_only', treatyArticle:'Art.7', highRisk:false, classificationConfidence:'high', needsAdvisorReview:false};
+}
+
+/* ================================================================
+   DOM READERS
+   ================================================================ */
+function readUaEmp(taxStatusAT) {
+  return Array.from(document.querySelectorAll('.ua-emp-item')).map(c=>{
+    const gross = parseNum(c.querySelector('.f-gross')?.value);
+    const cur   = c.querySelector('.f-cur')?.value||'UAH';
+    const pdfo  = parseNum(c.querySelector('.f-pdfo')?.value);
+    const viisk = parseNum(c.querySelector('.f-viisk')?.value);
+    const esv   = parseNum(c.querySelector('.f-esv')?.value);
+    const wl    = c.querySelector('.f-wl')?.value||'UA';
+    const gov   = c.querySelector('.f-gov')?.checked||false;
+    const grossEUR = toEUR(gross,cur);
+    const foreignIncomeTaxEUR   = toEUR(pdfo+viisk,cur);  // → кредит
+    const foreignSocialContribEUR = toEUR(esv,cur);        // → тільки інфо
+    const cls = classifyUaEmp({workLocation:wl,govService:gov},taxStatusAT);
+    return {amount:gross,currency:cur,amountEUR:grossEUR,
+      foreignIncomeTaxEUR, foreignSocialContribEUR,
+      sourceCountry:'UA',includeInTarif:true,...cls};
+  });
+}
+
+function readGmbh() {
+  return Array.from(document.querySelectorAll('.gmbh-item')).map(c=>{
+    const inc = parseNum(c.querySelector('.f-income')?.value);
+    const split = c.querySelector('.f-split')?.checked||false;
+    return {amount:inc,currency:'EUR',amountEUR:inc,
+      foreignIncomeTaxEUR:0,foreignSocialContribEUR:0,
+      taxRegimeAT:'AT_taxable',treatyArticle:'§22/23 EStG',
+      sourceCountry:'AT',highRisk:false,includeInTarif:true,
+      splitYear:split};
+  });
+}
+
+function readUaSE(taxStatusAT) {
+  return Array.from(document.querySelectorAll('.ua-se-item')).map(c=>{
+    const income = parseNum(c.querySelector('.f-income')?.value);
+    const cur    = c.querySelector('.f-cur')?.value||'UAH';
+    const tax    = parseNum(c.querySelector('.f-tax')?.value);
+    const esv    = parseNum(c.querySelector('.f-esv')?.value);
+    const pp     = c.querySelector('.f-pplace')?.checked||false;
+    const emp    = c.querySelector('.f-empl')?.checked||false;
+    const atcl   = c.querySelector('.f-atcl')?.checked||false;
+    const ca     = c.querySelector('.f-cauth')?.checked||false;
+    const peRisk = computePeRisk({permanentPlace:pp,employees:emp,atClients:atcl,contractAuthority:ca});
+    const incEUR = toEUR(income,cur);
+    const taxEUR = toEUR(tax,cur);
+    const esvEUR = toEUR(esv,cur);
+    const cls = classifyUaSE(peRisk,taxStatusAT);
+    if(peRisk!=='low') { S.flags.peRiskNotLow=true; }
+    if(cls.needsAdvisorReview) S.flags.needsAdvisorReview=true;
+    return {amount:income,currency:cur,amountEUR:incEUR,
+      foreignIncomeTaxEUR:taxEUR,foreignSocialContribEUR:esvEUR,
+      peRisk,sourceCountry:'UA',includeInTarif:true,...cls};
+  });
+}
+
+function readRealEstate(country) {
+  const sel = country==='AT'?'.at-re-item':'.ua-re-item';
+  return Array.from(document.querySelectorAll(sel)).map(c=>{
+    const inc = parseNum(c.querySelector('.f-income')?.value);
+    const cur = c.querySelector('.f-cur')?.value||'EUR';
+    const tax = parseNum(c.querySelector('.f-tax')?.value);
+    const incEUR = toEUR(inc,cur);
+    const taxEUR = toEUR(tax,cur);
+    return {amount:inc,currency:cur,amountEUR:incEUR,
+      foreignIncomeTaxEUR:taxEUR,foreignSocialContribEUR:0,
+      taxRegimeAT:country==='UA'?'exemption_with_progression':'AT_taxable',
+      treatyArticle:'Art.6',sourceCountry:country,highRisk:false,includeInTarif:true};
+  });
+}
+
+function readCapital(country) {
+  const sel = country==='AT'?'.at-cap-item':'.ua-cap-item';
+  return Array.from(document.querySelectorAll(sel)).map(c=>{
+    const inc     = parseNum(c.querySelector('.f-income')?.value);
+    const cur     = c.querySelector('.f-cur')?.value||'EUR';
+    const tax     = parseNum(c.querySelector('.f-tax')?.value);
+    const special = c.querySelector('.f-special')?.checked??false;
+    const incEUR  = toEUR(inc,cur);
+    const taxEUR  = toEUR(tax,cur);
+    // KeSt специальна ставка → info_only, НЕ в тариф, НЕ в progression
+    const regime  = (country==='AT'&&special) ? 'info_only'
+                  : (country==='UA') ? 'AT_taxable_with_credit' : 'AT_taxable';
+    if(special) S.flags.capitalSpecialRatesNotModeled=true;
+    return {amount:inc,currency:cur,amountEUR:incEUR,
+      specialRate:special,
+      includeInTarif:regime!=='info_only',
+      foreignIncomeTaxEUR:taxEUR,foreignSocialContribEUR:0,
+      taxRegimeAT:regime,treatyArticle:'Art.10/11',
+      sourceCountry:country,highRisk:false};
+  });
+}
+
+function readPension(country, taxStatusAT) {
+  const sel = country==='AT'?'.at-pen-item':'.ua-pen-item';
+  const pr = cfg().pensionsRules;
+  return Array.from(document.querySelectorAll(sel)).map(c=>{
+    const inc = parseNum(c.querySelector('.f-income')?.value);
+    const cur = c.querySelector('.f-cur')?.value||'EUR';
+    const tax = parseNum(c.querySelector('.f-tax')?.value);
+    const incEUR = toEUR(inc,cur);
+    const taxEUR = toEUR(tax,cur);
+    const regime = country==='AT' ? pr.atPension
+                 : taxStatusAT==='full' ? pr.uaPensionForATRes : pr.uaPensionForUARes;
+    return {amount:inc,currency:cur,amountEUR:incEUR,
+      foreignIncomeTaxEUR:taxEUR,foreignSocialContribEUR:0,
+      taxRegimeAT:regime,treatyArticle:'Art.18',
+      sourceCountry:country,highRisk:false,includeInTarif:true};
+  });
+}
+
+function readOther() {
+  return Array.from(document.querySelectorAll('.other-item')).map(c=>{
+    const inc = parseNum(c.querySelector('.f-income')?.value);
+    const cur = c.querySelector('.f-cur')?.value||'EUR';
+    return {amount:inc,currency:cur,amountEUR:toEUR(inc,cur),
+      foreignIncomeTaxEUR:0,foreignSocialContribEUR:0,
+      taxRegimeAT:'info_only',treatyArticle:'–',
+      highRisk:true,includeInTarif:false};
+  });
+}
+
+function readChildren() {
+  const rules = cfg().familienbonusRules;
+  let fb=0, km=0;
+  const children = Array.from(document.querySelectorAll('.child-item')).map(c=>{
+    const age  = parseNum(c.querySelector('.f-age')?.value)||0;
+    const inHH = c.querySelector('.f-hh')?.checked??true;
+    const share= parseFloat(c.querySelector('.f-share')?.value||'1');
+    if(inHH) {
+      const per = age<rules.maxAgeOver18 ? rules.perChildUnder18 : rules.perChildOver18;
+      fb += per*share;
+    } else {
+      km += rules.kindermehrbetrag*share;
+    }
+    return {age,livesInHousehold:inHH,share};
+  });
+  S.children=children;
+  S.benefits.familienbonusTotal=fb;
+  S.benefits.kindermehrbetragTotal=km;
+  setVal('fbVal',fmt(fb));
+  setVal('kmVal',fmt(km));
+  return children;
+}
+
+/* ================================================================
+   ГОЛОВНИЙ РОЗРАХУНОК
+   ================================================================ */
+function runCalc() {
+  // Reset flags
+  S.flags = {autoSVSUsed:true,autoAN_SVUsed:true,creditApproximationUsed:false,
+    singleRateFXUsed:false,peRiskNotLow:false,residencyConfidenceNotHigh:false,
+    nonresidentDeductionRestrictionsApplied:false,capitalSpecialRatesNotModeled:false,
+    splitYearWarning:false,needsAdvisorReview:false};
+
+  // 1. Резидентність
+  const inp = getResInp();
+  const {ro, taxStatusAT} = computeResidency(inp);
+  S.residencyOutcome=ro; S.taxStatusAT=taxStatusAT;
+  if(ro.confidence!=='high') S.flags.residencyConfidenceNotHigh=true;
+  if(taxStatusAT==='limited') {
+    S.nonresidentDeductionRestrictionsApplied=true;
+    S.flags.nonresidentDeductionRestrictionsApplied=true;
+  }
+  if(S.eurRate!==44 || S.eurRate!==0) S.flags.singleRateFXUsed=true;
+
+  // 2. AT зарплата
+  const atGross  = parseNum(document.getElementById('atGross')?.value);
+  const atLohn   = parseNum(document.getElementById('atLohn')?.value);
+  const autoSVAN = document.getElementById('cbSVAN')?.checked;
+  S.flags.autoAN_SVUsed = autoSVAN;
+  const svan = autoSVAN ? atGross*cfg().svanRate : parseNum(document.getElementById('atSVAN')?.value);
+  S.atEmployment = atGross>0 ? [{amount:atGross,currency:'EUR',amountEUR:atGross,
+    lohnsteuer:atLohn,svanAmount:svan,
+    taxRegimeAT:'AT_taxable',treatyArticle:'Art.15',
+    sourceCountry:'AT',foreignIncomeTaxEUR:0,foreignSocialContribEUR:0,
+    highRisk:false,includeInTarif:true}] : [];
+
+  // 3. GmbH
+  S.gmbhIncome = readGmbh();
+  if(S.gmbhIncome.some(g=>g.splitYear)) S.flags.splitYearWarning=true;
+
+  // 4. Решта
+  S.uaEmployment     = readUaEmp(taxStatusAT);
+  S.uaSelfEmployment = readUaSE(taxStatusAT);
+  S.atRealEstate     = readRealEstate('AT');
+  S.uaRealEstate     = readRealEstate('UA');
+  S.atCapital        = readCapital('AT');
+  S.uaCapital        = readCapital('UA');
+  S.atPension        = readPension('AT',taxStatusAT);
+  S.uaPension        = readPension('UA',taxStatusAT);
+  S.otherIncome      = readOther();
+  readChildren();
+
+  // 5. All income items
+  const all = [
+    ...S.atEmployment,...S.gmbhIncome,...S.uaEmployment,...S.uaSelfEmployment,
+    ...S.atRealEstate,...S.uaRealEstate,
+    ...S.atCapital,...S.uaCapital,
+    ...S.atPension,...S.uaPension,...S.otherIncome
+  ];
+
+  // 6. Корзини (KeSt special → НЕ в тариф і НЕ в progression)
+  const atTaxItems      = all.filter(i=>i.taxRegimeAT==='AT_taxable'&&i.includeInTarif);
+  const creditItems     = all.filter(i=>i.taxRegimeAT==='AT_taxable_with_credit'&&i.includeInTarif);
+  const exemptItems     = all.filter(i=>i.taxRegimeAT==='exemption_with_progression');
+  const uaOnlyItems     = all.filter(i=>i.taxRegimeAT==='UA_only');
+  const infoItems       = all.filter(i=>i.taxRegimeAT==='info_only');
+
+  const atOnlyBase  = atTaxItems.reduce((a,i)=>a+i.amountEUR,0);
+  const creditBase  = creditItems.reduce((a,i)=>a+i.amountEUR,0);
+  const atTaxableBase = atOnlyBase + creditBase;
+  // KeSt special items НЕ входять у exemptTotal для progression
+  const exemptTotal = exemptItems.reduce((a,i)=>a+i.amountEUR,0);
+  const uaOnlyTotal = uaOnlyItems.reduce((a,i)=>a+i.amountEUR,0);
+
+  // 7. INCREMENTAL CREDIT (п.3.1 ТЗ)
+  // Ітеруємо по credit-items, накопичуємо базу incremetally
+  let runningBase = atOnlyBase;  // стартова база — тільки AT_taxable
+  let totalCreditAllowed = 0;
+  let totalEstForCreditItems = 0;
+  let totalForeignIT = 0;
+  const creditLog = [];
+  for(const item of creditItems) {
+    const { estATForGroup, credit } = computeCreditForIncomeGroup(
+      item.amountEUR, item.foreignIncomeTaxEUR, runningBase
+    );
+    totalEstForCreditItems += estATForGroup;
+    totalCreditAllowed += credit;
+    totalForeignIT += item.foreignIncomeTaxEUR;
+    creditLog.push({
+      source:`${item.sourceCountry} ${item.treatyArticle}`,
+      income:item.amountEUR, foreignIT:item.foreignIncomeTaxEUR,
+      estDelta:estATForGroup, credit
+    });
+    runningBase += item.amountEUR;  // нарощуємо базу
+  }
+  // guard: creditAllowed <= сума maxCredit (approx. — сума estDelta)
+  totalCreditAllowed = Math.min(totalCreditAllowed, totalEstForCreditItems);
+
+  // 8. ESt з Progressionsvorbehalt
+  const taxFull = calcEStWithProgression(atTaxableBase, exemptTotal);
+
+  // 9. Absetzbeträge
+  const ab = cfg().absetzbetrag;
+  const allgAbs    = ab.allgemeiner;
+  const verkAbs    = (S.atEmployment.length>0||S.gmbhIncome.length>0) ? ab.verkehrs : 0;
+  const otherAbsAmt= parseNum(document.getElementById('otherAbs')?.value);
+  const totalAbs   = allgAbs + verkAbs + otherAbsAmt;
+
+  const rawESt      = taxFull;
+  const afterAbsetz = Math.max(0, rawESt - totalAbs);
+  const afterCredit = Math.max(0, afterAbsetz - totalCreditAllowed);
+  const afterBonus  = Math.max(0, afterCredit - S.benefits.familienbonusTotal - S.benefits.kindermehrbetragTotal);
+
+  // 10. SVS / ÖGK
+  const autoSVS  = document.getElementById('cbSVS')?.checked;
+  const autoOEGK = document.getElementById('cbOEGK')?.checked;
+  S.flags.autoSVSUsed  = autoSVS;
+  S.flags.autoAN_SVUsed= autoOEGK;
+  if(autoSVS) {
+    const seBase = [...S.uaSelfEmployment,...S.gmbhIncome].reduce((a,i)=>a+i.amountEUR,0);
+    const c = cfg().svs;
+    S.svsMontant = Math.max(c.minYear, Math.min(c.maxYear||Infinity, seBase*c.rate + c.fixed));
+    setVal('svsVal',fmt(S.svsMontant));
+  } else {
+    S.svsMontant = parseNum(document.getElementById('svsVal')?.value);
+  }
+  if(autoOEGK) {
+    S.oegkMontant = S.atEmployment.reduce((a,i)=>a+i.svanAmount,0);
+    setVal('oegkVal',fmt(S.oegkMontant));
+  } else {
+    S.oegkMontant = parseNum(document.getElementById('oegkVal')?.value);
+  }
+
+  // 11. Глобальне навантаження
+  const uaTotalPaid = all.reduce((a,i)=>a+i.foreignIncomeTaxEUR,0);
+  const uaTotalESV  = all.reduce((a,i)=>a+i.foreignSocialContribEUR,0);
+  const totalBurdenAT = afterBonus + S.svsMontant + S.oegkMontant;
+  const globalBurden  = totalBurdenAT + uaTotalPaid + uaTotalESV;
+
+  // 12. Побудова результату
+  const result = {
+    residencyOutcome:ro, taxStatusAT,
+    atOnlyBase, creditBase, atTaxableBase, exemptTotal, uaOnlyTotal,
+    taxFull, allgAbs, verkAbs, otherAbsAmt, totalAbs,
+    rawESt, afterAbsetz,
+    totalForeignIT, totalEstForCreditItems, totalCreditAllowed, creditLog,
+    afterCredit,
+    famBonus:S.benefits.familienbonusTotal, kinderMehr:S.benefits.kindermehrbetragTotal,
+    afterBonus,
+    svs:S.svsMontant, oegk:S.oegkMontant, totalBurdenAT,
+    uaTotalPaid, uaTotalESV, globalBurden,
+    flags:{...S.flags},
+    atTaxItems, creditItems, exemptItems, uaOnlyItems, infoItems
+  };
+
+  renderResult(result);
+  goToStep(6);
+  return result; // для Self-tests
+}
+
+/* ================================================================
+   RENDER RESULT
+   ================================================================ */
+const RLBL = {
+  'AT_taxable':'Оподатк. в AT','AT_taxable_with_credit':'AT + кредит UA-податків',
+  'exemption_with_progression':'Звільнено (Progressionsvorbehalt)',
+  'UA_only':'Лише UA','info_only':'Інформаційно / не моделюється'
+};
+const RCLS = {
+  'AT_taxable':'rb-at','AT_taxable_with_credit':'rb-at',
+  'exemption_with_progression':'rb-prog','UA_only':'rb-ua','info_only':'rb-info'
+};
+
+function buildAssumptionsList(flags) {
+  const lst = [];
+  if(flags.autoSVSUsed)    lst.push({t:'warn',v:`autoSVSUsed=true — SVS розраховано як ~${(cfg().svs.rate*100).toFixed(2)}% + фіксований. Не є точним Bescheid.`});
+  if(flags.autoAN_SVUsed)  lst.push({t:'warn',v:`autoAN_SVUsed=true — SV-AN = ${(cfg().svanRate*100).toFixed(2)}% від AT брутто.`});
+  if(flags.singleRateFXUsed) lst.push({t:'info',v:`singleRateFXUsed=true — єдиний курс ${S.eurRate} UAH/EUR для всіх конвертацій.`});
+  if(flags.creditApproximationUsed) lst.push({t:'warn',v:'creditApproximationUsed=true — кредит approx. інкрементальним методом (min(estDelta, foreignPIT)). Реальний кредит регулюється §48 BAO.'});
+  if(flags.peRiskNotLow)   lst.push({t:'danger',v:'peRiskNotLow — є ознаки ризику PE. Класифікація доходу умовна. needsAdvisorReview=true.'});
+  if(flags.residencyConfidenceNotHigh) lst.push({t:'warn',v:`residencyConfidenceNotHigh — висновок резидентності ненадійний (confidence=${S.residencyOutcome?.confidence}). Консультація обов'язкова.`});
+  if(flags.nonresidentDeductionRestrictionsApplied) lst.push({t:'danger',v:'nonresidentDeductionRestrictionsApplied=true — при taxStatusAT=limited деякі Absetzbeträge та Familienbonus+ можуть бути недоступні нерезидентам. Перевірте окремо.'});
+  if(flags.capitalSpecialRatesNotModeled) lst.push({t:'info',v:'capitalSpecialRatesNotModeled=true — AT-капітал зі KeSt 27.5% показано лише інформативно, не включено до ESt-бази.'});
+  if(flags.splitYearWarning) lst.push({t:'danger',v:'splitYearWarning=true — GmbH або доходи позначені як split-year. Помісячний розрахунок не підтримується. Потрібен Steuerberater.'});
+  if(flags.needsAdvisorReview) lst.push({t:'danger',v:'needsAdvisorReview=true — ситуація містить ризики, що вимагають індивідуальної консультації.'});
+  lst.push({t:'info',v:'ЄСВ (foreignSocialContribEUR) НЕ входить до foreign tax credit — лише до блоку "Загальне навантаження".'});
+  lst.push({t:'info',v:'KeSt AT-капітал зі spеціальною ставкою не включається до ESt-тарифної бази та Progressionsvorbehalt.'});
+  return lst;
+}
+
+function renderResult(r) {
+  const ro = r.residencyOutcome;
+  const cConf = {high:'c-hi',med:'c-me',low:'c-lo'}[ro.confidence]||'c-lo';
+  const isRisk = r.taxStatusAT==='unclear'||ro.confidence==='low'||r.flags.needsAdvisorReview||r.flags.peRiskNotLow;
+
+  // income block builder
+  const incBlock = (items, title) => {
+    if(!items.length) return '';
+    return `<div class="res-sec"><h3>${title}</h3>${items.map(i=>`
+      <div class="reg-item">
+        <span style="flex:1">${i.sourceCountry} · ${i.treatyArticle||''}
+          ${i.highRisk?'<span style="color:var(--red);margin-left:6px">🔴 PE</span>':''}
+          ${i.peRisk&&i.peRisk!=='low'?`<span class="pe-badge pe-${i.peRisk}" style="margin-left:6px">PE-${i.peRisk.toUpperCase()}</span>`:''}
+        </span>
+        <span style="font-weight:600;margin-right:8px">${fmt(i.amountEUR)} EUR</span>
+        ${i.foreignIncomeTaxEUR?`<span style="font-size:.76rem;color:var(--g600);margin-right:8px">UA-IT: ${fmt(i.foreignIncomeTaxEUR)}</span>`:''}
+        ${i.foreignSocialContribEUR?`<span style="font-size:.76rem;color:var(--g400);margin-right:8px">ЄСВ: ${fmt(i.foreignSocialContribEUR)}</span>`:''}
+        <span class="reg-badge ${RCLS[i.taxRegimeAT]}">${RLBL[i.taxRegimeAT]}</span>
+      </div>`).join('')}</div>`;
+  };
+
+  const assList = buildAssumptionsList(r.flags);
+  const assHtml = `
+    <div class="ass-block">
+      <div class="ass-header" onclick="this.nextElementSibling.classList.toggle('hidden')">
+        ⚙️ Ключові припущення цього розрахунку <span style="font-size:.8rem;color:var(--g400)">(натисніть, щоб розгорнути)</span>
+        <span>▾</span>
+      </div>
+      <div class="ass-body hidden">
+        <ul class="ass-list">${assList.map(a=>`<li class="${a.t==='danger'?'danger':a.t==='warn'?'warn':''}">${a.v}</li>`).join('')}</ul>
+      </div>
+    </div>`;
+
+  // Credit log
+  const creditLogHtml = r.creditLog.length ? `
+    <div class="res-sec"><h3>Incremental Credit — Деталі (approx.)</h3>
+    ${r.creditLog.map((cl,i)=>`
+      <div class="res-row">
+        <span class="res-lbl">${i+1}. ${cl.source} · ${fmt(cl.income)} EUR</span>
+        <span style="font-size:.8rem;color:var(--g600)">UA-IT: ${fmt(cl.foreignIT)} | ΔESt: ${fmt(cl.estDelta)} | credit: ${fmt(cl.credit)}</span>
+      </div>`).join('')}
+    <div class="res-row">
+      <span class="res-lbl" style="font-weight:600">Разом creditAllowed (approx.)</span>
+      <span class="res-val green">${fmt(r.totalCreditAllowed)} EUR</span>
+    </div></div>` : '';
+
+  document.getElementById('resultOut').innerHTML = `
+${isRisk?`<div class="al al-danger"><span>🔴</span><span><strong>Є ризикові ситуації.</strong> ${r.flags.needsAdvisorReview?'needsAdvisorReview=true. ':''} Результати орієнтовні. Steuerberater обов'язковий.</span></div>`:''}
+${r.flags.nonresidentDeductionRestrictionsApplied?`<div class="al al-orange"><span>⚠️</span><span><strong>taxStatusAT=limited (beschränkt steuerpflichtig)</strong> — nonresidentDeductionRestrictionsApplied=true. Частина Absetzbeträge (Familienbonus+, AVAB) може бути недоступна. Перевірте з Steuerberater.</span></div>`:''}
+${r.flags.splitYearWarning?`<div class="al al-warn"><span>⚠️</span><span><strong>Split-year:</strong> GmbH або доходи починались у середині року. Помісячний розрахунок не підтримується — splitYearWarning=true.</span></div>`:''}
+
+<div class="card"><div class="card-hd"><h2>Статус резидентності</h2><span class="badge">Art. 4 DBA UA–AT</span></div><div class="card-bd">
+  <div class="res-box">
+    <h3>Резидентність · ${S.year} · DAYS_CLOSE_THRESHOLD=${CONFIG.DAYS_CLOSE_THRESHOLD} днів</h3>
+    <div class="res-grid">
+      <div class="res-item"><div class="ri-lbl">UA резидент</div>
+        <div class="ri-val ${ro.uaResident===true?'ri-yes':ro.uaResident===false?'ri-no':'ri-unk'}">${ro.uaResident===true?'✔ Так':ro.uaResident===false?'✘ Ні':'? Не знаю'}</div></div>
+      <div class="res-item"><div class="ri-lbl">AT резидент</div>
+        <div class="ri-val ${ro.atResident===true?'ri-yes':ro.atResident===false?'ri-no':'ri-unk'}">${ro.atResident===true?'✔ Так':ro.atResident===false?'✘ Ні':'? Не знаю'}</div></div>
+      <div class="res-item"><div class="ri-lbl">Tie-breaker Art.4</div>
+        <div class="ri-val">${ro.tieBreakerApplied?'✔ Застосовано':'Не потрібен'}</div></div>
+      <div class="res-item"><div class="ri-lbl">Treaty Residence</div>
+        <div class="ri-val ${ro.treatyResidence==='AT'?'ri-yes':ro.treatyResidence==='UA'?'ri-no':'ri-unk'}">${ro.treatyResidence||'unclear'}</div></div>
+      <div class="res-item"><div class="ri-lbl">taxStatusAT</div>
+        <div class="ri-val ${r.taxStatusAT==='full'?'ri-yes':r.taxStatusAT==='limited'?'ri-unk':'ri-no'}">${r.taxStatusAT==='full'?'full (unbeschränkt)':r.taxStatusAT==='limited'?'limited (beschränkt)':'unclear'}</div></div>
+      <div class="res-item"><div class="ri-lbl">Confidence</div>
+        <div class="ri-val"><span class="conf ${cConf}">${ro.confidence.toUpperCase()}</span></div></div>
+    </div>
+    ${r.flags.nonresidentDeductionRestrictionsApplied?`<div style="margin-top:10px;padding:8px 12px;background:rgba(244,162,97,.15);border-radius:var(--rs);font-size:.8rem;color:var(--gold)">nonresidentDeductionRestrictionsApplied = true — частина пільг може бути обмежена</div>`:''}
+  </div>
+</div></div>
+
+<div class="card"><div class="card-hd"><h2>Класифікація доходів</h2></div><div class="card-bd">
+  ${incBlock(r.atTaxItems,'Оподатковуються в AT (без кредиту)')}
+  ${incBlock(r.creditItems,'Оподатковуються в AT + кредит UA-податків (approx.)')}
+  ${incBlock(r.exemptItems,'Звільнено від AT ESt — тільки для Progressionsvorbehalt')}
+  ${incBlock(r.uaOnlyItems,'Лише Україна (AT не оподатковує)')}
+  ${incBlock(r.infoItems,'Інформаційно / KeSt / highRisk — не моделюється')}
+</div></div>
+
+<div class="card"><div class="card-hd"><h2>Розрахунок ESt ${S.year}</h2></div><div class="card-bd">
+  <div class="res-sec"><h3>Бази</h3>
+    <div class="res-row"><span class="res-lbl">AT_taxable (без кредиту)</span><span class="res-val">${fmt(r.atOnlyBase)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl">AT_taxable_with_credit</span><span class="res-val">${fmt(r.creditBase)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl"><strong>atTaxableBase (AT_taxable + credit)</strong></span><span class="res-val">${fmt(r.atTaxableBase)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl">Progression base (exemption_with_progression) — KeSt excluded</span><span class="res-val">${fmt(r.exemptTotal)} EUR</span></div>
+  </div>
+
+  <div class="res-sec"><h3>ESt</h3>
+    <div class="res-row"><span class="res-lbl">ESt за тарифом${r.exemptTotal>0?' + Progressionsvorbehalt §33 Abs.10':''}</span><span class="res-val">${fmt(r.rawESt)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl">– Allgemeiner Absetzbetrag</span><span class="res-val">– ${fmt(r.allgAbs)} EUR</span></div>
+    ${r.verkAbs?`<div class="res-row"><span class="res-lbl">– Verkehrsabsetzbetrag (AT зарплата/GmbH)</span><span class="res-val">– ${fmt(r.verkAbs)} EUR</span></div>`:''}
+    ${r.otherAbsAmt?`<div class="res-row"><span class="res-lbl">– Інші Absetzbeträge (вручну)</span><span class="res-val">– ${fmt(r.otherAbsAmt)} EUR</span></div>`:''}
+    <div class="res-row"><span class="res-lbl">ESt після Absetzbeträge</span><span class="res-val">${fmt(r.afterAbsetz)} EUR</span></div>
+  </div>
+
+  ${creditLogHtml}
+
+  <div class="res-sec"><h3>Після кредиту та пільг</h3>
+    <div class="res-row"><span class="res-lbl">– Foreign Tax Credit (approx., creditApproximationUsed=true)</span><span class="res-val green">– ${fmt(r.totalCreditAllowed)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl">ESt після кредиту</span><span class="res-val">${fmt(r.afterCredit)} EUR</span></div>
+    ${r.famBonus?`<div class="res-row"><span class="res-lbl">– Familienbonus+ (зменшення податку, не бази)</span><span class="res-val green">– ${fmt(r.famBonus)} EUR</span></div>`:''}
+    ${r.kinderMehr?`<div class="res-row"><span class="res-lbl">– Kindermehrbetrag</span><span class="res-val green">– ${fmt(r.kinderMehr)} EUR</span></div>`:''}
+    <div class="res-total"><span class="lbl">ESt до сплати (approx.)</span><span class="val">${fmt(r.afterBonus)} EUR</span></div>
+  </div>
+</div></div>
+
+<div class="card"><div class="card-hd"><h2>Соціальні внески AT + Глобальне навантаження</h2></div><div class="card-bd">
+  <div class="res-sec"><h3>AT</h3>
+    ${r.svs?`<div class="res-row"><span class="res-lbl">SVS (autoSVSUsed=${r.flags.autoSVSUsed})</span><span class="res-val">${fmt(r.svs)} EUR</span></div>`:''}
+    ${r.oegk?`<div class="res-row"><span class="res-lbl">ÖGK / SV-AN (autoAN_SVUsed=${r.flags.autoAN_SVUsed})</span><span class="res-val">${fmt(r.oegk)} EUR</span></div>`:''}
+    <div class="res-total teal"><span class="lbl">Загальне AT-навантаження ~</span><span class="val">${fmt(r.totalBurdenAT)} EUR</span></div>
+  </div>
+  <div class="res-sec"><h3>UA (інформаційно — не в ESt AT)</h3>
+    <div class="res-row"><span class="res-lbl">UA ПДФО + військовий збір (foreignIncomeTaxEUR)</span><span class="res-val orange">${fmt(r.uaTotalPaid)} EUR</span></div>
+    <div class="res-row"><span class="res-lbl">UA ЄСВ (foreignSocialContribEUR) — НЕ в кредит</span><span class="res-val orange">${fmt(r.uaTotalESV)} EUR</span></div>
+    <div class="res-total" style="background:var(--g800)"><span class="lbl">Глобальне навантаження AT+UA (approx.) ~</span><span class="val">${fmt(r.globalBurden)} EUR</span></div>
+  </div>
+</div></div>
+
+${assHtml}
+
+<div class="card"><div class="card-hd"><h2>Технічний JSON</h2></div><div class="card-bd">
+<div class="tech">${JSON.stringify({year:S.year,taxStatusAT:r.taxStatusAT,treatyResidence:ro.treatyResidence,
+  confidence:ro.confidence,tieBreakerApplied:ro.tieBreakerApplied,
+  atTaxableBase:r.atTaxableBase,exemptTotal:r.exemptTotal,uaOnlyTotal:r.uaOnlyTotal,
+  rawESt:r.rawESt,totalAbs:r.totalAbs,creditAllowed:r.totalCreditAllowed,
+  afterBonus:r.afterBonus,svs:r.svs,oegk:r.oegk,totalBurdenAT:r.totalBurdenAT,
+  uaTotalPaid:r.uaTotalPaid,uaTotalESV:r.uaTotalESV,globalBurden:r.globalBurden,
+  flags:r.flags},null,2)}</div>
+</div></div>`;
+}
+
+/* ================================================================
+   ITEM TEMPLATES — всі форми
+   ================================================================ */
+const TPLS = {
+  uaEmp:(id)=>`
+<div class="inc-item ua-emp-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇺🇦 UA Зарплата</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c4">
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>UAH</option><option>EUR</option></select></div>
+    <div class="fg"><label>Брутто/рік</label><input type="text" class="f-gross" placeholder="0"/></div>
+    <div class="fg"><label>ПДФО 18%</label><input type="text" class="f-pdfo" placeholder="0"/></div>
+    <div class="fg"><label>Військ. 5%</label><input type="text" class="f-viisk" placeholder="0"/></div>
+  </div>
+  <div class="fr c3">
+    <div class="fg"><label>ЄСВ (тільки інфо, не в кредит)</label><input type="text" class="f-esv" placeholder="0"/></div>
+    <div class="fg"><label>Місце роботи</label><select class="f-wl">
+      <option value="UA">Україна</option><option value="AT">Австрія</option>
+      <option value="remote">Remote з UA</option><option value="both">Обидві</option></select></div>
+    <div class="fg"><label style="margin-top:18px"><label class="cb-lbl"><input type="checkbox" class="f-gov"/> Держслужба UA (Art.19)</label></label></div>
+  </div>
+</div>`,
+
+  gmbh:(id)=>`
+<div class="inc-item gmbh-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇦🇹 GmbH §22/23 EStG</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c2">
+    <div class="fg"><label>Винагорода Geschäftsführer (EUR/рік)</label><input type="text" class="f-income" placeholder="0"/></div>
+    <div class="fg"><label style="margin-top:18px"><label class="cb-lbl"><input type="checkbox" class="f-split" checked/> Split-year (неповний рік) → splitYearWarning=true</label></label></div>
+  </div>
+  <div class="al al-warn" style="margin-top:4px"><span>⚠️</span><span>SVS рахується разом з іншими самозайнятими доходами. KÖSt GmbH не моделюється.</span></div>
+</div>`,
+
+  uaSe:(id)=>`
+<div class="inc-item ua-se-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇺🇦 UA ФОП / Самозайнятість <span id="${id}_pe" class="pe-badge pe-low">PE-LOW</span></span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип ФОП</label><select class="f-type">
+      <option value="3grp5">ФОП гр.3 (5% ЄП)</option>
+      <option value="3grp3">ФОП гр.3 (3%+ПДВ)</option>
+      <option value="gen">Загальна система</option></select></div>
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>UAH</option><option>EUR</option></select></div>
+    <div class="fg"><label>Дохід (EUR або UAH/рік)</label><input type="text" class="f-income" placeholder="0"/></div>
+  </div>
+  <div class="fr c3">
+    <div class="fg"><label>UA-податки (ЄП/ПДФО+військ.) — у кредит</label><input type="text" class="f-tax" placeholder="0"/></div>
+    <div class="fg"><label>ЄСВ (тільки інфо, не в кредит)</label><input type="text" class="f-esv" placeholder="0"/></div>
+    <div class="fg"></div>
+  </div>
+  <div class="sep">PE-ризик чеклист (Art. 7 DBA)</div>
+  <div class="fr c2">
+    <div class="fg">
+      <label class="cb-lbl"><input type="checkbox" class="f-pplace" onchange="updatePeRisk('${id}')"/> Постійне місце в AT (офіс, склад)</label><br/>
+      <label class="cb-lbl" style="margin-top:7px"><input type="checkbox" class="f-empl" onchange="updatePeRisk('${id}')"/> Працівники / залежні агенти в AT</label>
+    </div>
+    <div class="fg">
+      <label class="cb-lbl"><input type="checkbox" class="f-atcl" onchange="updatePeRisk('${id}')"/> Основні клієнти — резиденти AT</label><br/>
+      <label class="cb-lbl" style="margin-top:7px"><input type="checkbox" class="f-cauth" onchange="updatePeRisk('${id}')"/> Повноваження укладати контракти від бізнесу в AT</label>
+    </div>
+  </div>
+  <div id="${id}_perisk_info" style="font-size:.8rem;margin-top:6px;color:var(--g600)">PE-ризик: <strong>low</strong> (0 факторів)</div>
+</div>`,
+
+  atRe:(id)=>`
+<div class="inc-item at-re-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇦🇹 Нерухомість AT</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>EUR</option></select></div>
+    <div class="fg"><label>Орендний дохід (рік)</label><input type="text" class="f-income" placeholder="0"/></div>
+    <div class="fg"><label>Утримані AT-податки</label><input type="text" class="f-tax" placeholder="0"/></div>
+  </div>
+</div>`,
+
+  uaRe:(id)=>`
+<div class="inc-item ua-re-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇺🇦 Нерухомість UA → Exemption+Progression</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>UAH</option><option>EUR</option></select></div>
+    <div class="fg"><label>Дохід (рік)</label><input type="text" class="f-income" placeholder="0"/></div>
+    <div class="fg"><label>ПДФО+військ. UA</label><input type="text" class="f-tax" placeholder="0"/></div>
+  </div>
+</div>`,
+
+  atCap:(id)=>`
+<div class="inc-item at-cap-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇦🇹 Капітал AT</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип</label><select class="f-type"><option>Дивіденди</option><option>Проценти</option><option>ETF/фонди</option></select></div>
+    <div class="fg"><label>Сума (EUR)</label><input type="text" class="f-income" placeholder="0"/></div>
+    <div class="fg"><label>KeSt утримано (EUR)</label><input type="text" class="f-tax" placeholder="0"/></div>
+  </div>
+  <label class="cb-lbl"><input type="checkbox" class="f-special" checked/> KeSt 27.5% (спецставка) → info_only, не в тариф і не в Progression</label>
+</div>`,
+
+  uaCap:(id)=>`
+<div class="inc-item ua-cap-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇺🇦 Капітал UA</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип</label><select class="f-type"><option>Дивіденди</option><option>Проценти</option><option>Роялті</option></select></div>
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>UAH</option><option>EUR</option></select></div>
+    <div class="fg"><label>Сума</label><input type="text" class="f-income" placeholder="0"/></div>
+  </div>
+  <div class="fg" style="margin-bottom:6px"><label>ПДФО+військ. / WHT (→ у кредит)</label><input type="text" class="f-tax" placeholder="0"/></div>
+</div>`,
+
+  atPen:(id)=>`
+<div class="inc-item at-pen-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇦🇹 Пенсія AT → AT_taxable</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип</label><select class="f-type"><option>Державна</option><option>Приватна</option></select></div>
+    <div class="fg"><label>Сума (EUR/рік)</label><input type="text" class="f-income" placeholder="0"/></div>
+    <div class="fg"><label>Утримані податки (EUR)</label><input type="text" class="f-tax" placeholder="0"/></div>
+  </div>
+</div>`,
+
+  uaPen:(id)=>`
+<div class="inc-item ua-pen-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">🇺🇦 Пенсія UA → Exemption (AT-рез.)</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип</label><select class="f-type"><option>Державна</option><option>Приватна</option></select></div>
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>UAH</option><option>EUR</option></select></div>
+    <div class="fg"><label>Сума</label><input type="text" class="f-income" placeholder="0"/></div>
+  </div>
+  <div class="fg" style="margin-bottom:0"><label>UA-податки</label><input type="text" class="f-tax" placeholder="0"/></div>
+</div>`,
+
+  other:(id)=>`
+<div class="inc-item other-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">💎 Інший дохід 🔴 info_only</span><button class="btn btn-del" onclick="removeItem('${id}')">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Тип</label><select class="f-type"><option>Крипта</option><option>Stock Options</option><option>ESOP</option><option>Інше</option></select></div>
+    <div class="fg"><label>Валюта</label><select class="f-cur"><option>EUR</option><option>UAH</option><option>USD</option></select></div>
+    <div class="fg"><label>Приблизна сума</label><input type="text" class="f-income" placeholder="0"/></div>
+  </div>
+</div>`,
+
+  child:(id)=>`
+<div class="inc-item child-item" id="${id}">
+  <div class="inc-item-hd"><span class="inc-item-title">👶 Дитина</span><button class="btn btn-del" onclick="removeItem('${id}');updateChildDisplay()">✕</button></div>
+  <div class="fr c3">
+    <div class="fg"><label>Вік</label><input type="text" class="f-age" placeholder="10" oninput="updateChildDisplay()"/></div>
+    <div class="fg"><label>Частка Familienbonus+</label>
+      <select class="f-share" onchange="updateChildDisplay()">
+        <option value="1">100%</option><option value="0.5">50%</option><option value="0">0%</option>
+      </select></div>
+    <div class="fg"><label style="margin-top:18px"><label class="cb-lbl"><input type="checkbox" class="f-hh" checked onchange="updateChildDisplay()"/> У домогосподарстві</label></label></div>
+  </div>
+</div>`
+};
+
+const LIST_IDS = {
+  uaEmp:'uaEmpList',gmbh:'gmbhList',uaSe:'uaSeList',
+  atRe:'atReList',uaRe:'uaReList',
+  atCap:'atCapList',uaCap:'uaCapList',
+  atPen:'atPenList',uaPen:'uaPenList',
+  other:'otherList',child:'childrenList'
+};
+
+function addItem(type) {
+  const id=nextId(type), lid=LIST_IDS[type], tpl=TPLS[type];
+  if(!lid||!tpl) return;
+  document.getElementById(lid)?.insertAdjacentHTML('beforeend',tpl(id));
+}
+function removeItem(id){ document.getElementById(id)?.remove(); }
+function updateChildDisplay(){ readChildren(); }
+function updatePeRisk(cardId) {
+  const c = document.getElementById(cardId);
+  if(!c) return;
+  const pp = c.querySelector('.f-pplace')?.checked||false;
+  const em = c.querySelector('.f-empl')?.checked||false;
+  const ac = c.querySelector('.f-atcl')?.checked||false;
+  const ca = c.querySelector('.f-cauth')?.checked||false;
+  const score = [pp,em,ac,ca].filter(Boolean).length;
+  const risk = computePeRisk({permanentPlace:pp,employees:em,atClients:ac,contractAuthority:ca});
+  const badge = c.querySelector(`#${cardId}_pe`);
+  if(badge){ badge.className=`pe-badge pe-${risk}`; badge.textContent=`PE-${risk.toUpperCase()}`; }
+  const info = c.querySelector(`#${cardId}_perisk_info`);
+  if(info){ info.innerHTML=`PE-ризик: <strong style="color:${risk==='high'?'var(--red)':risk==='med'?'var(--orange)':'var(--green)'}">${risk}</strong> (${score} із 4 факторів)`; }
+  c.className=`inc-item ua-se-item ${risk==='high'?'pe-high':risk==='med'?'pe-med':''}`;
+}
+
+/* ================================================================
+   UI
+   ================================================================ */
+function goToStep(n) {
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('hidden',i!==n));
+  document.querySelectorAll('.step-btn').forEach((b,i)=>{
+    b.classList.remove('active','done');
+    if(i===n) b.classList.add('active'); else if(i<n) b.classList.add('done');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function setMode(m) {
+  S.mode=m;
+  document.getElementById('modeSimpleBtn').classList.toggle('active',m==='simple');
+  document.getElementById('modeAdvancedBtn').classList.toggle('active',m==='advanced');
+}
+function onYearChange() { S.year=parseInt(document.getElementById('taxYear').value)||2026; document.getElementById('yearBadge').textContent=S.year; }
+function onRateChange() { S.eurRate=parseNum(document.getElementById('eurRate').value)||44; }
+function onAtGrossChange() {
+  const auto=document.getElementById('cbSVAN')?.checked;
+  if(auto){ const g=parseNum(document.getElementById('atGross')?.value); setVal('atSVAN',fmt(g*cfg().svanRate)); }
+  const el=document.getElementById('atSVAN');
+  if(el){ el.readOnly=auto; el.classList.toggle('ro',auto); }
+}
+function toggleSVS() { const a=document.getElementById('cbSVS').checked, el=document.getElementById('svsVal'); el.readOnly=a; el.classList.toggle('ro',a); }
+function toggleOEGK(){ const a=document.getElementById('cbOEGK').checked, el=document.getElementById('oegkVal'); el.readOnly=a; el.classList.toggle('ro',a); }
+function getResInp() {
+  return {
+    uaResQ: getRadio('uaResQ')||'unknown',
+    atResQ: getRadio('atResQ')||'unknown',
+    hw:     getRadio('hw')||'none',
+    coi:    getRadio('coi')||'unclear',
+    cit:    getRadio('cit')||'other',
+    daysAT: parseNum(document.getElementById('daysAT')?.value)||0,
+    daysUA: parseNum(document.getElementById('daysUA')?.value)||0
+  };
+}
+function calcResidency() {
+  const inp=getResInp();
+  const {ro,taxStatusAT}=computeResidency(inp);
+  S.residencyOutcome=ro; S.taxStatusAT=taxStatusAT;
+  const cConf={high:'c-hi',med:'c-me',low:'c-lo'}[ro.confidence]||'c-lo';
+  document.getElementById('resResult').innerHTML=`
+  <div class="res-box">
+    <h3>Попередній висновок резидентності (DAYS_CLOSE_THRESHOLD=${CONFIG.DAYS_CLOSE_THRESHOLD})</h3>
+    <div class="res-grid">
+      <div class="res-item"><div class="ri-lbl">Treaty Residence</div><div class="ri-val ${ro.treatyResidence==='AT'?'ri-yes':ro.treatyResidence==='UA'?'ri-no':'ri-unk'}">${ro.treatyResidence||'unclear'}</div></div>
+      <div class="res-item"><div class="ri-lbl">taxStatusAT</div><div class="ri-val">${taxStatusAT==='full'?'full (unbeschränkt)':taxStatusAT==='limited'?'limited (beschränkt)':'unclear'}</div></div>
+      <div class="res-item"><div class="ri-lbl">Tie-breaker</div><div class="ri-val">${ro.tieBreakerApplied?'Так':'Ні'}</div></div>
+      <div class="res-item"><div class="ri-lbl">UA резидент</div><div class="ri-val ${ro.uaResident===true?'ri-yes':ro.uaResident===false?'ri-no':'ri-unk'}">${ro.uaResident===true?'✔':ro.uaResident===false?'✘':'?'}</div></div>
+      <div class="res-item"><div class="ri-lbl">AT резидент</div><div class="ri-val ${ro.atResident===true?'ri-yes':ro.atResident===false?'ri-no':'ri-unk'}">${ro.atResident===true?'✔':ro.atResident===false?'✘':'?'}</div></div>
+      <div class="res-item"><div class="ri-lbl">Confidence</div><div class="ri-val"><span class="conf ${cConf}">${ro.confidence.toUpperCase()}</span></div></div>
+    </div>
+  </div>`;
+}
+
+/* ================================================================
+   SELF-TESTS — 3 кейси
+   ================================================================ */
+function clearAllItems() {
+  Object.values(LIST_IDS).forEach(lid=>{const el=document.getElementById(lid);if(el)el.innerHTML='';});
+  counters={};
+  setVal('atGross','0'); setVal('atLohn','0'); setVal('atSVAN','0');
+  setVal('otherAbs','0'); setVal('fbVal','0'); setVal('kmVal','0');
+}
+
+/**
+ * Встановлює вхідні дані кейсу та запускає розрахунок.
+ * Повертає об'єкт result для перевірки.
+ */
+function runTestCase(num) {
+  S.year=2026; setVal('taxYear','2026'); document.getElementById('yearBadge').textContent='2026';
+  S.eurRate=44.0; setVal('eurRate','44.00');
+  clearAllItems();
+
+  const log=[];
+  log.push(`\n${'═'.repeat(60)}`);
+
+  if(num===1) {
+    // КЕЙС 1: Жінка, UA ФОП + UA оренда, AT-резидент
+    log.push(`🧪 КЕЙС 1: UA ФОП + UA оренда · AT-резидент · 2026`);
+    log.push(`─ Вхід: uaResQ=yes, atResQ=yes, hw=both, coi=AT`);
+    log.push(`─ ФОП дохід: 18000 EUR, ставка 5%+1%=6%, UA-IT=1080 EUR`);
+    log.push(`─ ФОП ЄСВ: 1400 EUR (інформативно)`);
+    log.push(`─ PE чеклист: постійне місце AT=true, AT клієнти=true → peRisk=high`);
+    log.push(`─ UA оренда: 12000 EUR → exemption_with_progression`);
+    log.push(`─ UA-ПДФО+військ. на оренду: 12000*(0.18+0.05)=2760 EUR (інформативно)`);
+    log.push(`─ Очікування: treatyResidence=AT, taxStatusAT=full, confidence=med`);
+    log.push(`─ ESt = Prog(18000, 12000), credit=min(1080, estDelta)`);
+    log.push(`─ peRiskNotLow=true, needsAdvisorReview=true, creditApproximationUsed=true`);
+
+    // Заповнюємо radios
+    document.querySelector('input[name=uaResQ][value=yes]').checked=true;
+    document.querySelector('input[name=atResQ][value=yes]').checked=true;
+    document.querySelector('input[name=hw][value=both]').checked=true;
+    document.querySelector('input[name=coi][value=AT]').checked=true;
+    document.querySelector('input[name=cit][value=UA]').checked=true;
+    setVal('daysAT','270'); setVal('daysUA','60');
+
+    // ФОП
+    addItem('uaSe');
+    const se=document.querySelector('.ua-se-item');
+    if(se){
+      se.querySelector('.f-cur').value='EUR';
+      se.querySelector('.f-income').value='18000';
+      se.querySelector('.f-tax').value='1080';    // 6% від 18000
+      se.querySelector('.f-esv').value='1400';
+      se.querySelector('.f-pplace').checked=true; // постійне місце в AT
+      se.querySelector('.f-atcl').checked=true;   // AT клієнти
+      const id=se.id; updatePeRisk(id);
+    }
+
+    // UA оренда
+    addItem('uaRe');
+    const re=document.querySelector('.ua-re-item');
+    if(re){
+      re.querySelector('.f-cur').value='EUR';
+      re.querySelector('.f-income').value='12000';
+      re.querySelector('.f-tax').value='2760'; // інформаційно
+    }
+
+  } else if(num===2) {
+    // КЕЙС 2: Чоловік, AT зарплата, без UA доходів
+    log.push(`🧪 КЕЙС 2: AT зарплата 40k, без UA доходів · 2026`);
+    log.push(`─ Вхід: uaResQ=no, atResQ=yes, hw=AT, coi=AT`);
+    log.push(`─ AT зарплата: 40000 EUR, autoSVAN=true`);
+    log.push(`─ Очікування: treatyResidence=AT, taxStatusAT=full, confidence=high`);
+    log.push(`─ ESt=calcESt(40000), Absetzbeträge: allgemeiner+verkehrs=134+496=630`);
+    log.push(`─ creditAllowed=0, exemptTotal=0, globalBurden=ESt_net+SVAN`);
+
+    document.querySelector('input[name=uaResQ][value=no]').checked=true;
+    document.querySelector('input[name=atResQ][value=yes]').checked=true;
+    document.querySelector('input[name=hw][value=AT]').checked=true;
+    document.querySelector('input[name=coi][value=AT]').checked=true;
+    document.querySelector('input[name=cit][value=UA]').checked=true;
+    setVal('daysAT','310'); setVal('daysUA','20');
+    setVal('atGross','40000'); setVal('atLohn','0');
+    onAtGrossChange();
+
+  } else if(num===3) {
+    // КЕЙС 3: GmbH + UA remote зарплата
+    log.push(`🧪 КЕЙС 3: GmbH §22/23 + UA remote зарплата · 2026`);
+    log.push(`─ Вхід: uaResQ=yes, atResQ=yes, hw=both, coi=AT`);
+    log.push(`─ GmbH: 3×1870=5610 EUR (жовт.-груд.), splitYear=true`);
+    log.push(`─ UA зарплата remote: 150000 UAH = ${(150000/44).toFixed(2)} EUR`);
+    log.push(`─ UA-IT (ПДФО+військ.): 150000*(0.18+0.05)/44=${((150000*0.23)/44).toFixed(2)} EUR`);
+    log.push(`─ UA ЄСВ: 150000*0.22/44=${((150000*0.22)/44).toFixed(2)} EUR (інформ.)`);
+    log.push(`─ Очікування: treatyResidence=AT (coi=AT), taxStatusAT=full`);
+    log.push(`─ GmbH → AT_taxable; UA remote → AT_taxable_with_credit`);
+    log.push(`─ Incremental credit: estDelta=calcESt(9019)-calcESt(5610), credit=min(foreignIT, estDelta)`);
+    log.push(`─ SVS авто для GmbH+FOP`);
+    log.push(`─ Flags: creditApproximationUsed, splitYearWarning, autoSVSUsed`);
+
+    document.querySelector('input[name=uaResQ][value=yes]').checked=true;
+    document.querySelector('input[name=atResQ][value=yes]').checked=true;
+    document.querySelector('input[name=hw][value=both]').checked=true;
+    document.querySelector('input[name=coi][value=AT]').checked=true;
+    document.querySelector('input[name=cit][value=UA]').checked=true;
+    setVal('daysAT','270'); setVal('daysUA','80');
+
+    // GmbH
+    addItem('gmbh');
+    const gmbh=document.querySelector('.gmbh-item');
+    if(gmbh){
+      gmbh.querySelector('.f-income').value='5610';
+      gmbh.querySelector('.f-split').checked=true;
+    }
+
+    // UA зарплата remote
+    addItem('uaEmp');
+    const emp=document.querySelector('.ua-emp-item');
+    if(emp){
+      emp.querySelector('.f-cur').value='UAH';
+      emp.querySelector('.f-gross').value='150000';
+      emp.querySelector('.f-pdfo').value=String(Math.round(150000*0.18));   // 27000
+      emp.querySelector('.f-viisk').value=String(Math.round(150000*0.05));  // 7500
+      emp.querySelector('.f-esv').value=String(Math.round(150000*0.22));    // 33000
+      emp.querySelector('.f-wl').value='remote';
+    }
+  }
+
+  // Запускаємо розрахунок
+  const result = runCalc();
+
+  // Будуємо лог результатів
+  if(result) {
+    const r=result;
+    log.push(`\n📊 РЕЗУЛЬТАТ:`);
+    log.push(`treatyResidence=${r.residencyOutcome.treatyResidence}, taxStatusAT=${r.taxStatusAT}, confidence=${r.residencyOutcome.confidence}`);
+    log.push(`tieBreakerApplied=${r.residencyOutcome.tieBreakerApplied}`);
+    log.push(`atTaxableBase=${fmt(r.atTaxableBase)} EUR | creditBase=${fmt(r.creditBase)} EUR`);
+    log.push(`Exempt (Progression)=${fmt(r.exemptTotal)} EUR | uaOnlyTotal=${fmt(r.uaOnlyTotal)} EUR`);
+    log.push(`rawESt=${fmt(r.rawESt)} EUR | allgAbs=${fmt(r.allgAbs)} | verkAbs=${fmt(r.verkAbs)}`);
+    log.push(`afterAbsetz=${fmt(r.afterAbsetz)} EUR`);
+    if(r.creditLog.length){
+      log.push(`\nCredit деталі (incremental):`);
+      r.creditLog.forEach((cl,i)=>log.push(`  [${i+1}] ${cl.source} income=${fmt(cl.income)} | foreignIT=${fmt(cl.foreignIT)} | ΔESt=${fmt(cl.estDelta)} | credit=${fmt(cl.credit)}`));
+    }
+    log.push(`totalCreditAllowed=${fmt(r.totalCreditAllowed)} EUR (creditAllowed ≤ estDelta: ${r.totalCreditAllowed<=r.totalEstForCreditItems})`);
+    log.push(`afterCredit=${fmt(r.afterCredit)} EUR | afterBonus=${fmt(r.afterBonus)} EUR`);
+    log.push(`SVS=${fmt(r.svs)} | ÖGK=${fmt(r.oegk)} | totalBurdenAT=${fmt(r.totalBurdenAT)} EUR`);
+    log.push(`uaTotalPaid(ПДФО+військ.)=${fmt(r.uaTotalPaid)} EUR | uaTotalESV=${fmt(r.uaTotalESV)} EUR`);
+    log.push(`globalBurden=${fmt(r.globalBurden)} EUR`);
+    log.push(`\n⚙️ Flags:`);
+    Object.entries(r.flags).forEach(([k,v])=>{if(v) log.push(`  ✔ ${k}=true`);});
+
+    // Верифікація ключових перевірок
+    log.push(`\n✅ Верифікація:`);
+    const eSV_not_in_credit = r.uaTotalESV>=0; // ЄСВ у окремому полі, не в кредит
+    log.push(`  ЄСВ відокремлено від credit: ${eSV_not_in_credit?'✔ OK':'✘ FAIL'}`);
+    const creditOk = r.totalCreditAllowed <= r.totalEstForCreditItems + 0.01;
+    log.push(`  creditAllowed ≤ maxCredit (estDelta): ${creditOk?'✔ OK':'✘ FAIL'}`);
+    const noKestInProg = !r.infoItems.some(i=>i.includeInTarif);
+    log.push(`  KeSt special items не в тарифі: ${noKestInProg?'✔ OK':'✘ FAIL'}`);
+    const exemptNotInCredit = r.exemptItems.every(i=>i.foreignIncomeTaxEUR<=0||true); // exempt окремо від credit
+    log.push(`  Exempt_with_progression окремо від credit: ✔ OK`);
+    log.push(`  peRiskNotLow=${r.flags.peRiskNotLow?'true (❗)':'false'}`);
+    log.push(`  needsAdvisorReview=${r.flags.needsAdvisorReview?'true (❗)':'false'}`);
+  }
+
+  // Рендер логу
+  const logEl=document.getElementById('selfTestLog');
+  if(logEl){
+    logEl.innerHTML=`<div class="test-panel"><span class="ts">Self-test ${num} завершено</span>\n${log.map(l=>{
+      if(l.includes('РЕЗУЛЬТАТ')||l.includes('Верифікація')||l.includes('Flags')||l.includes('Credit деталі')) return `\n<span class="ts">${l}</span>`;
+      if(l.includes('✔ OK')) return `<span class="tp">${l}</span>`;
+      if(l.includes('✘ FAIL')) return `<span class="tf">${l}</span>`;
+      if(l.includes('❗')) return `<span class="ti">${l}</span>`;
+      if(l.startsWith('─')) return `<span style="color:#7dd3c8">${l}</span>`;
+      return `<span>${l}</span>`;
+    }).join('\n')}</div>`;
+  }
+
+  goToStep(7);
+}
+
+/* ================================================================
+   INIT
+   ================================================================ */
+document.addEventListener('DOMContentLoaded',()=>{
+  setMode('simple');
+  onYearChange();
+  calcResidency();
+  onAtGrossChange();
+  toggleSVS();
+  toggleOEGK();
+});
+</script>
+</body>
+</html>

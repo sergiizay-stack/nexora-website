@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta name="nx-depth" content="1">
+  <meta name="nx-page-id" content="products">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Products — CRM, DORA, Compliance Tools | NEXORA</title>
+  <meta name="description" content="Цифрові продукти NEXORA для бізнесу: CRM для консалтингу, DORA-compliance platform, AML screening, корпоративний Due Diligence та інші SaaS-рішення. Wien, Австрія." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* ── Products Hero ── */
+    .prod-hero {
+      padding: var(--space-16) 0 var(--space-14);
+      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-primary-light) 100%);
+      border-bottom: 1px solid var(--color-border);
+      overflow: hidden;
+      position: relative;
+    }
+    .prod-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,107,122,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .prod-hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-10); align-items: center; position: relative;
+    }
+    @media(max-width:900px){.prod-hero-inner{grid-template-columns:1fr;}}
+    .prod-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--color-primary); color: white;
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: var(--space-4);
+    }
+    .prod-hero h1 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15;
+      color: var(--color-text); margin: 0 0 var(--space-4);
+    }
+    .prod-hero-sub {
+      font-size: 1.05rem; color: var(--color-text-muted);
+      line-height: 1.65; margin: 0 0 var(--space-7); max-width: 500px;
+    }
+    .prod-hero-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .prod-hero-tag {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      color: var(--color-text-muted); font-size: .8rem; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+    }
+    /* Hero visual */
+    .prod-hero-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);
+    }
+    @media(max-width:480px){.prod-hero-visual{grid-template-columns:1fr;}}
+    .prod-mini-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px; padding: var(--space-4);
+      transition: box-shadow .25s, transform .2s;
+    }
+    .prod-mini-card:hover { box-shadow: 0 6px 20px rgba(0,107,122,.1); transform: translateY(-2px); }
+    .prod-mini-card.featured { border-color: var(--color-primary); grid-column: span 2; }
+    @media(max-width:480px){.prod-mini-card.featured{grid-column:span 1;}}
+    .prod-mini-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--color-primary-light); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-3);
+    }
+    .prod-mini-name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: .9rem; color: var(--color-text); margin: 0 0 4px;
+    }
+    .prod-mini-desc { font-size: .78rem; color: var(--color-text-muted); margin: 0; }
+    .prod-mini-status {
+      display: inline-block; margin-top: var(--space-2);
+      font-size: .68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;
+    }
+    .status-live { background: #D1FAE5; color: #065F46; }
+    .status-beta { background: #FEF3C7; color: #92400E; }
+    .status-soon { background: var(--color-primary-light); color: var(--color-primary); }
+    .status-dev { background: #FEF3C7; color: #92400E; }
+    .prod-eta { font-size: .78rem; color: #92400E; margin-top: 4px; font-weight: 600; }
+
+    /* ── Section base ── */
+    .prod-section { padding: var(--space-14) 0; }
+    .prod-section--alt { background: var(--color-surface-2); }
+    .prod-section-header { margin-bottom: var(--space-8); }
+    .prod-section-header h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-text); margin: 0 0 var(--space-3);
+    }
+    .prod-section-header p {
+      font-size: 1rem; color: var(--color-text-muted); margin: 0; max-width: 560px; line-height: 1.65;
+    }
+
+    /* ── Product Cards (large) ── */
+    .prod-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px; overflow: hidden;
+      transition: box-shadow .25s;
+      margin-bottom: var(--space-6);
+    }
+    .prod-card:hover { box-shadow: 0 10px 40px rgba(0,107,122,.10); }
+    .prod-card-inner {
+      display: grid; grid-template-columns: 2fr 1fr;
+      gap: 0; align-items: stretch;
+    }
+    @media(max-width:900px){.prod-card-inner{grid-template-columns:1fr;}}
+    .prod-card-content {
+      padding: var(--space-8) var(--space-8) var(--space-7);
+      border-right: 1px solid var(--color-border);
+    }
+    @media(max-width:900px){.prod-card-content{border-right:none;border-bottom:1px solid var(--color-border);}}
+    .prod-card-sidebar {
+      padding: var(--space-7) var(--space-6);
+      background: var(--color-surface-2);
+      display: flex; flex-direction: column; gap: var(--space-4);
+    }
+    .prod-card-header {
+      display: flex; align-items: flex-start; gap: var(--space-4);
+      margin-bottom: var(--space-5);
+    }
+    .prod-card-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: var(--color-primary); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .prod-card-icon svg { color: white; }
+    .prod-card-title-group { flex: 1; }
+    .prod-card-name {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.4rem; color: var(--color-text); margin: 0 0 4px;
+    }
+    .prod-card-tagline { font-size: .9rem; color: var(--color-text-muted); margin: 0; }
+    .prod-card-badges { display: flex; gap: var(--space-2); margin-top: var(--space-2); flex-wrap: wrap; }
+    .prod-badge {
+      font-size: .68rem; font-weight: 700; padding: 2px 9px; border-radius: 10px;
+      letter-spacing: .04em;
+    }
+    .prod-badge--live { background: #D1FAE5; color: #065F46; }
+    .prod-badge--beta { background: #FEF3C7; color: #92400E; }
+    .prod-badge--soon { background: var(--color-primary-light); color: var(--color-primary); }
+    .prod-badge--new { background: #EDE9FE; color: #4C1D95; }
+    .prod-card-desc {
+      font-size: .95rem; color: var(--color-text-muted);
+      line-height: 1.65; margin: 0 0 var(--space-6);
+    }
+    .prod-features {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: var(--space-2);
+    }
+    .prod-features li {
+      display: flex; gap: var(--space-2); align-items: flex-start;
+      font-size: .88rem; color: var(--color-text); line-height: 1.45;
+    }
+    .prod-check {
+      flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--color-primary-light); display: flex; align-items: center;
+      justify-content: center; margin-top: 1px;
+    }
+    .prod-check svg { width: 10px; height: 10px; color: var(--color-primary); }
+    .prod-card-ctas {
+      display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-6);
+    }
+    /* Sidebar */
+    .prod-sidebar-block { display: flex; flex-direction: column; gap: var(--space-2); }
+    .prod-sidebar-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--color-text-muted); margin: 0;
+    }
+    .prod-sidebar-value {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.5rem; color: var(--color-primary); line-height: 1;
+    }
+    .prod-sidebar-value span { font-size: .85rem; font-weight: 400; color: var(--color-text-muted); }
+    .prod-sidebar-text { font-size: .84rem; color: var(--color-text-muted); line-height: 1.5; margin: 0; }
+    .prod-tech-stack {
+      display: flex; flex-wrap: wrap; gap: var(--space-2);
+    }
+    .prod-tech-tag {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      font-size: .72rem; font-weight: 600; color: var(--color-text-muted);
+      padding: 2px 9px; border-radius: 10px;
+    }
+    .prod-sidebar-divider { border: none; border-top: 1px solid var(--color-border); margin: 0; }
+
+    /* ── Compact product grid (smaller products) ── */
+    .prod-compact-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    @media(max-width:1024px){.prod-compact-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:600px){.prod-compact-grid{grid-template-columns:1fr;}}
+    .prod-compact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px; padding: var(--space-6);
+      transition: box-shadow .25s, transform .2s;
+      display: flex; flex-direction: column;
+    }
+    .prod-compact-card:hover { box-shadow: 0 8px 28px rgba(0,107,122,.09); transform: translateY(-2px); }
+    .prod-compact-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--color-primary-light); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-4);
+    }
+    .prod-compact-name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.05rem; color: var(--color-text); margin: 0 0 var(--space-1);
+    }
+    .prod-compact-tagline {
+      font-size: .8rem; color: var(--color-primary); font-weight: 600; margin: 0 0 var(--space-3);
+    }
+    .prod-compact-desc {
+      font-size: .85rem; color: var(--color-text-muted);
+      line-height: 1.55; margin: 0 0 var(--space-4); flex: 1;
+    }
+    .prod-compact-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: var(--space-4); border-top: 1px solid var(--color-border);
+      margin-top: auto;
+    }
+
+    /* ── CTA section ── */
+    .prod-cta-section {
+      background: var(--color-primary); padding: var(--space-14) 0;
+    }
+    .prod-cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+    .prod-cta-inner h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); color: white;
+      margin: 0 0 var(--space-4); line-height: 1.2;
+    }
+    .prod-cta-inner p {
+      font-size: 1rem; color: rgba(255,255,255,.8);
+      line-height: 1.65; margin: 0 0 var(--space-7);
+    }
+    .prod-cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: white; color: var(--color-primary);
+      padding: 13px 28px; border-radius: 10px;
+      font-family: var(--font-display); font-weight: 700; font-size: .95rem;
+      border: none; cursor: pointer; transition: transform .15s, box-shadow .15s;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+    .btn-outline-white {
+      background: transparent; color: white;
+      padding: 12px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,.5);
+      font-family: var(--font-display); font-weight: 600; font-size: .95rem;
+      cursor: pointer; transition: border-color .2s, background .2s;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,.1); }
+
+    /* ── Partnership strip ── */
+    .partner-strip {
+      background: var(--color-surface-2);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-5) 0;
+    }
+    .partner-strip-inner {
+      display: flex; align-items: center; gap: var(--space-8); flex-wrap: wrap;
+    }
+    .partner-strip-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--color-text-muted); white-space: nowrap;
+    }
+    .partner-logos { display: flex; gap: var(--space-8); flex-wrap: wrap; align-items: center; }
+    .partner-logo {
+      font-family: var(--font-display); font-weight: 700; font-size: .9rem;
+      color: var(--color-text-muted); opacity: .6;
+    }
+
+    /* ── New: status-dev ── */
+    .status-dev { background: #FEF3C7; color: #92400E; }
+    .prod-badge--dev { background: #FEF3C7; color: #92400E; }
+    .access-notice-bar { background: rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.25); }
+
+    /* ── New: access-notice ── */
+    .access-notice {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 10px;
+      padding: var(--space-3) var(--space-5);
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: .84rem; color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ── New: Tools & Calculators section ── */
+    .tools-section { padding: var(--space-14) 0; background: var(--color-surface-2); border-top: 1px solid var(--color-border); }
+    .tools-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: var(--space-6); margin-top: var(--space-6); }
+    @media(max-width:700px){ .tools-grid{ grid-template-columns:1fr; } }
+    .tool-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px; padding: var(--space-7);
+    }
+    .tool-card-icon {
+      font-size: 2rem; margin-bottom: var(--space-4);
+    }
+    .tool-card-name {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.25rem; color: var(--color-text); margin: 0 0 var(--space-2);
+    }
+    .tool-card-tagline {
+      font-size: .82rem; color: var(--color-primary); font-weight: 600;
+      margin: 0 0 var(--space-3);
+    }
+    .tool-card-desc {
+      font-size: .9rem; color: var(--color-text-muted);
+      line-height: 1.65; margin: 0 0 var(--space-5);
+    }
+    .tool-card-footer {
+      display: flex; align-items: center; gap: var(--space-3);
+      flex-wrap: wrap; margin-bottom: var(--space-4);
+    }
+    .tool-disclaimer {
+      background: #FFFBEB;
+      border: 1px solid #FCD34D;
+      border-radius: 8px;
+      padding: var(--space-3) var(--space-4);
+      margin-top: var(--space-4);
+      font-size: .78rem; color: #92400E; line-height: 1.55;
+      display: flex; gap: var(--space-2); align-items: flex-start;
+    }
+    .tool-disclaimer svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* ── launch hint ── */
+    .prod-launch-hint {
+      font-size: .78rem; color: var(--color-text-muted);
+      margin-top: var(--space-2); opacity: .8;
+    }
+  </style>
+  <link rel="canonical" href="https://nexora-consulting.at/products/">
+  <link rel="alternate" hreflang="uk" href="https://nexora-consulting.at/products/">
+  <link rel="alternate" hreflang="en" href="https://nexora-consulting.at/products/?lang=en">
+  <link rel="alternate" hreflang="de" href="https://nexora-consulting.at/products/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://nexora-consulting.at/products/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NEXORA Digital Products",
+  "url": "https://nexora-consulting.at/products/",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "description": "CRM, DORA Compliance Platform, Jurisdictions Screener"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "NEXORA Unternehmensberatung GmbH"
+  }
+}
+</script>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_AT" />
+  <meta property="og:site_name" content="NEXORA Unternehmensberatung" />
+  <meta property="og:title" content="Produkte & Lösungen | NEXORA Unternehmensberatung" />
+  <meta property="og:description" content="Strukturierte Beratungspakete für Unternehmensgründung, Compliance und Expansion in Österreich. BASIC, STANDARD, PREMIUM — transparent und ergebnisorientiert." />
+  <meta property="og:image" content="https://nexora-consulting.at/assets/hero-skyscrapers.webp" />
+  <meta property="og:url" content="https://nexora-consulting.at/products/" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Produkte & Lösungen | NEXORA Unternehmensberatung" />
+  <meta name="twitter:description" content="Strukturierte Beratungspakete für Unternehmensgründung, Compliance und Expansion in Österreich. BASIC, STANDARD, PREMIUM — transparent und ergebnisorientiert." />
+  <meta name="twitter:image" content="https://nexora-consulting.at/assets/hero-skyscrapers.webp" />
+    <link rel="preload" href="../assets/wien-hero.jpg" as="image" fetchpriority="high">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo logo--wordmark" aria-label="NEXORA Unternehmensberatung">
+<svg class="nexora-logo-svg" xmlns="http://www.w3.org/2000/svg"
+  viewBox="2 112 371 104" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <clipPath id="nx_sc_products_index_1">
+      <circle cx="208.088" cy="156.162" r="36.5"/>
+    </clipPath>
+    <radialGradient id="nx_gs_products_index_1" cx="38%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- NEXORA letters -->
+  <g fill="currentColor" fill-opacity="1"><g transform="translate(5.326176, 175.924911)"><g><path d="M 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 17.03125 -41.3125 L 46.578125 -6.078125 L 46.578125 -37.15625 L 38.3125 -37.15625 L 38.3125 -41.3125 L 58.359375 -41.3125 L 58.359375 -37.15625 L 51.25 -37.15625 L 51.25 0 L 45.953125 0 L 16.390625 -35.234375 L 16.390625 -4.15625 L 23.515625 -4.15625 L 23.515625 0 Z" /></g></g></g>
+  <g fill="currentColor" fill-opacity="1"><g transform="translate(67.141228, 175.924911)"><g><path d="M 42.8125 -30.453125 L 42.8125 -37.15625 L 16.390625 -37.15625 L 16.390625 -23.1875 L 37.1875 -23.1875 L 37.1875 -19.046875 L 16.390625 -19.046875 L 16.390625 -4.15625 L 43.09375 -4.15625 L 43.09375 -10.859375 L 47.765625 -10.859375 L 47.765625 0 L 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 47.484375 -41.3125 L 47.484375 -30.453125 Z" /></g></g></g>
+  <g fill="currentColor" fill-opacity="1"><g transform="translate(118.356122, 175.924911)"><g><path d="M 12.96875 -41.3125 L 27.59375 -24.859375 L 38.546875 -37.15625 L 30.5625 -37.15625 L 30.5625 -41.3125 L 51.765625 -41.3125 L 51.765625 -37.15625 L 44.484375 -37.15625 L 30.515625 -21.546875 L 46.125 -4.15625 L 54.390625 -4.15625 L 54.390625 0 L 43.90625 0 L 27.59375 -18.203125 L 15.015625 -4.15625 L 22.9375 -4.15625 L 22.9375 0 L 1.734375 0 L 1.734375 -4.15625 L 9.046875 -4.15625 L 24.6875 -21.546875 L 10.71875 -37.15625 L 2.484375 -37.15625 L 2.484375 -41.3125 Z" /></g></g></g>
+  <g fill="currentColor" fill-opacity="1"><g transform="translate(240.498039, 175.924911)"><g><path d="M 24.65625 0 L 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 37.734375 -41.3125 C 39.828125 -41.3125 41.648438 -41.003906 43.203125 -40.390625 C 44.765625 -39.773438 46.050781 -38.925781 47.0625 -37.84375 C 48.082031 -36.757812 48.84375 -35.492188 49.34375 -34.046875 C 49.84375 -32.609375 50.09375 -31.054688 50.09375 -29.390625 C 50.09375 -27.328125 49.710938 -25.457031 48.953125 -23.78125 C 48.203125 -22.101562 46.984375 -20.726562 45.296875 -19.65625 C 43.617188 -18.59375 41.390625 -17.945312 38.609375 -17.71875 L 45.234375 -4.15625 L 53.09375 -4.15625 L 53.09375 0 L 42.125 0 L 33.625 -17.453125 L 16.390625 -17.453125 L 16.390625 -4.15625 L 24.65625 -4.15625 Z M 16.390625 -37.15625 L 16.390625 -21.609375 L 37.734375 -21.609375 C 39.578125 -21.609375 41.0625 -21.957031 42.1875 -22.65625 C 43.3125 -23.351562 44.125 -24.285156 44.625 -25.453125 C 45.125 -26.628906 45.375 -27.941406 45.375 -29.390625 C 45.375 -30.828125 45.125 -32.132812 44.625 -33.3125 C 44.125 -34.5 43.3125 -35.4375 42.1875 -36.125 C 41.0625 -36.8125 39.578125 -37.15625 37.734375 -37.15625 Z" /></g></g></g>
+  <g fill="currentColor" fill-opacity="1"><g transform="translate(296.465721, 175.924911)"><g><path d="M 32.8125 -41.3125 L 53.015625 -4.15625 L 60.84375 -4.15625 L 60.84375 0 L 39.640625 0 L 39.640625 -4.15625 L 47.875 -4.15625 L 43.328125 -12.5625 L 19.21875 -12.5625 L 14.65625 -4.15625 L 22.9375 -4.15625 L 22.9375 0 L 1.734375 0 L 1.734375 -4.15625 L 9.5625 -4.15625 L 27.484375 -37.15625 L 19.25 -37.15625 L 19.25 -41.3125 Z M 31.28125 -34.796875 L 21.46875 -16.703125 L 41.078125 -16.703125 Z" /></g></g></g>
+
+  <!-- Globe background -->
+  <circle cx="208.088" cy="156.162" r="36.5" fill="currentColor" fill-opacity="0.05"/>
+
+  <!-- Globe grid + continents (spinning) -->
+  <g clip-path="url(#nx_sc_products_index_1)" class="nx-spin">
+    <!-- Grid lines -->
+    <path d="M 212.56,119.94 L 211.95,119.92 L 211.32,120.00 L 210.68,120.17 L 210.04,120.45 L 209.39,120.82 L 208.74,121.30 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+    <path d="M 206.13,119.74 L 206.45,119.85 L 206.77,120.06 L 207.10,120.36 L 207.43,120.77 L 207.76,121.27 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 198.55,120.94 L 199.68,120.71 L 200.84,120.59 L 202.02,120.56 L 203.21,120.62 L 204.42,120.79 L 205.64,121.05 L 206.86,121.41 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 183.84,128.89 L 185.14,127.82 L 186.50,126.82 L 187.93,125.90 L 189.41,125.07 L 190.94,124.32 L 192.52,123.66 L 194.14,123.09 L 195.80,122.61 L 197.49,122.22 L 199.21,121.93 L 200.96,121.73 L 202.72,121.62 L 204.50,121.60 L 206.29,121.69 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+    <path d="M 175.25,172.09 L 174.53,170.48 L 173.90,168.82 L 173.37,167.13 L 172.93,165.41 L 172.59,163.67 L 172.34,161.90 L 172.19,160.12 L 172.14,158.33 L 172.19,156.53 L 172.34,154.73 L 172.59,152.94 L 172.93,151.15 L 173.37,149.38 L 173.90,147.62 L 174.53,145.89 L 175.25,144.19 L 176.06,142.52 L 176.96,140.89 L 177.94,139.30 L 179.01,137.76 L 180.15,136.26 L 181.38,134.82 L 182.67,133.44 L 184.04,132.12 L 185.47,130.87 L 186.96,129.69 L 188.51,128.58 L 190.12,127.54 L 191.77,126.59 L 193.47,125.71 L 195.21,124.92 L 196.98,124.21 L 198.78,123.59 L 200.61,123.06 L 202.46,122.62 L 204.33,122.28 L 206.21,122.02 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 194.11,189.88 L 192.86,189.30 L 191.65,188.63 L 190.49,187.87 L 189.38,187.02 L 188.32,186.09 L 187.31,185.08 L 186.36,183.98 L 185.47,182.81 L 184.64,181.57 L 183.87,180.26 L 183.17,178.88 L 182.54,177.44 L 181.98,175.94 L 181.50,174.39 L 181.08,172.79 L 180.74,171.14 L 180.47,169.45 L 180.28,167.73 L 180.17,165.97 L 180.13,164.19 L 180.17,162.38 L 180.28,160.56 L 180.47,158.72 L 180.74,156.88 L 181.08,155.04 L 181.50,153.19 L 181.98,151.36 L 182.54,149.54 L 183.17,147.74 L 183.87,145.96 L 184.64,144.21 L 185.47,142.49 L 186.36,140.81 L 187.31,139.17 L 188.32,137.58 L 189.38,136.04 L 190.49,134.56 L 191.65,133.13 L 192.86,131.77 L 194.11,130.47 L 195.39,129.24 L 196.72,128.09 L 198.07,127.02 L 199.45,126.02 L 200.85,125.11 L 202.27,124.28 L 203.71,123.54 L 205.17,122.89 L 206.62,122.33 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 203.01,192.27 L 202.42,192.05 L 201.85,191.73 L 201.29,191.32 L 200.75,190.81 L 200.23,190.20 L 199.73,189.50 L 199.26,188.71 L 198.81,187.83 L 198.39,186.86 L 197.99,185.81 L 197.62,184.68 L 197.28,183.47 L 196.96,182.19 L 196.68,180.83 L 196.43,179.41 L 196.22,177.92 L 196.03,176.37 L 195.88,174.77 L 195.76,173.11 L 195.67,171.41 L 195.62,169.67 L 195.60,167.89 L 195.62,166.08 L 195.67,164.24 L 195.76,162.38 L 195.88,160.51 L 196.03,158.62 L 196.22,156.72 L 196.43,154.82 L 196.68,152.93 L 196.96,151.04 L 197.28,149.17 L 197.62,147.32 L 197.99,145.49 L 198.39,143.69 L 198.81,141.93 L 199.26,140.20 L 199.73,138.52 L 200.23,136.89 L 200.75,135.31 L 201.29,133.79 L 201.85,132.32 L 202.42,130.93 L 203.01,129.60 L 203.61,128.35 L 204.23,127.17 L 204.86,126.07 L 205.49,125.05 L 206.14,124.12 L 206.78,123.28 L 207.43,122.52 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+    <path d="M 210.36,192.59 L 210.67,192.50 L 210.97,192.30 L 211.26,192.01 L 211.54,191.62 L 211.81,191.14 L 212.08,190.55 L 212.33,189.88 L 212.57,189.11 L 212.80,188.25 L 213.01,187.30 L 213.22,186.27 L 213.40,185.15 L 213.58,183.96 L 213.74,182.69 L 213.88,181.34 L 214.01,179.93 L 214.12,178.45 L 214.21,176.91 L 214.29,175.32 L 214.35,173.67 L 214.39,171.97 L 214.42,170.23 L 214.43,168.46 L 214.42,166.64 L 214.39,164.80 L 214.35,162.94 L 214.29,161.06 L 214.21,159.16 L 214.12,157.26 L 214.01,155.35 L 213.88,153.44 L 213.74,151.54 L 213.58,149.66 L 213.40,147.79 L 213.22,145.95 L 213.01,144.13 L 212.80,142.35 L 212.57,140.60 L 212.33,138.90 L 212.08,137.24 L 211.81,135.64 L 211.54,134.09 L 211.26,132.61 L 210.97,131.18 L 210.67,129.83 L 210.36,128.55 L 210.05,127.34 L 209.73,126.21 L 209.41,125.17 L 209.08,124.21 L 208.75,123.34 L 208.42,122.55 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 218.74,191.06 L 219.82,190.65 L 220.87,190.14 L 221.88,189.53 L 222.85,188.84 L 223.79,188.05 L 224.68,187.18 L 225.52,186.22 L 226.32,185.18 L 227.07,184.06 L 227.76,182.86 L 228.41,181.59 L 228.99,180.25 L 229.52,178.85 L 229.99,177.38 L 230.40,175.86 L 230.75,174.28 L 231.04,172.65 L 231.26,170.97 L 231.42,169.26 L 231.52,167.51 L 231.55,165.73 L 231.52,163.92 L 231.42,162.09 L 231.26,160.24 L 231.04,158.39 L 230.75,156.52 L 230.40,154.66 L 229.99,152.80 L 229.52,150.95 L 228.99,149.11 L 228.41,147.29 L 227.76,145.50 L 227.07,143.74 L 226.32,142.01 L 225.52,140.32 L 224.68,138.67 L 223.79,137.07 L 222.85,135.53 L 221.88,134.03 L 220.87,132.61 L 219.82,131.24 L 218.74,129.94 L 217.63,128.72 L 216.50,127.57 L 215.34,126.50 L 214.16,125.51 L 212.97,124.60 L 211.76,123.78 L 210.54,123.05 L 209.32,122.41 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 233.58,182.29 L 234.74,181.07 L 235.84,179.78 L 236.85,178.42 L 237.79,177.01 L 238.65,175.54 L 239.42,174.01 L 240.11,172.44 L 240.71,170.82 L 241.22,169.16 L 241.64,167.47 L 241.96,165.74 L 242.20,163.99 L 242.34,162.22 L 242.39,160.43 L 242.34,158.63 L 242.20,156.82 L 241.96,155.01 L 241.64,153.21 L 241.22,151.41 L 240.71,149.62 L 240.11,147.86 L 239.42,146.11 L 238.65,144.40 L 237.79,142.71 L 236.85,141.06 L 235.84,139.46 L 234.74,137.90 L 233.58,136.38 L 232.34,134.93 L 231.04,133.53 L 229.67,132.19 L 228.25,130.92 L 226.77,129.72 L 225.24,128.59 L 223.66,127.54 L 222.04,126.57 L 220.38,125.67 L 218.69,124.86 L 216.97,124.14 L 215.22,123.50 L 213.45,122.95 L 211.67,122.50 L 209.88,122.13 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+    <path d="M 240.12,138.66 L 239.22,137.14 L 238.23,135.66 L 237.17,134.25 L 236.02,132.89 L 234.80,131.60 L 233.51,130.38 L 232.14,129.22 L 230.71,128.14 L 229.22,127.14 L 227.67,126.22 L 226.06,125.37 L 224.41,124.62 L 222.71,123.95 L 220.97,123.36 L 219.20,122.87 L 217.39,122.47 L 215.56,122.16 L 213.71,121.95 L 211.85,121.82 L 209.97,121.80 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 220.78,121.96 L 219.46,121.56 L 218.11,121.27 L 216.73,121.06 L 215.32,120.96 L 213.90,120.94 L 212.46,121.03 L 211.01,121.21 L 209.55,121.49 L 208.09,121.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 194.74,190.12 L 195.76,190.47 L 196.85,190.78 L 198.02,191.07 L 199.24,191.32 L 200.52,191.55 L 201.85,191.73 L 203.21,191.88 L 204.61,191.99 L 206.02,192.07 L 207.45,192.10 L 208.88,192.10 L 210.31,192.06 L 211.73,191.98 L 213.12,191.87 L 214.48,191.71 L 215.80,191.52 L 217.07,191.30 L 218.29,191.04 L 219.45,190.75 L 220.53,190.43 L 221.54,190.08" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 177.70,176.29 L 178.48,177.10 L 179.44,177.88 L 180.58,178.64 L 181.88,179.36 L 183.35,180.04 L 184.97,180.68 L 186.73,181.28 L 188.63,181.83 L 190.64,182.33 L 192.76,182.77 L 194.98,183.15 L 197.28,183.47 L 199.64,183.73 L 202.06,183.92 L 204.51,184.05 L 206.98,184.12 L 209.47,184.11 L 211.94,184.04 L 214.39,183.91 L 216.80,183.70 L 219.16,183.44 L 221.45,183.11 L 223.65,182.72 L 225.76,182.27 L 227.77,181.77 L 229.65,181.22 L 231.39,180.62 L 233.00,179.97 L 234.45,179.28 L 235.73,178.55 L 236.85,177.79 L 237.79,177.01 L 238.55,176.20" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 171.62,156.71 L 171.86,157.68 L 172.32,158.65 L 173.00,159.60 L 173.90,160.53 L 175.01,161.44 L 176.32,162.31 L 177.83,163.14 L 179.52,163.93 L 181.39,164.68 L 183.43,165.37 L 185.62,166.00 L 187.94,166.57 L 190.39,167.08 L 192.95,167.52 L 195.60,167.89 L 198.33,168.19 L 201.12,168.42 L 203.96,168.57 L 206.81,168.64 L 209.68,168.63 L 212.54,168.55 L 215.36,168.40 L 218.15,168.16 L 220.87,167.86 L 223.51,167.48 L 226.06,167.03 L 228.50,166.51 L 230.81,165.93 L 232.98,165.29 L 235.00,164.60 L 236.85,163.85 L 238.52,163.05 L 240.01,162.21 L 241.30,161.34 L 242.39,160.43 L 243.26,159.50 L 243.92,158.54 L 244.35,157.58 L 244.57,156.60" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+    <path d="M 177.06,136.95 L 176.68,137.79 L 176.50,138.64 L 176.51,139.48 L 176.71,140.33 L 177.11,141.17 L 177.70,141.99 L 178.48,142.80 L 179.44,143.58 L 180.58,144.34 L 181.88,145.06 L 183.35,145.74 L 184.97,146.39 L 186.73,146.98 L 188.63,147.53 L 190.64,148.03 L 192.76,148.47 L 194.98,148.85 L 197.28,149.17 L 199.64,149.43 L 202.06,149.63 L 204.51,149.75 L 206.98,149.82 L 209.47,149.81 L 211.94,149.74 L 214.39,149.61 L 216.80,149.41 L 219.16,149.14 L 221.45,148.81 L 223.65,148.42 L 225.76,147.98 L 227.77,147.47 L 229.65,146.92 L 231.39,146.32 L 233.00,145.67 L 234.45,144.98 L 235.73,144.25 L 236.85,143.50 L 237.79,142.71 L 238.55,141.90 L 239.12,141.08 L 239.49,140.24 L 239.68,139.39 L 239.67,138.54 L 239.46,137.70 L 239.06,136.86" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <path d="M 193.71,122.62 L 192.87,123.01 L 192.13,123.43 L 191.48,123.87 L 190.94,124.32 L 190.50,124.79 L 190.17,125.27 L 189.96,125.75 L 189.85,126.24 L 189.86,126.73 L 189.97,127.22 L 190.20,127.70 L 190.54,128.18 L 190.99,128.64 L 191.55,129.10 L 192.20,129.53 L 192.96,129.95 L 193.81,130.34 L 194.74,130.72 L 195.76,131.06 L 196.85,131.38 L 198.02,131.66 L 199.24,131.92 L 200.52,132.14 L 201.85,132.32 L 203.21,132.47 L 204.61,132.59 L 206.02,132.66 L 207.45,132.70 L 208.88,132.69 L 210.31,132.65 L 211.73,132.57 L 213.12,132.46 L 214.48,132.30 L 215.80,132.12 L 217.07,131.89 L 218.29,131.63 L 219.45,131.34 L 220.53,131.02 L 221.54,130.68 L 222.47,130.30 L 223.31,129.90 L 224.05,129.48 L 224.69,129.05 L 225.24,128.59 L 225.67,128.13 L 226.00,127.65 L 226.22,127.16 L 226.33,126.68 L 226.32,126.19 L 226.20,125.70 L 225.97,125.21 L 225.63,124.74 L 225.18,124.27 L 224.63,123.82 L 223.97,123.38 L 223.22,122.97 L 222.37,122.57" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+    <!-- Continents -->
+    <path d="M 209.74,127.76 L 208.09,128.20 L 206.90,129.02 L 206.48,130.32 L 203.65,131.54 L 203.36,132.49 L 204.07,133.55 L 204.54,134.60 L 205.17,135.16 L 207.34,135.75 L 208.84,135.75 L 209.51,134.69 L 210.51,134.15 L 210.63,132.64 L 209.76,130.78 L 210.50,130.29 L 209.91,128.57 L 210.68,128.11 L 211.16,128.92 L 210.77,130.27 L 210.97,131.18 L 210.94,132.62 L 210.78,133.63 L 210.22,134.67 L 208.09,135.75 L 205.79,136.24 L 204.36,135.64 L 203.84,134.56 L 203.41,133.49 L 203.36,132.49 L 200.99,136.98 L 201.76,137.06 L 201.62,137.60 L 202.91,139.41 L 203.69,140.03 L 204.43,141.23 L 205.25,142.44 L 207.11,143.67 L 206.08,144.86 L 205.55,145.45 L 204.58,144.81 L 203.23,143.53 L 202.08,141.67 L 201.18,141.59 L 199.84,141.45 L 197.93,141.81 L 195.56,140.83 L 195.76,140.26 L 196.17,140.34 L 198.59,139.53 L 197.77,138.24 L 198.94,138.42 L 200.99,136.98 L 208.82,135.22 L 209.96,135.72 L 209.51,134.69 L 209.74,127.76 Z" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+    <path d="M 203.03,145.34 L 205.04,145.44 L 210.79,148.53 L 214.66,149.59 L 218.55,154.32 L 222.61,160.19 L 221.51,160.98 L 221.46,160.35 L 220.52,164.86 L 220.54,170.26 L 220.34,174.22 L 216.65,181.59 L 211.25,185.63 L 207.03,185.68 L 206.40,183.27 L 204.55,180.52 L 203.18,176.98 L 201.77,171.40 L 200.53,171.32 L 200.52,165.95 L 196.84,165.61 L 196.82,166.22 L 194.47,164.70 L 193.28,165.15 L 191.02,164.15 L 187.41,160.90 L 186.87,156.92 L 187.45,153.80 L 188.96,151.55 L 190.07,149.20 L 192.61,147.15 L 195.31,144.48 L 198.12,144.89 L 203.03,145.34 Z" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+    <path d="M 210.68,128.11 L 214.56,126.70 L 216.27,124.65 L 218.72,123.68 L 219.82,122.47 L 221.31,122.36 L 223.73,123.24 L 227.06,125.04 L 230.13,127.14 Z M 241.85,142.51 L 241.93,143.31 L 243.84,151.49 L 244.38,156.87 Z M 241.85,142.51 L 240.67,143.63 L 240.89,147.86 L 239.47,147.65 L 237.97,148.75 L 234.81,146.22 L 234.76,150.44 L 232.07,150.13 L 229.35,150.33 L 228.92,152.43 L 225.01,153.34 L 225.72,157.73 L 222.61,160.19 L 218.55,154.32 L 214.66,149.59 L 216.12,145.10 L 219.46,142.85 L 221.22,140.11 L 223.52,139.60 L 223.17,136.03 L 223.65,132.86 L 223.22,129.95 L 222.58,126.88 L 222.79,125.54 L 221.75,124.20 L 220.94,122.76 L 218.90,121.80 L 218.69,122.22 L 219.32,123.88 L 219.40,125.74 L 217.76,127.67 L 216.09,130.07 L 215.51,132.16 L 214.56,134.88 L 214.55,137.60 L 216.20,140.88 L 215.11,142.17 L 211.98,143.59 L 211.64,145.42 L 210.12,145.47 L 208.09,143.68 L 207.14,142.48 L 205.25,142.44 L 204.43,141.23 L 203.69,140.03 L 202.91,139.41 L 201.62,137.60 L 200.99,136.98 L 208.09,135.23 L 210.78,133.63 L 210.94,132.62 L 209.76,130.78 L 210.77,130.27 L 210.68,128.11 Z" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+    <path d="M 204.23,119.92 L 200.84,120.59 L 197.28,121.80 L 195.88,123.04 L 193.00,123.98 L 189.91,125.91 L 188.76,127.31 L 187.47,129.31 L 185.43,131.96 L 184.16,133.42 L 184.41,133.71 L 185.32,131.83 L 186.28,130.99 L 188.82,127.65 L 189.85,126.68 L 190.96,125.67 L 192.90,124.16 L 196.03,122.83 L 197.19,122.54 L 199.53,121.67 L 200.85,120.96 L 200.84,120.59 Z M 208.52,119.66 L 207.10,119.70 L 204.23,119.92" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+    <path d="M 172.49,151.92 L 172.16,149.78 M 179.00,178.19 L 177.80,176.03 L 177.67,174.08 L 178.33,171.98 L 178.29,168.99 L 177.90,165.52 L 173.79,160.43 L 173.79,160.43 L 173.46,157.62 L 172.58,155.16 L 172.29,153.11 L 172.49,151.92 Z" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+    <path d="M 199.26,122.88 L 203.60,123.01 L 205.64,123.05 L 204.19,124.09 L 201.95,125.05 L 200.54,126.41 L 199.11,126.90 L 197.61,127.37 L 195.50,127.52 L 193.97,126.40 L 194.82,125.49 L 195.88,124.82 L 197.14,124.48 L 199.45,123.51 L 200.54,122.88 L 199.26,122.88 Z" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="0.4" stroke-opacity="0.6" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Globe shine -->
+  <circle cx="208.088" cy="156.162" r="36.5"
+    fill="url(#nx_gs_products_index_1)" clip-path="url(#nx_sc_products_index_1)"/>
+
+  <!-- Globe outer ring -->
+  <circle cx="208.088" cy="156.162" r="36.5"
+    fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.65"/>
+
+  <!-- Unternehmensberatung -->
+  <text x="8.78" y="202"
+    font-family="'Plus Jakarta Sans','Inter',sans-serif"
+    font-size="14" font-weight="300"
+    text-anchor="start"
+    textLength="348.53"
+    lengthAdjust="spacingAndGlyphs"
+    fill="currentColor" fill-opacity="0.80">Unternehmensberatung</text>
+
+</svg>
+        </a>
+      <nav class="nav" aria-label="Головна навігація">
+        <a href="../index.html" class="nav-link" data-i18n="nav.home">Головна</a>
+        <div class="nav-dropdown">
+          <a href="../leistungen/index.html" class="nav-link nav-link--has-dropdown" data-i18n="nav.services">Послуги</a>
+          <div class="dropdown-menu">
+            <a href="../leistungen/gruendung/index.html" class="dropdown-item">LAUNCH — Запуск бізнесу</a>
+            <a href="../leistungen/steuerberatung/index.html" class="dropdown-item">STRUCTURE — Корпоративне структурування</a>
+            <a href="../leistungen/buchhaltung/index.html" class="dropdown-item">FINANCE &amp; OPERATIONS</a>
+            <a href="../leistungen/hr/index.html" class="dropdown-item">PEOPLE &amp; RESIDENCY</a>
+            <a href="../leistungen/scale/index.html" class="dropdown-item">SCALE &amp; DIGITAL</a>
+            <a href="../leistungen/recht/index.html" class="dropdown-item">COMPLY — Compliance &amp; AML</a>
+          </div>
+        </div>
+        <a href="../corporate-services/index.html" class="nav-link nav-link--highlight" data-i18n="nav.corporate">Corporate Services</a>
+        <a href="../insights/index.html" class="nav-link" data-i18n="nav.insights">Insights</a>
+        <a href="../ueber-uns/index.html" class="nav-link" data-i18n="nav.about">Про нас</a>
+        <a href="../kontakt/index.html" class="nav-link" data-i18n="nav.contact">Контакти</a>
+      </nav>
+      <div class="header-actions">
+                <!-- Language Switcher -->
+        <div class="lang-switcher" id="langSwitcher" aria-label="Перемкнути мову">
+          <button class="lang-btn active" data-lang="uk" aria-label="Українська">UA</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-theme-toggle aria-label="Перемкнути тему">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="../kontakt/index.html" class="btn btn-primary btn-sm">Демо</a>
+      </div>
+      <button class="burger" aria-label="Відкрити меню" aria-expanded="false" id="burger"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+      <a href="../index.html" class="mobile-nav-link" data-i18n="nav.home">Головна</a>
+      <a href="../leistungen/index.html" class="mobile-nav-link" data-i18n="nav.services">Послуги</a>
+      <a href="../corporate-services/index.html" class="mobile-nav-link" data-i18n="nav.corporate">Corporate Services</a>
+      <a href="../insights/index.html" class="mobile-nav-link" data-i18n="nav.insights">Insights</a>
+      <a href="../products/index.html" class="mobile-nav-link">Digital Products</a>
+      <a href="../ueber-uns/index.html" class="mobile-nav-link" data-i18n="nav.about">Про нас</a>
+      <a href="../kontakt/index.html" class="mobile-nav-link" data-i18n="nav.contact">Контакти</a>
+    </nav>
+  </header>
+
+  <div class="access-notice-bar">
+    <div class="container" style="display:flex;align-items:center;gap:12px;padding:10px var(--space-5);">
+      <span style="font-size:1.1rem">🔐</span>
+      <span style="font-size:.84rem;color:var(--color-text-muted)">Ця сторінка знаходиться в режимі попереднього перегляду. Деякі функції доступні лише запрошеним користувачам.</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="prod-hero">
+    <div class="container prod-hero-inner">
+      <div>
+        <div class="access-notice" data-i18n-parent="prod.access">
+          <span>🔐</span>
+          <span data-i18n="prod.access.notice">Ця сторінка знаходиться в режимі попереднього перегляду. Деякі функції доступні лише запрошеним користувачам.</span>
+        </div>
+        <span class="prod-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Digital Products
+        </span>
+        <h1 data-i18n="page.products.h1">Цифровий інструментарій<br>для серйозного бізнесу</h1>
+        <p class="prod-hero-sub">Від CRM для Unternehmensberatung до DORA-compliance platform — практичні SaaS-продукти, розроблені з реального досвіду роботи з клієнтами NEXORA.</p>
+        <div class="prod-hero-tags">
+          <span class="prod-hero-tag">SaaS</span>
+          <span class="prod-hero-tag">Compliance Tech</span>
+          <span class="prod-hero-tag">RegTech</span>
+          <span class="prod-hero-tag">DORA</span>
+          <span class="prod-hero-tag">AML</span>
+          <span class="prod-hero-tag">CRM</span>
+        </div>
+      </div>
+      <!-- Mini product grid -->
+      <div class="prod-hero-visual">
+        <div class="prod-mini-card featured">
+          <div class="prod-mini-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="prod-mini-name">NEXORA DORA Suite</div>
+          <div class="prod-mini-desc">Повна відповідність Regulation (EU) 2022/2554 для фінансових суб'єктів</div>
+          <span class="prod-mini-status status-dev">🔧 В розробці</span>
+        </div>
+        <div class="prod-mini-card">
+          <div class="prod-mini-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="prod-mini-name">Nexus CRM</div>
+          <div class="prod-mini-desc">CRM для консалтингу та юридичних фірм</div>
+          <span class="prod-mini-status status-dev">🔧 В розробці</span>
+        </div>
+        <div class="prod-mini-card">
+          <div class="prod-mini-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><eye/><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+          </div>
+          <div class="prod-mini-name">AML Screener</div>
+          <div class="prod-mini-desc">Санкційні списки + PEP перевірка</div>
+          <span class="prod-mini-status status-dev">🔧 В розробці</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP STRIP -->
+  <div class="partner-strip">
+    <div class="container partner-strip-inner">
+      <span class="partner-strip-label">Технологічні партнери</span>
+      <div class="partner-logos">
+        <span class="partner-logo">Microsoft Azure</span>
+        <span class="partner-logo">AWS</span>
+        <span class="partner-logo">Stripe</span>
+        <span class="partner-logo">Salesforce</span>
+        <span class="partner-logo">DocuSign</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS — Large cards -->
+  <section class="prod-section">
+    <div class="container">
+      <div class="prod-section-header">
+        <h2>Флагманські продукти</h2>
+        <p>Повнофункціональні платформи, побудовані на досвіді роботи з фінансовими установами, юридичними фірмами та регуляторами ЄС</p>
+      </div>
+
+      <!-- DORA Suite -->
+      <div class="prod-card" id="dora">
+        <div class="prod-card-inner">
+          <div class="prod-card-content">
+            <div class="prod-card-header">
+              <div class="prod-card-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="prod-card-title-group">
+                <h3 class="prod-card-name">NEXORA DORA Suite</h3>
+                <p class="prod-card-tagline">Digital Operational Resilience Act — Compliance Platform</p>
+                <p class="prod-eta">Орієнтовний запуск: Q3–Q4 2026</p>
+                <div class="prod-card-badges">
+                  <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+                  <span class="prod-badge prod-badge--new">EU 2022/2554</span>
+                </div>
+              </div>
+            </div>
+            <p class="prod-card-desc">Повнофункціональна платформа для виконання вимог DORA, обов'язкових для банків, EMI, VASP та інших фінансових суб'єктів ЄС з 17 січня 2025 року. Від ICT risk management до incident reporting — всі обов'язкові процеси в одному місці.</p>
+            <ul class="prod-features">
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                ICT Risk Register — реєстр ICT-ризиків з автоматичним scoring та класифікацією за DORA Annex I
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Incident Management — reporting workflows для major incidents з автоматичними дедлайнами (4h / 24h / 72h)
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Third-Party Risk — моніторинг ICT third-party providers, реєстр контрактів та due diligence чеклисти
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                TLPT Coordination — підтримка Threat-Led Penetration Testing з управлінням знахідками
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Regulatory Reporting — автогенерація звітів для EBA, ESMA та національних регуляторів
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Dashboards & Audit Trail — повна аудит-стежка для інспекцій регулятора
+              </li>
+            </ul>
+            <div class="prod-card-ctas">
+              <a href="../kontakt/index.html" class="btn btn-primary btn-sm">Замовити демо</a>
+              <a href="../insights/index.html" class="btn btn-ghost btn-sm">Читати про DORA →</a>
+            </div>
+          </div>
+          <div class="prod-card-sidebar">
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Ціна від</p>
+              <div class="prod-sidebar-value">€490 <span>/ міс</span></div>
+              <p class="prod-sidebar-text">Для EMI/PI до 50 ICT-ризиків. Enterprise — індивідуально.</p>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Цільова аудиторія</p>
+              <p class="prod-sidebar-text">EMI, PI, VASP, CASP, банки, інвестиційні фірми, страхові компанії — всі regulated entities під DORA</p>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Технологічний стек</p>
+              <div class="prod-tech-stack">
+                <span class="prod-tech-tag">React</span>
+                <span class="prod-tech-tag">Node.js</span>
+                <span class="prod-tech-tag">PostgreSQL</span>
+                <span class="prod-tech-tag">Azure</span>
+                <span class="prod-tech-tag">ISO 27001</span>
+              </div>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Deployment</p>
+              <p class="prod-sidebar-text">SaaS Cloud (EU data residency) · On-premise available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nexus CRM -->
+      <div class="prod-card" id="crm">
+        <div class="prod-card-inner">
+          <div class="prod-card-content">
+            <div class="prod-card-header">
+              <div class="prod-card-icon" style="background:var(--color-primary-hover);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="prod-card-title-group">
+                <h3 class="prod-card-name">Nexus CRM</h3>
+                <p class="prod-card-tagline">CRM для консалтингу, юридичних та регуляторних фірм</p>
+                <p class="prod-eta">Орієнтовний запуск: Q3–Q4 2026</p>
+                <div class="prod-card-badges">
+                  <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+                </div>
+              </div>
+            </div>
+            <p class="prod-card-desc">CRM, побудований навколо специфіки Unternehmensberatung: управління справами (matters), відстеження регуляторних дедлайнів, клієнтські портали та інтеграція з австрійськими реєстрами. Не черговий Salesforce-клон — інструмент, що розуміє вашу роботу.</p>
+            <ul class="prod-features">
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Matter Management — справи з прив'язкою до регуляторних процедур, юрисдикцій та дедлайнів
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Client Portal — захищений портал для обміну документами та статусами проектів
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Regulatory Calendar — автоматичні нагадування про реєстраційні строки, renewal ліцензій та звітні дати
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Firmenbuch / UID Lookup — прямий пошук в австрійських реєстрах без виходу з системи
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Time Tracking & Billing — облік годин, автоматичні рахунки та інтеграція з DATEV
+              </li>
+              <li>
+                <span class="prod-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                GDPR-ready — data residency EU, шифрування at rest & in transit, audit log
+              </li>
+            </ul>
+            <div class="prod-card-ctas">
+              <a href="../kontakt/index.html" class="btn btn-primary btn-sm">Ранній доступ</a>
+              <a href="../kontakt/index.html" class="btn btn-ghost btn-sm">Залишити відгук →</a>
+            </div>
+          </div>
+          <div class="prod-card-sidebar">
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Beta ціна</p>
+              <div class="prod-sidebar-value">€149 <span>/ міс</span></div>
+              <p class="prod-sidebar-text">До 5 користувачів. Безлімітні справи та клієнти в Beta-програмі.</p>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Цільова аудиторія</p>
+              <p class="prod-sidebar-text">Unternehmensberater, юридичні фірми, міграційні консультанти, compliance-офіцери</p>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Інтеграції</p>
+              <div class="prod-tech-stack">
+                <span class="prod-tech-tag">DATEV</span>
+                <span class="prod-tech-tag">Outlook</span>
+                <span class="prod-tech-tag">DocuSign</span>
+                <span class="prod-tech-tag">Firmenbuch AT</span>
+                <span class="prod-tech-tag">UID-Abfrage</span>
+              </div>
+            </div>
+            <hr class="prod-sidebar-divider" />
+            <div class="prod-sidebar-block">
+              <p class="prod-sidebar-label">Availability</p>
+              <p class="prod-sidebar-text">Cloud SaaS · EU data centers (Wien / Frankfurt)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPACT PRODUCTS GRID -->
+  <section class="prod-section prod-section--alt">
+    <div class="container">
+      <div class="prod-section-header">
+        <h2>Інструменти та модулі</h2>
+        <p>Спеціалізовані продукти для конкретних регуляторних та операційних задач</p>
+      </div>
+      <div class="prod-compact-grid">
+
+        <!-- AML Screener -->
+        <div class="prod-compact-card" id="aml">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="prod-compact-name">AML Screener</div>
+          <div class="prod-compact-tagline">● Live</div>
+          <p class="prod-compact-desc">Перевірка фізичних та юридичних осіб по санкційних списках (EU, UN, OFAC, FATF grey list) та PEP-базах. API-доступ + manual screening інтерфейс. Audit log для регулятора.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Підключити</a>
+          </div>
+        </div>
+
+        <!-- Jurisdiction Compass -->
+        <div class="prod-compact-card" id="jurisdiction">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="prod-compact-name">Jurisdiction Compass</div>
+          <div class="prod-compact-tagline">● Live</div>
+          <p class="prod-compact-desc">Інтерактивний порівняльник 20+ юрисдикцій для EMI, VASP, Forex та Holding структур. Фільтри по бюджету, строках та типу ліцензії. Дані оновлюються щокварталу командою NEXORA.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+            <a href="../corporate-services/index.html#jurisdictions" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Відкрити</a>
+          </div>
+        </div>
+
+        <!-- Document Vault -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="prod-compact-name">Document Vault</div>
+          <div class="prod-compact-tagline">⬡ Beta</div>
+          <p class="prod-compact-desc">Захищене сховище корпоративних документів з версіонуванням, шаблонами для DACH-юрисдикцій та автоматичними нагадуваннями про закінчення терміну дії.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Ранній доступ</a>
+          </div>
+        </div>
+
+        <!-- Beneficial Owner Register -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="prod-compact-name">UBO Tracker</div>
+          <div class="prod-compact-tagline">⬡ Beta</div>
+          <p class="prod-compact-desc">Управління реєстром бенефіціарних власників відповідно до AMLD6. Відстеження змін у структурі власності, автоматичні нотифікації та звіти для регулятора.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--new">AMLD6</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Дізнатись більше</a>
+          </div>
+        </div>
+
+        <!-- Contract Intelligence -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="prod-compact-name">Contract Intelligence</div>
+          <div class="prod-compact-tagline">◎ Скоро</div>
+          <p class="prod-compact-desc">AI-аналіз договорів на відповідність DORA, MiCA та AMLD6 вимогам. Автоматична ідентифікація ризикових клаузул та рекомендації по виправленню.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--soon">Q3 2026</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Повідомити мене</a>
+          </div>
+        </div>
+
+        <!-- Regulatory Radar -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="prod-compact-name">Regulatory Radar</div>
+          <div class="prod-compact-tagline">◎ Скоро</div>
+          <p class="prod-compact-desc">Моніторинг регуляторних змін у реальному часі: нові директиви ЄС, зміни умов ліцензування, оновлення санкційних списків. Push-нотифікації для вашої юрисдикції.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--soon">Q4 2026</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Повідомити мене</a>
+          </div>
+        </div>
+
+        <!-- MiCA Compliance Kit -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="prod-compact-name">MiCA Compliance Kit</div>
+          <div class="prod-compact-tagline">● Live</div>
+          <p class="prod-compact-desc">Набір шаблонів та чеклистів для підготовки до авторизації CASP під MiCA. Whitepaper templates, governance frameworks, capital requirement calculators.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--dev">🔧 В розробці</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Отримати</a>
+          </div>
+        </div>
+
+        <!-- KYC/KYB Workflow -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+          </div>
+          <div class="prod-compact-name">KYC/KYB Workflow</div>
+          <div class="prod-compact-tagline">⬡ Beta</div>
+          <p class="prod-compact-desc">Цифрова онбординг-платформа для верифікації клієнтів (фізичні та юридичні особи) з підтримкою eIDAS, відеоверифікацією та інтеграцією з AML-базами.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--new">eIDAS</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Демо</a>
+          </div>
+        </div>
+
+        <!-- Annual Report Builder -->
+        <div class="prod-compact-card">
+          <div class="prod-compact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <div class="prod-compact-name">Report Builder</div>
+          <div class="prod-compact-tagline">◎ Скоро</div>
+          <p class="prod-compact-desc">Автоматична генерація регуляторних звітів: EBA XBRL, FINREP, COREP, місячні звіти EMI. Завантаження прямо у портал регулятора.</p>
+          <div class="prod-compact-footer">
+            <span class="prod-badge prod-badge--soon">Q2 2027</span>
+            <a href="../kontakt/index.html" class="btn btn-ghost btn-sm" style="padding:6px 14px;font-size:.8rem;">Повідомити мене</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS SECTION -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="prod-section-header">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:var(--color-primary);color:white;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:var(--space-4);">🔧 Доступно зараз</div>
+        <h2>Інструменти & Калькулятори</h2>
+        <p>Практичні інструменти для планування вашого бізнесу в Австрії. Безкоштовно, без реєстрації.</p>
+      </div>
+      <div class="tools-grid">
+
+        <!-- Tool 1: UA-AT Tax Calculator -->
+        <div class="tool-card">
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+            <div style="width:48px;height:48px;background:var(--color-primary-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🧮</div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;margin:0 0 2px;" data-i18n="prod.tools.calc1.name">UA↔AT Податковий Калькулятор</h3>
+              <span class="prod-mini-status status-live">🟢 Доступно</span>
+            </div>
+          </div>
+          <p style="font-size:.88rem;color:var(--color-text-muted);line-height:1.6;margin:0 0 var(--space-4);" data-i18n="prod.tools.calc1.desc">Покроковий розрахунок та порівняння податкового навантаження між Україною (ФОП, Єдиний податок) та Австрією (GmbH, EPU). Допомагає обрати оптимальну структуру для переїзду та ведення бізнесу в двох країнах.</p>
+          <div class="tool-disclaimer">
+            ⚠️ <strong>Дисклеймер:</strong> Калькулятор має виключно орієнтовний характер і не є юридичною або податковою порадою. Для вашої конкретної ситуації зверніться до ліцензованого Steuerberater або консультантів NEXORA.
+          </div>
+          <a href="../tools/tax-ua-at.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:var(--space-4);text-decoration:none;" target="_blank">Відкрити калькулятор →</a>
+        </div>
+
+        <!-- Tool 2: Tax Screening AT -->
+        <div class="tool-card">
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+            <div style="width:48px;height:48px;background:var(--color-primary-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">📋</div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-weight:800;font-size:1rem;margin:0 0 2px;" data-i18n="prod.tools.calc2.name">Скринінг Декларацій Австрія 2025</h3>
+              <span class="prod-mini-status status-live">🟢 Доступно</span>
+            </div>
+          </div>
+          <p style="font-size:.88rem;color:var(--color-text-muted);line-height:1.6;margin:0 0 var(--space-4);" data-i18n="prod.tools.calc2.desc">Інтерактивний скринінг: дізнайтеся, які форми потрібно подавати за 2025 рік, які терміни та що підготувати. 6 кроків — 2 хвилини.</p>
+          <div class="tool-disclaimer">
+            ⚠️ <strong>Дисклеймер:</strong> Цей інструмент має виключно орієнтовний характер. Результати не замінюють індивідуальну консультацію ліцензованого Steuerberater або консультантів NEXORA.
+          </div>
+          <a href="../tools/tax-screening-at.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:var(--space-4);text-decoration:none;" target="_blank">Пройти скринінг →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="prod-cta-section">
+    <div class="container">
+      <div class="prod-cta-inner">
+        <h2>Знайдіть інструмент під вашу задачу</h2>
+        <p>Не знаєте з чого почати? Розкажіть нам про вашу ситуацію — підберемо оптимальне рішення або розробимо custom-модуль під специфіку вашого бізнесу.</p>
+        <div class="prod-cta-btns">
+          <a href="../kontakt/index.html" class="btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Замовити демо
+          </a>
+          <a href="../insights/index.html" class="btn-outline-white">
+            Читати Insights →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="Nexora — головна">
+          <svg style="height:36px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="2 112 371 104" preserveAspectRatio="xMidYMid meet">
+            <g fill="currentColor" fill-opacity="1"><g transform="translate(5.326176, 175.924911)"><g><path d="M 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 17.03125 -41.3125 L 46.578125 -6.078125 L 46.578125 -37.15625 L 38.3125 -37.15625 L 38.3125 -41.3125 L 58.359375 -41.3125 L 58.359375 -37.15625 L 51.25 -37.15625 L 51.25 0 L 45.953125 0 L 16.390625 -35.234375 L 16.390625 -4.15625 L 23.515625 -4.15625 L 23.515625 0 Z" /></g></g></g>
+            <g fill="currentColor" fill-opacity="1"><g transform="translate(67.141228, 175.924911)"><g><path d="M 42.8125 -30.453125 L 42.8125 -37.15625 L 16.390625 -37.15625 L 16.390625 -23.1875 L 37.1875 -23.1875 L 37.1875 -19.046875 L 16.390625 -19.046875 L 16.390625 -4.15625 L 43.09375 -4.15625 L 43.09375 -10.859375 L 47.765625 -10.859375 L 47.765625 0 L 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 47.484375 -41.3125 L 47.484375 -30.453125 Z" /></g></g></g>
+            <g fill="currentColor" fill-opacity="1"><g transform="translate(118.356122, 175.924911)"><g><path d="M 12.96875 -41.3125 L 27.59375 -24.859375 L 38.546875 -37.15625 L 30.5625 -37.15625 L 30.5625 -41.3125 L 51.765625 -41.3125 L 51.765625 -37.15625 L 44.484375 -37.15625 L 30.515625 -21.546875 L 46.125 -4.15625 L 54.390625 -4.15625 L 54.390625 0 L 43.90625 0 L 27.59375 -18.203125 L 15.015625 -4.15625 L 22.9375 -4.15625 L 22.9375 0 L 1.734375 0 L 1.734375 -4.15625 L 9.046875 -4.15625 L 24.6875 -21.546875 L 10.71875 -37.15625 L 2.484375 -37.15625 L 2.484375 -41.3125 Z" /></g></g></g>
+            <g fill="currentColor" fill-opacity="1"><g transform="translate(240.498039, 175.924911)"><g><path d="M 24.65625 0 L 3.453125 0 L 3.453125 -4.15625 L 11.71875 -4.15625 L 11.71875 -37.15625 L 3.453125 -37.15625 L 3.453125 -41.3125 L 37.734375 -41.3125 C 39.828125 -41.3125 41.648438 -41.003906 43.203125 -40.390625 C 44.765625 -39.773438 46.050781 -38.925781 47.0625 -37.84375 C 48.082031 -36.757812 48.84375 -35.492188 49.34375 -34.046875 C 49.84375 -32.609375 50.09375 -31.054688 50.09375 -29.390625 C 50.09375 -27.328125 49.710938 -25.457031 48.953125 -23.78125 C 48.203125 -22.101562 46.984375 -20.726562 45.296875 -19.65625 C 43.617188 -18.59375 41.390625 -17.945312 38.609375 -17.71875 L 45.234375 -4.15625 L 53.09375 -4.15625 L 53.09375 0 L 42.125 0 L 33.625 -17.453125 L 16.390625 -17.453125 L 16.390625 -4.15625 L 24.65625 -4.15625 Z M 16.390625 -37.15625 L 16.390625 -21.609375 L 37.734375 -21.609375 C 39.578125 -21.609375 41.0625 -21.957031 42.1875 -22.65625 C 43.3125 -23.351562 44.125 -24.285156 44.625 -25.453125 C 45.125 -26.628906 45.375 -27.941406 45.375 -29.390625 C 45.375 -30.828125 45.125 -32.132812 44.625 -33.3125 C 44.125 -34.5 43.3125 -35.4375 42.1875 -36.125 C 41.0625 -36.8125 39.578125 -37.15625 37.734375 -37.15625 Z" /></g></g></g>
+            <g fill="currentColor" fill-opacity="1"><g transform="translate(296.465721, 175.924911)"><g><path d="M 32.8125 -41.3125 L 53.015625 -4.15625 L 60.84375 -4.15625 L 60.84375 0 L 39.640625 0 L 39.640625 -4.15625 L 47.875 -4.15625 L 43.328125 -12.5625 L 19.21875 -12.5625 L 14.65625 -4.15625 L 22.9375 -4.15625 L 22.9375 0 L 1.734375 0 L 1.734375 -4.15625 L 9.5625 -4.15625 L 27.484375 -37.15625 L 19.25 -37.15625 L 19.25 -41.3125 Z M 31.28125 -34.796875 L 21.46875 -16.703125 L 41.078125 -16.703125 Z" /></g></g></g>
+          </svg>
+        </a>
+        <p class="footer-tagline">Unternehmensberatung GmbH<br>Franz-Josefs-Kai 27/DG/9, 1010 Wien</p>
+        <p class="footer-tagline" style="margin-top:var(--space-2);font-size:.78rem;">office@nexora-consulting.at</p>
+        <div class="footer-social">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/nexoraunternehmensberatung/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/nexoraunternehmensberatung/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <!-- Google Business -->
+          <a href="https://www.google.com/search?q=NEXORA+Unternehmensberatung+GmbH" target="_blank" rel="noopener" class="social-link" aria-label="Google Business">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-col-title" data-i18n="footer.services">Послуги</h4>
+          <a href="../leistungen/gruendung/index.html">LAUNCH — Запуск бізнесу</a>
+          <a href="../leistungen/steuerberatung/index.html">STRUCTURE — Структурування</a>
+          <a href="../leistungen/buchhaltung/index.html">FINANCE &amp; OPERATIONS</a>
+          <a href="../leistungen/hr/index.html">PEOPLE &amp; RESIDENCY</a>
+          <a href="../leistungen/scale/index.html">SCALE &amp; DIGITAL</a>
+          <a href="../leistungen/recht/index.html">COMPLY — Compliance</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Corporate</h4>
+          <a href="../corporate-services/index.html">Corporate Services</a>
+          <a href="../corporate-services/index.html#jurisdictions" data-i18n="footer.jurisdictions">Юрисдикції</a>
+          <a href="../corporate-services/index.html#shelf" data-i18n="footer.shelf">Готові компанії</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Ресурси</h4>
+          <a href="../insights/index.html">Insights & Новини</a>
+          <a href="../products/index.html">Digital Products</a>
+          <a href="../ueber-uns/index.html" data-i18n="nav.about">Про нас</a>
+          <a href="../kontakt/index.html" data-i18n="nav.contact">Контакти</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Rechtliches</h4>
+          <a href="../impressum/index.html" class="footer-link">Impressum</a>
+          <a href="../datenschutz/index.html" class="footer-link">Datenschutz</a>
+          <a href="../agb/index.html" class="footer-link">AGB</a>
+          <a href="../cookies/index.html" class="footer-link">Cookie-Richtlinie</a>
+          <a href="../haftungsausschluss/index.html" class="footer-link">Haftungsausschluss</a>
+          <a href="../dokumente/index.html" class="footer-link">Vertragsvorlagen</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 NEXORA Unternehmensberatung GmbH · FN 663874 k · UID ATU82669239 · GISA 38919244</p>
+        <div class="footer-bottom-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nx_text_map.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>
