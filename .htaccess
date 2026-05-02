@@ -17,7 +17,8 @@ RewriteRule ^api/(.*)$ http://localhost:3001/api/$1 [P,L]
   Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
 <FilesMatch "\.(css|js)$">
-  Header set Cache-Control "max-age=86400, public"
+  Header set Cache-Control "no-cache, must-revalidate"
+  Header set Pragma "no-cache"
 </FilesMatch>
 <FilesMatch "\.html$">
   Header set Cache-Control "no-cache, no-store, must-revalidate"
