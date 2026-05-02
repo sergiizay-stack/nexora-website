@@ -3036,3 +3036,134 @@ tbody tr:hover {
   .nx-cookie-actions { width: 100%; }
   .nx-cookie-accept, .nx-cookie-essential { flex: 1; text-align: center; }
 }
+
+/* ----------------------------------------------------------
+   NX MiCA Countdown Widget
+---------------------------------------------------------- */
+.nx-cd-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.nx-cd-units {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.nx-cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+}
+.nx-cd-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: white;
+  letter-spacing: -0.02em;
+}
+.nx-cd-lbl {
+  font-size: .62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,0.60);
+  margin-top: 2px;
+}
+.nx-cd-esma {
+  font-size: .75rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-1);
+}
+.nx-cd-esma:hover { color: white; text-decoration: underline; }
+.nx-cd-expired {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.nx-cd-expired-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  width: fit-content;
+}
+/* Sidebar variant (dark text on light bg) */
+.nx-cd-sidebar .nx-cd-unit {
+  background: rgba(10,22,40,0.06);
+  border-color: var(--color-border);
+}
+.nx-cd-sidebar .nx-cd-num {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+.nx-cd-sidebar .nx-cd-lbl {
+  color: var(--color-text-muted);
+}
+.nx-cd-sidebar .nx-cd-esma {
+  color: var(--color-primary);
+}
+.nx-cd-sidebar .nx-cd-esma:hover { opacity: .75; }
+.nx-cd-sidebar .nx-cd-expired-badge {
+  background: rgba(10,22,40,0.08);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+/* Banner variant adjustments */
+.urgency-banner .nx-cd-units { justify-content: center; }
+.urgency-banner .nx-cd-wrap { align-items: center; }
+/* mica-strip variant */
+.mica-strip .nx-cd-units { flex-direction: row; }
+.mica-strip .nx-cd-unit {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  min-width: 42px;
+  padding: 4px 8px;
+}
+.mica-strip .nx-cd-num { font-size: 1.1rem; }
+.mica-strip .nx-cd-lbl { font-size: .58rem; }
+
+/* ============================================================
+   FIX 10: Global Teal CTA — All .btn-primary buttons
+   Override navy to teal #00A7A7 site-wide
+   ============================================================ */
+.btn-primary,
+a.btn-primary,
+button.btn-primary {
+  background: linear-gradient(135deg, #00A7A7 0%, #007f7f 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(0,167,167,0.30) !important;
+}
+.btn-primary:hover,
+a.btn-primary:hover,
+button.btn-primary:hover {
+  background: linear-gradient(135deg, #00bfbf 0%, #009090 100%) !important;
+  box-shadow: 0 6px 28px rgba(0,167,167,0.45) !important;
+  transform: translateY(-2px) !important;
+  color: #ffffff !important;
+}
+.btn-primary:active,
+a.btn-primary:active,
+button.btn-primary:active {
+  background: linear-gradient(135deg, #007f7f 0%, #006060 100%) !important;
+  transform: none !important;
+}

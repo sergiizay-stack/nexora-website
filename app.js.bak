@@ -347,13 +347,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'about.cta.sub': "Перша консультація — безкоштовно. Ми зв'яжемось з вами протягом 24 годин.",
       'about.cta.btn': "Зв'язатись з нами",
       'about.cta.btn2': 'Наші послуги',
-      'about.story.p1': 'NEXORA Unternehmensberatung GmbH була заснована в Австрії двома українськими підприємцями — Serhii Zaitsev та Oleksandr Korniiets. Вони самі пройшли шлях відкриття бізнесу у Відні, подолали всі бюрократичні виклики та зрозуміли, наскільки важко це зробити без правильної підтримки.',
-      'about.story.p2': 'З перших днів вони побудували компанію, яку самі хотіли б мати як партнера: тут відповідають на запити швидко, пояснюють все зрозумілою мовою, і ніколи не залишають клієнта сам на сам із незрозумілою паперовою горою.',
-      'about.story.p3': 'NEXORA — міжнародна партнерська мережа у 20+ юрисдикціях та повний спектр послуг від реєстрації GmbH до ліцензування FinTech-компаній у ЄС.',
-      'about.stat1.val': '20+', 'about.stat1.label': 'Проєктів',
-      'about.stat2.val': '3', 'about.stat2.label': 'Мови консультування',
-      'about.stat3.val': '20+', 'about.stat3.label': 'Юрисдикцій',
-      'about.stat4.val': 'AT · EU · UA', 'about.stat4.label': 'Ринки',
       // Contact page (6b)
       'contact.process.title': 'Як це працює',
       'contact.process.sub': 'Процес консультації',
@@ -378,23 +371,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'contact.office.address': 'Franz-Josefs-Kai 27/DG/9, 1010 Wien, Österreich',
       // Corporate services (6c)
       'cs.disclaimer': 'Дані захищені відповідно до GDPR. Ми не передаємо їх третім особам.',
-
-      'cs.svc1.name': 'Готові компанії (Shelf)',
-      'cs.svc1.text': 'Власний портфель зареєстрованих фірм — з рахунками, частина з діючими ліцензіями. Запуск за 2–4 тижні замість 3–12 місяців.',
-      'cs.svc1.tag': '★ Найшвидший старт',
-      'cs.svc1.arrow': 'Переглянути →',
-      'cs.svc2.name': 'Реєстрація нових компаній',
-      'cs.svc2.text': 'GmbH / Ltd / OÜ / SIA / UAB / IBC у будь-якій юрисдикції — ЄС, офшор, DACH. Підбір структури, статути, відкриття рахунків.',
-      'cs.svc2.tag': 'ЄС + офшор',
-      'cs.svc2.arrow': 'Юрисдикції →',
-      'cs.svc3.name': 'EMI / PI ліцензії',
-      'cs.svc3.text': 'Electronic Money Institution та Payment Institution в ЄС. Литва від €350K капіталу, Мальта, Ірландія, Нідерланди — EU passporting included.',
-      'cs.svc4.name': 'VASP / CASP (Crypto)',
-      'cs.svc4.text': 'Реєстрація VASP та CASP-авторизація під MiCA. Чехія від €4,900, Польща CASP від €4,500 держ. збір, Литва, Естонія. Дедлайн: 1 липня 2026.',
-      'cs.svc5.name': 'Банківські рахунки',
-      'cs.svc5.text': 'Відкриття корпоративних рахунків для нерезидентів у банках та EMI. SEPA, SWIFT, мерчант-екваєринг.',
-      'cs.svc6.name': 'Холдингові структури',
-      'cs.svc6.text': 'AT GmbH Holding, Dutch BV (Participation Exemption), Irish IP Box (CIT 6.25%), UAE Free Zone (0%) — під конкретні бізнес-задачі AT-UA груп.',
       'cs.hero.h1': 'Міжнародне корпоративне структурування з Відня',
       'cs.hero.sub': 'Реєстрація компаній, готові фірми з ліцензіями, EMI/VASP/CASP-ліцензування та банківські рахунки — повний цикл під ключ. Реальні ціни, перевірені регуляторні дані.',
       'cs.hero.shelf.btn': 'Готові компанії →',
@@ -777,13 +753,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'about.cta.sub': 'First consultation is free. We will contact you within 24 hours.',
       'about.cta.btn': 'Contact us',
       'about.cta.btn2': 'Our services',
-      'about.story.p1': 'NEXORA Unternehmensberatung GmbH was founded in Austria by two Ukrainian entrepreneurs — Serhii Zaitsev and Oleksandr Korniiets. They personally navigated the path of setting up a business in Vienna, overcame all bureaucratic challenges and understood how difficult it is to do without the right support.',
-      'about.story.p2': 'From day one they built the company they would have wanted as a partner themselves: one that responds quickly, explains everything in plain language, and never leaves a client alone with a pile of confusing paperwork.',
-      'about.story.p3': 'NEXORA is an international partner network in 20+ jurisdictions offering the full range of services from GmbH registration to FinTech licensing in the EU.',
-      'about.stat1.val': '20+', 'about.stat1.label': 'Projects',
-      'about.stat2.val': '3', 'about.stat2.label': 'Advisory languages',
-      'about.stat3.val': '20+', 'about.stat3.label': 'Jurisdictions',
-      'about.stat4.val': 'AT · EU · UA', 'about.stat4.label': 'Markets',
       // Contact page (6b)
       'contact.process.title': 'How it works',
       'contact.process.sub': 'The consultation process',
@@ -808,23 +777,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'contact.office.address': 'Franz-Josefs-Kai 27/DG/9, 1010 Wien, Austria',
       // Corporate services (6c)
       'cs.disclaimer': 'Data protected in accordance with GDPR. We do not share it with third parties.',
-
-      'cs.svc1.name': 'Ready-Made Companies (Shelf)',
-      'cs.svc1.text': 'Our own portfolio of registered companies — with accounts, some with active licences. Launch in 2–4 weeks instead of 3–12 months.',
-      'cs.svc1.tag': '★ Fastest Start',
-      'cs.svc1.arrow': 'View →',
-      'cs.svc2.name': 'New Company Registration',
-      'cs.svc2.text': 'GmbH / Ltd / OÜ / SIA / UAB / IBC in any jurisdiction — EU, offshore, DACH. Structure selection, articles, account opening.',
-      'cs.svc2.tag': 'EU + Offshore',
-      'cs.svc2.arrow': 'Jurisdictions →',
-      'cs.svc3.name': 'EMI / PI Licences',
-      'cs.svc3.text': 'Electronic Money Institution and Payment Institution in the EU. Lithuania from €350K capital, Malta, Ireland, Netherlands — EU passporting included.',
-      'cs.svc4.name': 'VASP / CASP (Crypto)',
-      'cs.svc4.text': 'VASP registration and CASP authorisation under MiCA. Czech Republic from €4,900, Poland CASP from €4,500 state fee, Lithuania, Estonia. Deadline: 1 July 2026.',
-      'cs.svc5.name': 'Bank Accounts',
-      'cs.svc5.text': 'Opening corporate accounts for non-residents at banks and EMIs. SEPA, SWIFT, merchant acquiring.',
-      'cs.svc6.name': 'Holding Structures',
-      'cs.svc6.text': 'AT GmbH Holding, Dutch BV (Participation Exemption), Irish IP Box (CIT 6.25%), UAE Free Zone (0%) — tailored to AT-UA business groups.',
       'cs.hero.h1': 'International Corporate Structuring from Vienna',
       'cs.hero.sub': 'Company registration, shelf companies with licenses, EMI/VASP/CASP licensing and bank accounts — full turnkey cycle. Real prices, verified regulatory data.',
       'cs.hero.shelf.btn': 'Shelf Companies →',
@@ -1207,13 +1159,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'about.cta.sub': 'Das Erstgespräch ist kostenlos. Wir melden uns innerhalb von 24 Stunden.',
       'about.cta.btn': 'Kontakt aufnehmen',
       'about.cta.btn2': 'Unsere Leistungen',
-      'about.story.p1': 'NEXORA Unternehmensberatung GmbH wurde in Österreich von zwei ukrainischen Unternehmern gegründet — Serhii Zaitsev und Oleksandr Korniiets. Sie haben selbst den Weg der Unternehmensgründung in Wien beschritten, alle bürokratischen Hürden überwunden und verstanden, wie schwer das ohne die richtige Unterstützung ist.',
-      'about.story.p2': 'Von Anfang an bauten sie das Unternehmen auf, das sie selbst als Partner gewünscht hätten: eines, das schnell antwortet, alles in klarer Sprache erklärt und den Mandanten nie allein mit einem Stapel unverständlicher Dokumente lässt.',
-      'about.story.p3': 'NEXORA ist ein internationales Partnernetzwerk in 20+ Jurisdiktionen mit dem vollständigen Leistungsspektrum von der GmbH-Gründung bis zur FinTech-Lizenzierung in der EU.',
-      'about.stat1.val': '20+', 'about.stat1.label': 'Projekte',
-      'about.stat2.val': '3', 'about.stat2.label': 'Beratungssprachen',
-      'about.stat3.val': '20+', 'about.stat3.label': 'Jurisdiktionen',
-      'about.stat4.val': 'AT · EU · UA', 'about.stat4.label': 'Märkte',
       // Contact page (6b)
       'contact.process.title': 'So funktioniert es',
       'contact.process.sub': 'Der Beratungsprozess',
@@ -1238,23 +1183,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       'contact.office.address': 'Franz-Josefs-Kai 27/DG/9, 1010 Wien, Österreich',
       // Corporate services (6c)
       'cs.disclaimer': 'Daten gemäß DSGVO geschützt. Wir geben sie nicht an Dritte weiter.',
-
-      'cs.svc1.name': 'Vorratsgesellschaften (Shelf)',
-      'cs.svc1.text': 'Eigenes Portfolio registrierter Gesellschaften — mit Konten, teilweise mit aktiven Lizenzen. Start in 2–4 Wochen statt 3–12 Monaten.',
-      'cs.svc1.tag': '★ Schnellster Start',
-      'cs.svc1.arrow': 'Ansehen →',
-      'cs.svc2.name': 'Neugründung von Gesellschaften',
-      'cs.svc2.text': 'GmbH / Ltd / OÜ / SIA / UAB / IBC in jeder Jurisdiktion — EU, Offshore, DACH. Strukturwahl, Satzungen, Kontoeröffnung.',
-      'cs.svc2.tag': 'EU + Offshore',
-      'cs.svc2.arrow': 'Jurisdiktionen →',
-      'cs.svc3.name': 'EMI / PI Lizenzen',
-      'cs.svc3.text': 'E-Geld-Institut und Zahlungsinstitut in der EU. Litauen ab €350K Kapital, Malta, Irland, Niederlande — EU-Passporting inklusive.',
-      'cs.svc4.name': 'VASP / CASP (Krypto)',
-      'cs.svc4.text': 'VASP-Registrierung und CASP-Autorisierung unter MiCA. Tschechien ab €4.900, Polen CASP ab €4.500 Staatsgebühr, Litauen, Estland. Frist: 1. Juli 2026.',
-      'cs.svc5.name': 'Bankkonten',
-      'cs.svc5.text': 'Eröffnung von Firmenkonten für Nichtansässige bei Banken und EMIs. SEPA, SWIFT, Merchant Acquiring.',
-      'cs.svc6.name': 'Holdingstrukturen',
-      'cs.svc6.text': 'AT GmbH Holding, Dutch BV (Participation Exemption), Irish IP Box (KSt 6,25%), UAE Free Zone (0%) — für spezifische AT-UA Geschäftsgruppen.',
       'cs.hero.h1': 'Internationale Corporate Structuring aus Wien',
       'cs.hero.sub': 'Firmenregistrierung, Vorratsgesellschaften mit Lizenzen, EMI/VASP/CASP-Lizenzierung und Bankkonten — vollständiger Rundum-Service. Echte Preise, geprüfte Regulierungsdaten.',
       'cs.hero.shelf.btn': 'Vorratsgesellschaften →',
@@ -1555,37 +1483,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
     if (menuBtn && t['aria.menu.open']) menuBtn.setAttribute('aria-label', t['aria.menu.open']);
     // Persist
     try { localStorage.setItem('nx-lang', lang); } catch(e){}
-    // Update URL via history.replaceState (clean URL without page reload)
-    try {
-      var url = new URL(window.location.href);
-      if (lang === 'uk') {
-        url.searchParams.delete('lang');
-      } else {
-        url.searchParams.set('lang', lang);
-      }
-      history.replaceState({lang: lang}, '', url.toString());
-    } catch(e){}
-    // Update form placeholders for current language
-    var placeholderMap = {
-      uk: { firstname: 'Іван', lastname: 'Петренко', message: 'Розкажіть коротко про вашу ситуацію або запит...' },
-      en: { firstname: 'Michael', lastname: 'Smith', message: 'Tell us briefly about your situation or request...' },
-      de: { firstname: 'Michael', lastname: 'Müller', message: 'Beschreiben Sie kurz Ihre Situation oder Anfrage...' }
-    };
-    var pm = placeholderMap[lang] || placeholderMap['uk'];
-    document.querySelectorAll('input[id="firstname"], input[name="firstname"]').forEach(function(el) {
-      el.setAttribute('placeholder', pm.firstname);
-    });
-    document.querySelectorAll('input[id="lastname"], input[name="lastname"]').forEach(function(el) {
-      el.setAttribute('placeholder', pm.lastname);
-    });
-    document.querySelectorAll('textarea[id="message"], textarea[name="message"]').forEach(function(el) {
-      el.setAttribute('placeholder', pm.message);
-    });
-    // Also handle data-i18n-placeholder attributes
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
-      var key = el.getAttribute('data-i18n-placeholder');
-      if (t[key]) el.setAttribute('placeholder', t[key]);
-    });
     // Update all internal nav links to carry lang param
     if (lang !== 'uk') {
         document.querySelectorAll('a[href]').forEach(function(a) {
@@ -1616,7 +1513,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         applyLang(btn.getAttribute('data-lang'));
-        setTimeout(function() { if (window.NX_refreshCookieBanner) window.NX_refreshCookieBanner(); }, 50);
       });
     });
   }
@@ -1675,8 +1571,6 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         setTimeout(function() { applyTextMap(btn.getAttribute('data-lang')); }, 10);
-        setTimeout(function() { if (window.NX_refreshCountdowns) window.NX_refreshCountdowns(); }, 20);
-        setTimeout(function() { if (window.NX_refreshCookieBanner) window.NX_refreshCookieBanner(); }, 30);
       });
     });
     // Apply on load
@@ -1811,168 +1705,5 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
     }
   }
 
-  // Refresh cookie banner text when language changes (banner already visible)
-  window.NX_refreshCookieBanner = function() {
-    var banner = document.getElementById('nx-cookie-banner');
-    if (!banner || !banner.classList.contains('nx-cookie-visible')) return;
-    // Re-render banner with new language
-    banner.parentNode.removeChild(banner);
-    injectBanner();
-  };
-
   initCookieBanner();
-})();
-
-// ============================================================
-// MiCA / CASP Deadline Countdown Widget
-// Deadline: 1 July 2026 00:00:00 UTC
-// After deadline → static "expired" block with ESMA link
-// Usage: add class "nx-mica-cd" to any container element.
-//   Optional modifier class:
-//     "nx-cd-sidebar" — light background variant
-// ============================================================
-(function() {
-  var DEADLINE = new Date('2026-07-01T00:00:00Z');
-  var ESMA_URL = 'https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica#InterimMiCARegister';
-  var _timer = null;
-
-  var LABELS = {
-    uk: {
-      days: 'днів', hours: 'год', mins: 'хв', secs: 'сек',
-      active_pre: 'До кінцевого строку CASP-авторизації MiCA:',
-      active_sub: 'Без авторизації — заборона crypto-сервісів в ЄС.',
-      esma: 'ESMA Interim MiCA Register →',
-      expired_badge: '✓ Перехідний період завершено',
-      expired_text: 'З 1 липня 2026 усі CASP зобов\'язані мати чинну авторизацію або вийти з ринку ЄС.',
-      esma_post: 'Перевірити ESMA Interim MiCA Register →'
-    },
-    en: {
-      days: 'days', hours: 'hrs', mins: 'min', secs: 'sec',
-      active_pre: 'Until MiCA CASP authorisation deadline:',
-      active_sub: 'Without authorisation — crypto services banned in the EU.',
-      esma: 'ESMA Interim MiCA Register →',
-      expired_badge: '✓ Transitional period ended',
-      expired_text: 'From 1 July 2026, all CASPs must hold valid authorisation or exit the EU market.',
-      esma_post: 'Check ESMA Interim MiCA Register →'
-    },
-    de: {
-      days: 'Tage', hours: 'Std', mins: 'Min', secs: 'Sek',
-      active_pre: 'Bis zum Ablauf der MiCA CASP-Zulassungsfrist:',
-      active_sub: 'Ohne Zulassung — Verbot von Krypto-Diensten in der EU.',
-      esma: 'ESMA Interim MiCA Register →',
-      expired_badge: '✓ Übergangszeitraum beendet',
-      expired_text: 'Ab 1. Juli 2026 müssen alle CASPs eine gültige Zulassung besitzen oder den EU-Markt verlassen.',
-      esma_post: 'ESMA Interim MiCA Register prüfen →'
-    }
-  };
-
-  function getLang() {
-    try { return localStorage.getItem('nx-lang') || 'uk'; } catch(e) { return 'uk'; }
-  }
-
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-  function renderCountdown(el) {
-    var lang = getLang();
-    var L = LABELS[lang] || LABELS['uk'];
-    var now = new Date();
-    var diff = DEADLINE - now;
-    var isSidebar = el.classList.contains('nx-cd-sidebar');
-
-    if (diff <= 0) {
-      // Expired state — static block
-      el.innerHTML =
-        '<div class="nx-cd-expired">' +
-          '<span class="nx-cd-expired-badge">' + L.expired_badge + '</span>' +
-          '<p style="font-size:.82rem;line-height:1.6;margin:0;' + (isSidebar ? 'color:var(--color-text-muted)' : 'color:rgba(255,255,255,.80)') + '">' + L.expired_text + '</p>' +
-          '<a href="' + ESMA_URL + '" target="_blank" rel="noopener" class="nx-cd-esma">' +
-            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
-            L.esma_post +
-          '</a>' +
-        '</div>';
-      if (_timer) { clearInterval(_timer); _timer = null; }
-      return;
-    }
-
-    // Live countdown
-    var totalSec = Math.floor(diff / 1000);
-    var secs  = totalSec % 60;
-    var mins  = Math.floor(totalSec / 60) % 60;
-    var hours = Math.floor(totalSec / 3600) % 24;
-    var days  = Math.floor(totalSec / 86400);
-
-    el.innerHTML =
-      '<div class="nx-cd-wrap">' +
-        '<p style="font-size:.78rem;font-weight:600;' + (isSidebar ? 'color:var(--color-text-muted)' : 'color:rgba(255,255,255,.70)') + ';margin:0 0 4px;">' + L.active_pre + '</p>' +
-        '<div class="nx-cd-units">' +
-          '<div class="nx-cd-unit"><span class="nx-cd-num" id="nx-cd-days">' + pad(days) + '</span><span class="nx-cd-lbl">' + L.days + '</span></div>' +
-          '<div class="nx-cd-unit"><span class="nx-cd-num" id="nx-cd-hours">' + pad(hours) + '</span><span class="nx-cd-lbl">' + L.hours + '</span></div>' +
-          '<div class="nx-cd-unit"><span class="nx-cd-num" id="nx-cd-mins">' + pad(mins) + '</span><span class="nx-cd-lbl">' + L.mins + '</span></div>' +
-          '<div class="nx-cd-unit"><span class="nx-cd-num" id="nx-cd-secs">' + pad(secs) + '</span><span class="nx-cd-lbl">' + L.secs + '</span></div>' +
-        '</div>' +
-        '<a href="' + ESMA_URL + '" target="_blank" rel="noopener" class="nx-cd-esma">' +
-          '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
-          L.esma +
-        '</a>' +
-      '</div>';
-  }
-
-  function tickAll() {
-    var els = document.querySelectorAll('.nx-mica-cd');
-    if (!els.length) return;
-    els.forEach(function(el) { renderCountdown(el); });
-    // Update only the number spans after initial render (avoid full re-render flicker)
-  }
-
-  function initCountdowns() {
-    var els = document.querySelectorAll('.nx-mica-cd');
-    if (!els.length) return;
-    tickAll();
-    if (new Date() < DEADLINE) {
-      _timer = setInterval(function() {
-        var now = new Date();
-        var diff = DEADLINE - now;
-        if (diff <= 0) { tickAll(); clearInterval(_timer); _timer = null; return; }
-        var totalSec = Math.floor(diff / 1000);
-        // Fast-path: just update the number spans
-        var dEl = document.getElementById('nx-cd-days');
-        var hEl = document.getElementById('nx-cd-hours');
-        var mEl = document.getElementById('nx-cd-mins');
-        var sEl = document.getElementById('nx-cd-secs');
-        if (dEl) dEl.textContent = pad(Math.floor(totalSec / 86400));
-        if (hEl) hEl.textContent = pad(Math.floor(totalSec / 3600) % 24);
-        if (mEl) mEl.textContent = pad(Math.floor(totalSec / 60) % 60);
-        if (sEl) sEl.textContent = pad(totalSec % 60);
-      }, 1000);
-    }
-  }
-
-  // Re-render on language switch (called from applyLang)
-  window.NX_refreshCountdowns = function() {
-    var els = document.querySelectorAll('.nx-mica-cd');
-    els.forEach(function(el) { renderCountdown(el); });
-    // Restart timer if needed
-    if (new Date() < DEADLINE && !_timer) {
-      _timer = setInterval(function() {
-        var now = new Date();
-        var diff2 = DEADLINE - now;
-        if (diff2 <= 0) { tickAll(); clearInterval(_timer); _timer = null; return; }
-        var totalSec2 = Math.floor(diff2 / 1000);
-        var dEl = document.getElementById('nx-cd-days');
-        var hEl = document.getElementById('nx-cd-hours');
-        var mEl = document.getElementById('nx-cd-mins');
-        var sEl = document.getElementById('nx-cd-secs');
-        if (dEl) dEl.textContent = pad(Math.floor(totalSec2 / 86400));
-        if (hEl) hEl.textContent = pad(Math.floor(totalSec2 / 3600) % 24);
-        if (mEl) mEl.textContent = pad(Math.floor(totalSec2 / 60) % 60);
-        if (sEl) sEl.textContent = pad(totalSec2 % 60);
-      }, 1000);
-    }
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCountdowns);
-  } else {
-    initCountdowns();
-  }
 })();

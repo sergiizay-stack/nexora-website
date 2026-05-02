@@ -1687,4 +1687,1013 @@ window.NX_TEXT_MAP = {
 "en": "Row 1: Salutation + First Name + Last Name",
 "de": "Zeile 1: Anrede + Vorname + Nachname"
 }
+,
+"\"Хочу відкрити компанію в Австрії, але не розумію, яка правова форма підходить саме для моєї ситуації. Побоююсь обрати неправильно — і нести надмірні витрати або юридичні ризики в майбутньому.\"": {
+"en": "\"I want to open a company in Austria, but I don't understand which legal form fits my situation. I'm afraid of choosing incorrectly — and incurring excessive costs or legal risks.\"",
+"de": "\"Ich möchte ein Unternehmen in Österreich gründen, verstehe aber nicht, welche Rechtsform für meine Situation geeignet ist. Ich fürchte eine falsche Wahl — und damit verbundene Mehrkosten oder rechtliche Risiken.\""
+},
+"\"Хочу вийти на DACH-ринок або залучити EU-інвестора. Маємо продукт — але не знаємо каналів, ціноутворення та як адаптуватися. Також хочемо автоматизувати процеси через AI.\"": {
+"en": "\"I want to enter the DACH market or attract an EU investor. We have a product — but we don't know the channels, pricing, or how to adapt. We also want to automate processes with AI.\"",
+"de": "\"Ich möchte in den DACH-Markt eintreten oder einen EU-Investor gewinnen. Wir haben ein Produkt — kennen aber die Kanäle, Preisgestaltung und Anpassung nicht. Außerdem wollen wir Prozesse mit KI automatisieren.\""
+},
+"\"Маю EMI / CASP / FinTech — хочу відповідати вимогам FMA, підготуватися до аудиту або MiCA-дедлайну. EU-інвестор вимагає compliance DD перед закриттям угоди.\"": {
+"en": "\"I have EMI / CASP / FinTech — I want to meet FMA requirements, prepare for an audit or MiCA deadline. EU investor requires compliance DD before closing the deal.\"",
+"de": "\"Ich habe ein EMI / CASP / FinTech — möchte FMA-Anforderungen erfüllen, mich auf ein Audit oder MiCA-Deadline vorbereiten. EU-Investor verlangt Compliance-DD vor dem Abschluss.\""
+},
+"\"Маю компанію в Австрії та активи/доходи в Україні. Не розумію, де виникає моє податкове зобов'язання, чи є ризики постійного представництва та чи підпадаю під вимоги КІК-звітності в Україні.\"": {
+"en": "\"I have a company in Austria and assets/income in Ukraine. I don't understand where my tax obligation arises, whether there are permanent establishment risks, and whether I fall under CFC reporting requirements in Ukraine.\"",
+"de": "\"Ich habe ein Unternehmen in Österreich und Vermögen/Einkünfte in der Ukraine. Ich verstehe nicht, wo meine Steuerpflicht entsteht, ob Betriebsstättenrisiken bestehen und ob ich unter die CFC-Meldepflicht in der Ukraine falle.\""
+},
+"\"Хочу залишитися в Австрії після закінчення тимчасового захисту. Не знаю, як оформити RWR-карту або Niederlassungsbewilligung. Як найняти першого співробітника?\"": {
+"en": "\"I want to stay in Austria after temporary protection ends. I don't know how to apply for an RWR card or Niederlassungsbewilligung. How do I hire my first employee?\"",
+"de": "\"Ich möchte in Österreich bleiben, nachdem der vorübergehende Schutz endet. Ich weiß nicht, wie ich eine RWR-Karte oder Niederlassungsbewilligung beantrage. Wie stelle ich den ersten Mitarbeiter ein?\""
+},
+"\"Банк надіслав запит на джерела походження коштів або повідомив про закриття рахунку без пояснень. Не розумію причин та наступних кроків. Не знаю, як пояснити стан бізнесу, походження коштів інвестору чи банку.\"": {
+"en": "\"The bank sent a request regarding the source of funds or announced account closure without explanation. I don't understand the reasons or next steps. I don't know how to explain the business status or source of funds to an investor or bank.\"",
+"de": "\"Die Bank hat eine Anfrage zu den Mittelherkunftsnachweisen gesendet oder die Kontoschließung ohne Erklärung angekündigt. Ich verstehe die Gründe und nächsten Schritte nicht. Ich weiß nicht, wie ich den Geschäftsstatus oder die Mittelherkunft einem Investor oder der Bank erklären soll.\""
+},
+"Правові форми бізнесу в Австрії": {
+"en": "Legal Forms of Business in Austria",
+"de": "Rechtsformen des Unternehmens in Österreich"
+},
+"Тарифні плани": {
+"en": "Pricing Plans",
+"de": "Pakete & Preise"
+},
+"Як відбувається процес": {
+"en": "How the process works",
+"de": "So läuft der Prozess ab"
+},
+"Як відбувається процес — STANDARD / PREMIUM": {
+"en": "How the process works — STANDARD / PREMIUM",
+"de": "So läuft der Prozess ab — STANDARD / PREMIUM"
+},
+"Для кого LAUNCH": {
+"en": "Who LAUNCH is for",
+"de": "Für wen LAUNCH geeignet ist"
+},
+"Для кого STRUCTURE": {
+"en": "Who STRUCTURE is for",
+"de": "Für wen STRUCTURE geeignet ist"
+},
+"Для кого FINANCE & OPS": {
+"en": "Who FINANCE & OPS is for",
+"de": "Für wen FINANCE & OPS geeignet ist"
+},
+"Для кого PEOPLE & RESIDENCY": {
+"en": "Who PEOPLE & RESIDENCY is for",
+"de": "Für wen PEOPLE & RESIDENCY geeignet ist"
+},
+"Для кого SCALE & DIGITAL": {
+"en": "Who SCALE & DIGITAL is for",
+"de": "Für wen SCALE & DIGITAL geeignet ist"
+},
+"Для кого COMPLY": {
+"en": "Who COMPLY is for",
+"de": "Für wen COMPLY geeignet ist"
+},
+"Часті питання та заперечення": {
+"en": "FAQ & Common Objections",
+"de": "Häufige Fragen & Einwände"
+},
+"Логічні наступні кроки після LAUNCH": {
+"en": "Logical next steps after LAUNCH",
+"de": "Logische nächste Schritte nach LAUNCH"
+},
+"Логічні наступні кроки після STRUCTURE": {
+"en": "Logical next steps after STRUCTURE",
+"de": "Logische nächste Schritte nach STRUCTURE"
+},
+"Логічні наступні кроки після FINANCE & OPS": {
+"en": "Logical next steps after FINANCE & OPS",
+"de": "Logische nächste Schritte nach FINANCE & OPS"
+},
+"Логічні наступні кроки після PEOPLE & RESIDENCY": {
+"en": "Logical next steps after PEOPLE & RESIDENCY",
+"de": "Logische nächste Schritte nach PEOPLE & RESIDENCY"
+},
+"Логічні наступні кроки після SCALE & DIGITAL": {
+"en": "Logical next steps after SCALE & DIGITAL",
+"de": "Logische nächste Schritte nach SCALE & DIGITAL"
+},
+"Логічні наступні кроки після COMPLY": {
+"en": "Logical next steps after COMPLY",
+"de": "Logische nächste Schritte nach COMPLY"
+},
+"Логічні наступні кроки": {
+"en": "Logical next steps",
+"de": "Logische nächste Schritte"
+},
+"/ проект": {
+"en": "/ project",
+"de": "/ Projekt"
+},
+"+ success fee": {
+"en": "+ success fee",
+"de": "+ Erfolgshonorar"
+},
+"⏱ 5–7 роб. днів": {
+"en": "⏱ 5–7 business days",
+"de": "⏱ 5–7 Werktage"
+},
+"⏱ 10–14 роб. днів": {
+"en": "⏱ 10–14 business days",
+"de": "⏱ 10–14 Werktage"
+},
+"⏱ 14–21 роб. днів": {
+"en": "⏱ 14–21 business days",
+"de": "⏱ 14–21 Werktage"
+},
+"⏱ 4–6 тижнів": {
+"en": "⏱ 4–6 weeks",
+"de": "⏱ 4–6 Wochen"
+},
+"⏱ 2–4 місяці": {
+"en": "⏱ 2–4 months",
+"de": "⏱ 2–4 Monate"
+},
+"⏱ 2–4 місяці паралельно": {
+"en": "⏱ 2–4 months in parallel",
+"de": "⏱ 2–4 Monate parallel"
+},
+"⏱ 3–4 тижні": {
+"en": "⏱ 3–4 weeks",
+"de": "⏱ 3–4 Wochen"
+},
+"⏱ Проект 3–6 місяців": {
+"en": "⏱ Project 3–6 months",
+"de": "⏱ Projekt 3–6 Monate"
+},
+"⏱ Проект 3–12 місяців": {
+"en": "⏱ Project 3–12 months",
+"de": "⏱ Projekt 3–12 Monate"
+},
+"⏱ до 5 роб. днів": {
+"en": "⏱ up to 5 business days",
+"de": "⏱ bis zu 5 Werktage"
+},
+"⏱ 1–3 роб. дні": {
+"en": "⏱ 1–3 business days",
+"de": "⏱ 1–3 Werktage"
+},
+"⏱ 2–3 роб. дні": {
+"en": "⏱ 2–3 business days",
+"de": "⏱ 2–3 Werktage"
+},
+"⏱ від 2 тижнів": {
+"en": "⏱ from 2 weeks",
+"de": "⏱ ab 2 Wochen"
+},
+"⏱ 2–4 тижні": {
+"en": "⏱ 2–4 weeks",
+"de": "⏱ 2–4 Wochen"
+},
+"⏱ від 4 тижнів": {
+"en": "⏱ from 4 weeks",
+"de": "⏱ ab 4 Wochen"
+},
+"★ Найпопулярніший": {
+"en": "★ Most popular",
+"de": "★ Beliebtestes Paket"
+},
+"Обговорити →": {
+"en": "Discuss →",
+"de": "Besprechen →"
+},
+"Записатись →": {
+"en": "Book now →",
+"de": "Termin buchen →"
+},
+"Консультаційний": {
+"en": "Advisory",
+"de": "Beratung"
+},
+"Повний супровід": {
+"en": "Full support",
+"de": "Vollbegleitung"
+},
+"«Під ключ»": {
+"en": "\"Turnkey\"",
+"de": "\"Rundum-Service\""
+},
+"Консультація 90 хв (форма)": {
+"en": "90 min consultation (legal form)",
+"de": "90 Min. Beratung (Rechtsform)"
+},
+"Чеклист документів": {
+"en": "Document checklist",
+"de": "Dokumenten-Checkliste"
+},
+"Gewerbeschein — підготовка": {
+"en": "Gewerbeschein — preparation",
+"de": "Gewerbeschein — Vorbereitung"
+},
+"Finanzamt — інструкція": {
+"en": "Finanzamt — instructions",
+"de": "Finanzamt — Anleitung"
+},
+"Шаблони AGB / NDA (UA)": {
+"en": "AGB / NDA templates (UA)",
+"de": "AGB / NDA-Vorlagen (UA)"
+},
+"Координація з нотаріусом": {
+"en": "Coordination with notary",
+"de": "Koordination mit dem Notar"
+},
+"Firmenbuch (реєстрація)": {
+"en": "Firmenbuch (registration)",
+"de": "Firmenbuch (Eintragung)"
+},
+"KYC-стратегія для банку": {
+"en": "KYC strategy for bank",
+"de": "KYC-Strategie für die Bank"
+},
+"Gewerbeschein — супровід": {
+"en": "Gewerbeschein — full support",
+"de": "Gewerbeschein — Begleitung"
+},
+"Finanzamt — пряма реєстрація": {
+"en": "Finanzamt — direct registration",
+"de": "Finanzamt — direkte Anmeldung"
+},
+"Шаблони AGB / NDA / Договір": {
+"en": "AGB / NDA / Contract templates",
+"de": "AGB / NDA / Vertragsvorlagen"
+},
+"Gesellschaftsvertrag + Firmenbuch": {
+"en": "Gesellschaftsvertrag + Firmenbuch",
+"de": "Gesellschaftsvertrag + Firmenbuch"
+},
+"UID-Nummer (заява)": {
+"en": "UID-Nummer (application)",
+"de": "UID-Nummer (Antrag)"
+},
+"KYC-стратегія + рекомендація банку": {
+"en": "KYC strategy + bank recommendation",
+"de": "KYC-Strategie + Bankempfehlung"
+},
+"30 хв підтримки через 30 днів": {
+"en": "30 min support after 30 days",
+"de": "30 Min. Support nach 30 Tagen"
+},
+"3 місяці підтримки (до 4 год/міс)": {
+"en": "3 months of support (up to 4h/month)",
+"de": "3 Monate Support (bis zu 4 Std./Mon.)"
+},
+"Відкриття Geschäftskonto (супровід)": {
+"en": "Business account opening (guided)",
+"de": "Geschäftskonto-Eröffnung (begleitet)"
+},
+"Рекомендація + briefing Steuerberater": {
+"en": "Recommendation + Steuerberater briefing",
+"de": "Empfehlung + Steuerberater-Briefing"
+},
+"Податковий план на 90 днів": {
+"en": "90-day tax plan",
+"de": "90-Tage-Steuerplan"
+},
+"Можливе розстрочення": {
+"en": "Instalment payment available",
+"de": "Ratenzahlung möglich"
+},
+"Все із STANDARD +": {
+"en": "Everything from STANDARD +",
+"de": "Alles aus STANDARD +"
+},
+"Капітал €10,000 (мін. €5,000 при реєстрації). Найпопулярніша форма для малого та середнього бізнесу. Обмежена відповідальність. Термін реєстрації: 10–21 роб. днів.": {
+"en": "Capital €10,000 (min. €5,000 at registration). Most popular form for small and medium businesses. Limited liability. Registration period: 10–21 business days.",
+"de": "Kapital €10.000 (mind. €5.000 bei Eintragung). Beliebteste Form für KMU. Beschränkte Haftung. Eintragungsdauer: 10–21 Werktage."
+},
+"Капітал €10,000 (мін. €5,000). Нова форма з 2024 — гнучкіша структура, можливість випуску різних класів часток (Enterprise Shares), розвій стартап-екосистеми. Термін: 10–25 роб. днів.": {
+"en": "Capital €10,000 (min. €5,000). New form since 2024 — more flexible structure, ability to issue different share classes (Enterprise Shares), supporting the startup ecosystem. Timeline: 10–25 business days.",
+"de": "Kapital €10.000 (mind. €5.000). Neue Form seit 2024 — flexiblere Struktur, Ausgabe verschiedener Anteilsklassen (Enterprise Shares), Förderung des Startup-Ökosystems. Dauer: 10–25 Werktage."
+},
+"Мінімальний капітал €70,000 (повністю). Для великих компаній, інвесторських фондів, публічних пропозицій. Сже вимоги звітності.": {
+"en": "Minimum capital €70,000 (fully paid). For large companies, investment funds, public offerings. Stricter reporting requirements.",
+"de": "Mindestkapital €70.000 (voll eingezahlt). Für Großunternehmen, Investmentfonds, öffentliche Angebote. Strengere Berichtspflichten."
+},
+"Без мінімального капіталу. Необмежена особиста відповідальність всіх партнерів. Рідко використовується в чистому вигляді через ризики відповідальності.": {
+"en": "No minimum capital. Unlimited personal liability of all partners. Rarely used in pure form due to liability risks.",
+"de": "Kein Mindestkapital. Unbeschränkte persönliche Haftung aller Gesellschafter. Selten in reiner Form aufgrund von Haftungsrisiken."
+},
+"Змішана відповідальність: Komplementär (необмежена) + Kommanditist (обмежена внеском). Часто використовується в структурах з GmbH & Co KG.": {
+"en": "Mixed liability: Komplementär (unlimited) + Kommanditist (limited to contribution). Often used in GmbH & Co KG structures.",
+"de": "Gemischte Haftung: Komplementär (unbeschränkt) + Kommanditist (auf Einlage beschränkt). Häufig in GmbH & Co KG-Strukturen eingesetzt."
+},
+"Без капіталу, повна особиста відповідальність. Найпростіша форма для старту. Термін реєстрації: 1–5 роб. днів (онлайн через WKO або особисто в Magistrat).": {
+"en": "No capital required, full personal liability. Simplest form for starting out. Registration: 1–5 business days (online via WKO or in person at Magistrat).",
+"de": "Kein Kapital erforderlich, volle persönliche Haftung. Einfachste Gründungsform. Anmeldung: 1–5 Werktage (online über WKO oder persönlich beim Magistrat)."
+},
+"Комбінована форма для специфічних структур. Komplementär — GmbH (обмежена відповідальність через юрособу). Застосовується в родинному та FinTech-структуруванні.": {
+"en": "Combined form for specific structures. Komplementär — GmbH (limited liability through legal entity). Used in family and FinTech structuring.",
+"de": "Kombinierte Form für spezifische Strukturen. Komplementär — GmbH (Haftungsbeschränkung durch juristische Person). Eingesetzt im Familien- und FinTech-Strukturbereich."
+},
+"Мінімум 2 особи. Специфічна форма для спілках, житлових кооперативів, платформ зі спільним майном.": {
+"en": "Minimum 2 persons. Specific form for associations, housing cooperatives, shared property platforms.",
+"de": "Mindestens 2 Personen. Spezielle Form für Vereine, Wohngenossenschaften, Plattformen mit gemeinsamem Eigentum."
+},
+"(геверблічна)": {
+"en": "(commercial)",
+"de": "(gewerblich)"
+},
+"(кооператив)": {
+"en": "(cooperative)",
+"de": "(Genossenschaft)"
+},
+"ℹ️ ПДВ та розрахунки:": {
+"en": "ℹ️ VAT & payments:",
+"de": "ℹ️ MwSt. & Zahlungen:"
+},
+"NEXORA є платником ПДВ в Австрії (UID ATU82669239). Для клієнтів — юридичних осіб-нерезидентів застосовується механізм Reverse Charge: ПДВ нараховує та сплачує отримувач послуги у своїй юрисдикції. Для фізичних осіб-нерезидентів і резидентів Австрії — ПДВ 20% додається до вартості. Уточнюйте при замовленні. Передоплата 50%, решта після реєстрації у Firmenbuch.": {
+"en": "NEXORA is a VAT-registered company in Austria (UID ATU82669239). For non-resident corporate clients, the Reverse Charge mechanism applies: VAT is calculated and paid by the service recipient in their jurisdiction. For non-resident individuals and Austrian residents — 20% VAT is added to the price. Please confirm at the time of ordering. 50% prepayment, remainder after Firmenbuch registration.",
+"de": "NEXORA ist in Österreich umsatzsteuerpflichtig (UID ATU82669239). Für gebietsfremde Unternehmenskunden gilt das Reverse-Charge-Verfahren: MwSt. wird vom Leistungsempfänger in seiner Jurisdiktion berechnet und abgeführt. Für gebietsfremde Privatpersonen und österreichische Ansässige wird 20 % MwSt. aufgeschlagen. Bitte bei Bestellung bestätigen. 50 % Vorauszahlung, Restbetrag nach Firmenbuch-Eintragung."
+},
+"День 1 · Безкоштовно": {
+"en": "Day 1 · Free",
+"de": "Tag 1 · Kostenlos"
+},
+"Перша консультація 30 хв": {
+"en": "First consultation 30 min",
+"de": "Erstberatung 30 Min."
+},
+"З'ясовуємо вид діяльності, обіг, партнерів, статус проживання. Рекомендуємо правову форму та тариф. Результат: резюме UA-мовою. + надання попередньої правової позиції щодо питань податкового резиденства та оподаткування (в координації з податковим консультантом).": {
+"en": "We clarify the type of activity, turnover, partners, residency status. We recommend a legal form and package. Result: summary in UA language. + preliminary legal opinion on tax residency and taxation (coordinated with a tax advisor).",
+"de": "Wir klären Tätigkeitsart, Umsatz, Partner, Aufenthaltsstatus. Wir empfehlen Rechtsform und Paket. Ergebnis: Zusammenfassung auf Ukrainisch. + vorläufige Rechtsposition zu Steueransässigkeit und Besteuerung (in Abstimmung mit dem Steuerberater)."
+},
+"День 2–3": {
+"en": "Day 2–3",
+"de": "Tag 2–3"
+},
+"Договір та передоплата": {
+"en": "Contract & prepayment",
+"de": "Vertrag & Vorauszahlung"
+},
+"Підписання консалтингового договору NEXORA. Передоплата 50%, решта — після реєстрації у Firmenbuch.": {
+"en": "Signing of the NEXORA consulting agreement. 50% prepayment, balance — after Firmenbuch registration.",
+"de": "Unterzeichnung des NEXORA-Beratungsvertrags. 50 % Vorauszahlung, Restbetrag — nach Firmenbuch-Eintragung."
+},
+"День 3–5": {
+"en": "Day 3–5",
+"de": "Tag 3–5"
+},
+"Збір документів та підготовка": {
+"en": "Document collection & preparation",
+"de": "Dokumentensammlung & Vorbereitung"
+},
+"Паспорт, Meldezettel, рішення про реєстрацію. Готуємо Gesellschaftsvertrag, Musterzeichnung, перелік для нотаріуса.": {
+"en": "Passport, Meldezettel, registration resolution. We prepare the Gesellschaftsvertrag, Musterzeichnung, notary checklist.",
+"de": "Reisepass, Meldezettel, Gründungsbeschluss. Wir erstellen Gesellschaftsvertrag, Musterzeichnung, Notarliste."
+},
+"День 5–8": {
+"en": "Day 5–8",
+"de": "Tag 5–8"
+},
+"Нотаріальне оформлення": {
+"en": "Notarial execution",
+"de": "Notarielle Beurkundung"
+},
+"Координуємо нотаріуса, готуємо клієнта до зустрічі UA-мовою. Мін. капітал GmbH: €10,000 (€5,000 вноситься готівкою). FlexKapG: від €10,000.": {
+"en": "We coordinate the notary and prepare the client for the meeting in Ukrainian. Min. GmbH capital: €10,000 (€5,000 paid in cash). FlexKapG: from €10,000.",
+"de": "Wir koordinieren den Notar und bereiten den Mandanten auf das Gespräch auf Ukrainisch vor. Mindestkapital GmbH: €10.000 (€5.000 bar einzuzahlen). FlexKapG: ab €10.000."
+},
+"День 8–14": {
+"en": "Day 8–14",
+"de": "Tag 8–14"
+},
+"Подаємо документи до торгового реєстру + реєстрація Gewerbe через WKO/GISA (терміни залежать від виду діяльності: вільний Gewerbe — 1–3 дні, регульований — від 4 до 12 тижнів залежно від підтверджуючих документів: освіта, досвід, відповідність вимогам землі).": {
+"en": "We submit documents to the commercial register + Gewerbe registration via WKO/GISA (timelines depend on activity type: free Gewerbe — 1–3 days, regulated — 4–12 weeks depending on supporting documents: education, experience, land requirements).",
+"de": "Wir reichen Unterlagen beim Firmenbuchgericht ein + Gewerbeanmeldung über WKO/GISA (Fristen je nach Tätigkeitsart: freies Gewerbe — 1–3 Tage, reglementiertes — 4–12 Wochen je nach Nachweisen: Ausbildung, Erfahrung, Landesanforderungen)."
+},
+"День 14–18": {
+"en": "Day 14–18",
+"de": "Tag 14–18"
+},
+"Подаємо Verf15 та заяву на UID. Пояснюємо UVA, авансові KöSt, GSVG для ГД.": {
+"en": "We submit Verf15 and the UID application. We explain UVA, advance KöSt, GSVG for the managing director.",
+"de": "Wir stellen Verf15 und den UID-Antrag. Wir erläutern UVA, KöSt-Vorauszahlungen, GSVG für den GF."
+},
+"День 18–21 · Фінал": {
+"en": "Day 18–21 · Final",
+"de": "Tag 18–21 · Abschluss"
+},
+"Передача та фінальний брифінг": {
+"en": "Handover & final briefing",
+"de": "Übergabe & abschließendes Briefing"
+},
+"Передаємо документи, проводимо 60 хв онбординг: що далі, Steuerberater, банківська стратегія. Час активної участі клієнта: не більше 3–4 годин.": {
+"en": "We hand over documents and conduct a 60-min onboarding: what comes next, Steuerberater, banking strategy. Client active time: no more than 3–4 hours.",
+"de": "Wir übergeben die Dokumente und führen ein 60-minütiges Onboarding durch: nächste Schritte, Steuerberater, Bankstrategie. Aktive Kundenzeit: höchstens 3–4 Stunden."
+},
+"IT-підприємець / Фрілансер": {
+"en": "IT entrepreneur / Freelancer",
+"de": "IT-Unternehmer / Freiberufler"
+},
+"25–40 років · живе в Австрії 1–3 роки": {
+"en": "25–40 years old · living in Austria 1–3 years",
+"de": "25–40 Jahre · lebt seit 1–3 Jahren in Österreich"
+},
+"EU-клієнти вимагають EU-рахунок; платежі через Wise блокуються; не знає FlexCo vs GmbH.": {
+"en": "EU clients require an EU account; Wise payments get blocked; doesn't know FlexCo vs GmbH.",
+"de": "EU-Kunden verlangen ein EU-Konto; Wise-Zahlungen werden blockiert; kennt FlexCo vs GmbH nicht."
+},
+"Рекомендовано: LAUNCH STANDARD": {
+"en": "Recommended: LAUNCH STANDARD",
+"de": "Empfohlen: LAUNCH STANDARD"
+},
+"E-commerce / Amazon-продавець": {
+"en": "E-commerce / Amazon seller",
+"de": "E-Commerce / Amazon-Verkäufer"
+},
+"30–45 років · продає через Amazon EU": {
+"en": "30–45 years old · selling via Amazon EU",
+"de": "30–45 Jahre · Verkauf über Amazon EU"
+},
+"Без AT-UID — штрафи від Amazon; потрібен UID для ПДВ (OSS).": {
+"en": "Without AT-UID — Amazon penalties; need UID for VAT (OSS).",
+"de": "Ohne AT-UID — Strafen von Amazon; UID für MwSt. (OSS) erforderlich."
+},
+"STANDARD + консультація COMPLY": {
+"en": "STANDARD + COMPLY consultation",
+"de": "STANDARD + COMPLY-Beratung"
+},
+"Підприємець із партнером / SMB": {
+"en": "Entrepreneur with partner / SMB",
+"de": "Unternehmer mit Partner / KMU"
+},
+"35–55 років · є бізнес в Україні": {
+"en": "35–55 years old · has business in Ukraine",
+"de": "35–55 Jahre · hat Unternehmen in der Ukraine"
+},
+"PE-ризик між AT та UA; вибір структури; потрібен австрійський підрозділ або холдинг.": {
+"en": "PE risk between AT and UA; structure selection; needs Austrian subsidiary or holding.",
+"de": "Betriebsstättenrisiko zwischen AT und UA; Strukturwahl; österreichische Tochtergesellschaft oder Holding erforderlich."
+},
+"PREMIUM + STRUCTURE консультація": {
+"en": "PREMIUM + STRUCTURE consultation",
+"de": "PREMIUM + STRUCTURE-Beratung"
+},
+"Фрілансер / Самозайнятий": {
+"en": "Freelancer / Self-employed",
+"de": "Freiberufler / Selbstständiger"
+},
+"25–35 років · обіг до €35K/рік": {
+"en": "25–35 years old · turnover up to €35K/year",
+"de": "25–35 Jahre · Umsatz bis zu €35K/Jahr"
+},
+"Не знає, чи потрібна GmbH; боїться «надто складно».": {
+"en": "Doesn't know if GmbH is needed; fears 'too complicated'.",
+"de": "Weiß nicht, ob GmbH nötig ist; fürchtet 'zu kompliziert'."
+},
+"Рекомендовано: LAUNCH BASIC": {
+"en": "Recommended: LAUNCH BASIC",
+"de": "Empfohlen: LAUNCH BASIC"
+},
+"«Навіщо NEXORA? Я сам зроблю через WKO»": {
+"en": "\"Why NEXORA? I'll do it myself through WKO\"",
+"de": "\"Wozu NEXORA? Ich mache es selbst über die WKO\""
+},
+"WKO Gründerservice — безкоштовно, але тільки загально та лише нім. мовою. Без досвіду: ризик хибного вибору форми = €2,000–5,000 на переоформлення. NEXORA = правильно з першого разу.": {
+"en": "WKO Gründerservice — free, but only general information and only in German. Without experience: risk of wrong form choice = €2,000–5,000 for restructuring. NEXORA = done right the first time.",
+"de": "WKO Gründerservice — kostenlos, aber nur allgemeine Infos auf Deutsch. Ohne Erfahrung: Risiko der falschen Rechtsformwahl = €2.000–5.000 für die Umstrukturierung. NEXORA = beim ersten Mal richtig."
+},
+"«€1,340 — дорого для реєстрації»": {
+"en": "\"€1,340 — expensive for registration\"",
+"de": "\"€1.340 — teuer für eine Anmeldung\""
+},
+"Нотаріус + Firmenbuch + Gewerbe самостійно = €700–900 без підтримки. Пакет STANDARD від NEXORA включає повний двомовний супровід, всі держмита, банківський пакет та гарантований результат. Інвестиція в правильний старт без затримок і помилок.": {
+"en": "Notary + Firmenbuch + Gewerbe on your own = €700–900 without support. NEXORA STANDARD package includes full bilingual support, all state fees, banking package and guaranteed outcome. An investment in a correct start without delays and mistakes.",
+"de": "Notar + Firmenbuch + Gewerbe allein = €700–900 ohne Unterstützung. NEXORA STANDARD-Paket umfasst vollständige zweisprachige Begleitung, alle Staatsgebühren, Bankpaket und garantiertes Ergebnis. Eine Investition in den richtigen Start ohne Verzögerungen und Fehler."
+},
+"«Чому не австрійський консультант?»": {
+"en": "\"Why not an Austrian consultant?\"",
+"de": "\"Warum kein österreichischer Berater?\""
+},
+"Австрійський консультант не знає ФОП, КІК, банківських відмов через «Osteuropa-Risiko». Ми пройшли цей шлях самі. Говоримо вашою мовою — буквально і метафорично.": {
+"en": "An Austrian consultant doesn't know about sole proprietorships, CFCs, or bank refusals due to \"Osteuropa-Risiko\". We have walked this path ourselves. We speak your language — literally and figuratively.",
+"de": "Ein österreichischer Berater kennt keine Einzelunternehmer, CFC-Strukturen oder Bankablehnungen wegen \"Osteuropa-Risiko\". Wir haben diesen Weg selbst beschritten. Wir sprechen Ihre Sprache — wörtlich und im übertragenen Sinne."
+},
+"«Нащо GmbH, якщо є ФОП в Україні?»": {
+"en": "\"Why GmbH if I have a sole proprietorship in Ukraine?\"",
+"de": "\"Wozu GmbH, wenn ich in der Ukraine ein Einzelunternehmen habe?\""
+},
+"AT GmbH = SEPA-платежі, захист активів, EU-статус для клієнтів, основа для RWR-карти і резидентства. ФОП обмежений у міжнародному масштабуванні.": {
+"en": "AT GmbH = SEPA payments, asset protection, EU status for clients, basis for RWR card and residency. Sole proprietorship is limited in international scaling.",
+"de": "AT GmbH = SEPA-Zahlungen, Vermögensschutz, EU-Status für Kunden, Grundlage für RWR-Karte und Aufenthaltserlaubnis. Einzelunternehmen ist beim internationalen Skalieren eingeschränkt."
+},
+"Відкриття GmbH потребує банківського рахунку та фінансової інфраструктури": {
+"en": "GmbH opening requires a bank account and financial infrastructure",
+"de": "GmbH-Gründung erfordert ein Bankkonto und finanzielle Infrastruktur"
+},
+"Є ФОП або компанія в Україні? КІК/PE-аналіз — обов'язковий наступний крок": {
+"en": "Have a sole proprietorship or company in Ukraine? CFC/PE analysis — mandatory next step",
+"de": "Haben Sie ein Einzelunternehmen oder Unternehmen in der Ukraine? CFC/PE-Analyse — obligatorischer nächster Schritt"
+},
+"Тимчасовий захист закінчується → RWR-карта підприємця через GmbH": {
+"en": "Temporary protection ending → RWR entrepreneur card via GmbH",
+"de": "Vorübergehender Schutz endet → RWR-Unternehmerkarte über GmbH"
+},
+"Фінанси / e-money / факторинг? AML-програма обов'язкова за австрійським FM-GwG": {
+"en": "Finance / e-money / factoring? AML programme mandatory under Austrian FM-GwG",
+"de": "Finanzen / E-Geld / Factoring? AML-Programm nach österreichischem FM-GwG verpflichtend"
+},
+"Правова основа": {
+"en": "Legal basis",
+"de": "Rechtsgrundlage"
+},
+"⚠ Дисклеймер:": {
+"en": "⚠ Disclaimer:",
+"de": "⚠ Hinweis:"
+},
+"Nexora здійснює підготовку та координацію документів. Нотаріальне засвідчення — через ліцензованого нотаріуса. Податкова реєстрація (UID, Steuernummer) координується через партнерського Steuerberater. Nexora не надає Steuerberatung самостійно.": {
+"en": "NEXORA handles document preparation and coordination. Notarial certification — via a licensed notary. Tax registration (UID, Steuernummer) is coordinated through a partner Steuerberater. NEXORA does not provide Steuerberatung independently.",
+"de": "NEXORA übernimmt die Dokumentenvorbereitung und -koordination. Notarielle Beurkundung — über einen lizenzierten Notar. Steuerliche Registrierung (UID, Steuernummer) wird über einen Partnersteuerberater koordiniert. NEXORA erbringt keine Steuerberatung in eigenem Namen."
+},
+"Перша консультація — безкоштовно": {
+"en": "First consultation — free of charge",
+"de": "Erstberatung — kostenlos"
+},
+"30 хвилин — і ви точно знаєте, яка форма підходить вашій ситуації.": {
+"en": "30 minutes — and you'll know exactly which legal form suits your situation.",
+"de": "30 Minuten — und Sie wissen genau, welche Rechtsform zu Ihrer Situation passt."
+},
+"30 хвилин — і ви точно знаєте, з чого починати в Австрії.": {
+"en": "30 minutes — and you'll know exactly where to start in Austria.",
+"de": "30 Minuten — und Sie wissen genau, womit Sie in Österreich anfangen sollen."
+},
+"30 хвилин — і ви знаєте, як захистити бізнес від податкових ризиків.": {
+"en": "30 minutes — and you know how to protect your business from tax risks.",
+"de": "30 Minuten — und Sie wissen, wie Sie Ihr Unternehmen vor Steuerrisiken schützen."
+},
+"30 хвилин — і ви знаєте, які compliance-вимоги стосуються вашого бізнесу.": {
+"en": "30 minutes — and you know which compliance requirements apply to your business.",
+"de": "30 Minuten — und Sie wissen, welche Compliance-Anforderungen für Ihr Unternehmen gelten."
+},
+"30 хвилин — і ви знаєте, як збудувати фінансову інфраструктуру.": {
+"en": "30 minutes — and you know how to build your financial infrastructure.",
+"de": "30 Minuten — und Sie wissen, wie Sie Ihre finanzielle Infrastruktur aufbauen."
+},
+"30 хвилин — і ви знаєте, як вийти на DACH-ринок.": {
+"en": "30 minutes — and you know how to enter the DACH market.",
+"de": "30 Minuten — und Sie wissen, wie Sie in den DACH-Markt eintreten."
+},
+"30 хвилин — і ви знаєте, як залишитись у Австрії легально.": {
+"en": "30 minutes — and you know how to stay in Austria legally.",
+"de": "30 Minuten — und Sie wissen, wie Sie legal in Österreich bleiben können."
+},
+"Вхід на ринок": {
+"en": "Market Entry",
+"de": "Markteintritt"
+},
+"Зростання": {
+"en": "Growth",
+"de": "Wachstum"
+},
+"Угоди та інвестиції": {
+"en": "Deals & Investments",
+"de": "Transaktionen & Investitionen"
+},
+"Стратегічна діагностика (2–3 год)": {
+"en": "Strategic diagnostics (2–3 hours)",
+"de": "Strategische Diagnose (2–3 Std.)"
+},
+"Market Intelligence (AT/DE/CH)": {
+"en": "Market Intelligence (AT/DE/CH)",
+"de": "Market Intelligence (AT/DE/CH)"
+},
+"Аналіз конкурентів (5–7 гравців)": {
+"en": "Competitor analysis (5–7 players)",
+"de": "Wettbewerbsanalyse (5–7 Akteure)"
+},
+"Вибір форми присутності AT": {
+"en": "Choosing the AT presence form",
+"de": "Wahl der AT-Präsenzform"
+},
+"Адаптація продукту — gap-аналіз": {
+"en": "Product adaptation — gap analysis",
+"de": "Produktanpassung — Gap-Analyse"
+},
+"GTM Road Map 6–12 міс": {
+"en": "GTM Road Map 6–12 months",
+"de": "GTM-Roadmap 6–12 Monate"
+},
+"Звіт 20+ стор. + презентація": {
+"en": "Report 20+ pages + presentation",
+"de": "Bericht 20+ Seiten + Präsentation"
+},
+"Активний пошук партнерів": {
+"en": "Active partner search",
+"de": "Aktive Partnersuche"
+},
+"Щомісячна стратегічна сесія": {
+"en": "Monthly strategy session",
+"de": "Monatliche Strategiesitzung"
+},
+"Активний пошук партнерів (20+ контактів)": {
+"en": "Active partner search (20+ contacts)",
+"de": "Aktive Partnersuche (20+ Kontakte)"
+},
+"Partnership Deck + DD-пакет": {
+"en": "Partnership Deck + DD package",
+"de": "Partnership Deck + DD-Paket"
+},
+"Переговорний супровід": {
+"en": "Negotiation support",
+"de": "Verhandlungsbegleitung"
+},
+"Представництво на WKO/ABA-подіях": {
+"en": "Representation at WKO/ABA events",
+"de": "Vertretung bei WKO/ABA-Veranstaltungen"
+},
+"EU-стандартизація та compliance": {
+"en": "EU standardisation and compliance",
+"de": "EU-Standardisierung und Compliance"
+},
+"Щомісячна стратегічна сесія 60 хв": {
+"en": "Monthly strategy session 60 min",
+"de": "Monatliche Strategiesitzung 60 Min."
+},
+"Оцінка компанії (DCF, мультиплікатори)": {
+"en": "Company valuation (DCF, multiples)",
+"de": "Unternehmensbewertung (DCF, Multiplikatoren)"
+},
+"Information Memorandum (IM)": {
+"en": "Information Memorandum (IM)",
+"de": "Information Memorandum (IM)"
+},
+"Фінансова модель та прогноз": {
+"en": "Financial model and forecast",
+"de": "Finanzmodell und Prognose"
+},
+"Пошук покупців / інвесторів у EU": {
+"en": "Finding buyers / investors in EU",
+"de": "Käufer-/Investorensuche in der EU"
+},
+"Investment Deck для EU-інвесторів": {
+"en": "Investment Deck for EU investors",
+"de": "Investment Deck für EU-Investoren"
+},
+"Buy-side: DD австрійського бізнесу": {
+"en": "Buy-side: DD of Austrian business",
+"de": "Buy-Side: DD österreichischer Unternehmen"
+},
+"Структурування угоди + координація": {
+"en": "Deal structuring + coordination",
+"de": "Transaktionsstrukturierung + Koordination"
+},
+"Success fee: 2–5% від угоди": {
+"en": "Success fee: 2–5% of deal",
+"de": "Erfolgshonorar: 2–5 % der Transaktion"
+},
+"Strategic Retainer €1,490/міс — 4 год/міс advisory: моніторинг ринку, стратегічні сесії, реакція на можливості. Recurring після проекту. Мін. 3 місяці.": {
+"en": "Strategic Retainer €1,490/month — 4h/month advisory: market monitoring, strategic sessions, opportunity response. Recurring after the project. Min. 3 months.",
+"de": "Strategic Retainer €1.490/Monat — 4 Std./Monat Advisory: Marktmonitoring, Strategiesitzungen, Reaktion auf Chancen. Recurring nach dem Projekt. Mind. 3 Monate."
+},
+"Тиждень 1": {
+"en": "Week 1",
+"de": "Woche 1"
+},
+"Стратегічна діагностика": {
+"en": "Strategic diagnostics",
+"de": "Strategische Diagnose"
+},
+"Глибоке інтерв'ю 2–3 год: бізнес-модель, поточні клієнти, продукт, фінанси, амбіції. Визначення Entry Point: AT vs DE vs CH. Вибір стратегії: прямі продажі vs партнерська модель vs acquisition.": {
+"en": "In-depth interview 2–3 hours: business model, current clients, product, finances, ambitions. Determining Entry Point: AT vs DE vs CH. Strategy selection: direct sales vs partnership model vs acquisition.",
+"de": "Tiefeninterview 2–3 Std.: Geschäftsmodell, aktuelle Kunden, Produkt, Finanzen, Ambitionen. Bestimmung des Entry Points: AT vs DE vs CH. Strategiewahl: Direktvertrieb vs Partnermodell vs Akquisition."
+},
+"Тиждень 1–3": {
+"en": "Week 1–3",
+"de": "Woche 1–3"
+},
+"Market Intelligence": {
+"en": "Market Intelligence",
+"de": "Market Intelligence"
+},
+"Розмір і темпи росту цільового ринку DACH. Аналіз 5–7 ключових конкурентів: позиціонування, ціни, канали. Регуляторне середовище: CE, GDPR, NIS2. ICP-профіль для DACH.": {
+"en": "Size and growth rate of the DACH target market. Analysis of 5–7 key competitors: positioning, prices, channels. Regulatory environment: CE, GDPR, NIS2. ICP profile for DACH.",
+"de": "Größe und Wachstumsrate des DACH-Zielmarkts. Analyse von 5–7 Hauptwettbewerbern: Positionierung, Preise, Kanäle. Regulatorisches Umfeld: CE, DSGVO, NIS2. ICP-Profil für DACH."
+},
+"Тиждень 2–4": {
+"en": "Week 2–4",
+"de": "Woche 2–4"
+},
+"GTM Road Map": {
+"en": "GTM Road Map",
+"de": "GTM-Roadmap"
+},
+"Вибір каналів продажу. Адаптація продукту: gap-аналіз, локалізація. Ціноутворення для DACH vs UA-ціни. Road Map на 6–12 місяців з KPI та milestones.": {
+"en": "Sales channel selection. Product adaptation: gap analysis, localisation. DACH pricing vs UA prices. Road Map for 6–12 months with KPI and milestones.",
+"de": "Auswahl der Vertriebskanäle. Produktanpassung: Gap-Analyse, Lokalisierung. DACH-Preisgestaltung vs UA-Preise. Roadmap für 6–12 Monate mit KPI und Meilensteinen."
+},
+"Місяць 2–6": {
+"en": "Month 2–6",
+"de": "Monat 2–6"
+},
+"Активна фаза (GROW)": {
+"en": "Active phase (GROW)",
+"de": "Aktive Phase (GROW)"
+},
+"Пошук партнерів через WKO, ABA, Ukrainian Chamber of Commerce (Олександр Корнієць). Partnership Deck і Due Diligence пакет. Переговорний супровід та представництво на B2B-заходах.": {
+"en": "Partner search via WKO, ABA, Ukrainian Chamber of Commerce (Oleksandr Korniiets). Partnership Deck and Due Diligence package. Negotiation support and representation at B2B events.",
+"de": "Partnersuche über WKO, ABA, Ukrainische Handelskammer (Oleksandr Korniiets). Partnership Deck und Due-Diligence-Paket. Verhandlungsbegleitung und Vertretung bei B2B-Veranstaltungen."
+},
+"«Чому не місцевий AT/DE консультант?»": {
+"en": "\"Why not a local AT/DE consultant?\"",
+"de": "\"Warum kein lokaler AT/DE-Berater?\""
+},
+"Місцевий знає ринок, але не UA-бізнес і культуру переговорів. NEXORA — міст між двома світами. Це скорочує час адаптації вдвічі.": {
+"en": "A local consultant knows the market but not Ukrainian business and negotiation culture. NEXORA — a bridge between two worlds. This cuts adaptation time in half.",
+"de": "Ein lokaler Berater kennt den Markt, aber nicht das ukrainische Geschäft und die Verhandlungskultur. NEXORA — Brücke zwischen zwei Welten. Das halbiert die Anpassungszeit."
+},
+"«€4,990 — чи окупиться?»": {
+"en": "\"€4,990 — will it pay off?\"",
+"de": "\"€4.990 — rechnet sich das?\""
+},
+"Один контракт з AT/DE-клієнтом на €50K+ = GROW у 10x. Питання не «дорого» — питання «скільки коштує ще рік без DACH-ринку?»": {
+"en": "One contract with an AT/DE client at €50K+ = GROW at 10x ROI. The question isn't 'expensive' — it's 'how much does another year without the DACH market cost?'",
+"de": "Ein Vertrag mit einem AT/DE-Kunden über €50K+ = GROW mit 10x ROI. Die Frage ist nicht 'teuer' — sondern 'was kostet ein weiteres Jahr ohne DACH-Markt?'"
+},
+"«Є реальні контакти у нашій галузі?»": {
+"en": "\"Do you have real contacts in our industry?\"",
+"de": "\"Haben Sie echte Kontakte in unserer Branche?\""
+},
+"Олександр — офіційний представник ТПП України в Австрії. Прямий доступ до WKO, ABA, галузевих асоціацій — реальна мережа, не LinkedIn.": {
+"en": "Oleksandr is the official representative of the Ukrainian Chamber of Commerce in Austria. Direct access to WKO, ABA, industry associations — a real network, not LinkedIn.",
+"de": "Oleksandr ist offizieller Vertreter der Ukrainischen Handelskammer in Österreich. Direkter Zugang zu WKO, ABA, Branchenverbänden — ein echtes Netzwerk, kein LinkedIn."
+},
+"«Самі знайдемо покупця через LinkedIn»": {
+"en": "\"We'll find the buyer ourselves via LinkedIn\"",
+"de": "\"Wir finden den Käufer selbst über LinkedIn\""
+},
+"LinkedIn дає контакт. M&A вимагає: правильна оцінка, IM, структурування, юристи двох юрисдикцій. Без досвіду — недооцінка бізнесу на 30–50%.": {
+"en": "LinkedIn provides a contact. M&A requires: proper valuation, IM, structuring, lawyers in two jurisdictions. Without experience — undervaluing the business by 30–50%.",
+"de": "LinkedIn liefert einen Kontakt. M&A erfordert: korrekte Bewertung, IM, Strukturierung, Anwälte in zwei Jurisdiktionen. Ohne Erfahrung — Unterbewertung des Unternehmens um 30–50 %."
+},
+"AML/KYC Setup": {
+"en": "AML/KYC Setup",
+"de": "AML/KYC-Setup"
+},
+"MiCA/CASP Ліцензування": {
+"en": "MiCA/CASP Licensing",
+"de": "MiCA/CASP-Lizenzierung"
+},
+"Повний стек": {
+"en": "Full stack",
+"de": "Vollständiges Paket"
+},
+"AML/CFT-програма (FM-GwG / BWG)": {
+"en": "AML/CFT programme (FM-GwG / BWG)",
+"de": "AML/CFT-Programm (FM-GwG / BWG)"
+},
+"CDD/EDD процедури + ризик-класифікація": {
+"en": "CDD/EDD procedures + risk classification",
+"de": "CDD/EDD-Verfahren + Risikoklassifizierung"
+},
+"Transaction Monitoring Policy": {
+"en": "Transaction Monitoring Policy",
+"de": "Transaction Monitoring Policy"
+},
+"SAR процедура і шаблони": {
+"en": "SAR procedure and templates",
+"de": "SAR-Verfahren und Vorlagen"
+},
+"Sanctions Screening Policy + інструмент": {
+"en": "Sanctions Screening Policy + tool",
+"de": "Sanctions Screening Policy + Tool"
+},
+"AML awareness training 2 год": {
+"en": "AML awareness training 2 hours",
+"de": "AML-Awareness-Training 2 Std."
+},
+"MiCA Gap Analysis": {
+"en": "MiCA Gap Analysis",
+"de": "MiCA-Gap-Analyse"
+},
+"DORA ICT Risk Register": {
+"en": "DORA ICT Risk Register",
+"de": "DORA IKT-Risikoregister"
+},
+"AML/CFT-програма (входить)": {
+"en": "AML/CFT programme (included)",
+"de": "AML/CFT-Programm (inbegriffen)"
+},
+"Вибір шляху: CASP / перехідний режим": {
+"en": "Path selection: CASP / transitional regime",
+"de": "Wegwahl: CASP / Übergangsregelung"
+},
+"Crypto-Asset White Paper (якщо потрібно)": {
+"en": "Crypto-Asset White Paper (if required)",
+"de": "Krypto-Asset-Whitepaper (falls erforderlich)"
+},
+"Ліцензійний пакет для FMA/ESMA": {
+"en": "Licensing package for FMA/ESMA",
+"de": "Lizenzpaket für FMA/ESMA"
+},
+"Capital requirements розрахунок": {
+"en": "Capital requirements calculation",
+"de": "Eigenkapitalberechnung"
+},
+"Custody та key management policy": {
+"en": "Custody and key management policy",
+"de": "Custody- und Key-Management-Policy"
+},
+"Комунікація з FMA — супровід": {
+"en": "FMA communication — guided",
+"de": "FMA-Kommunikation — begleitet"
+},
+"Briefing для AT legal counsel": {
+"en": "Briefing for AT legal counsel",
+"de": "Briefing für den AT-Rechtsberater"
+},
+"Compliance Gap Analysis (повний)": {
+"en": "Compliance Gap Analysis (full)",
+"de": "Compliance-Gap-Analyse (vollständig)"
+},
+"AML + MiCA (входять)": {
+"en": "AML + MiCA (included)",
+"de": "AML + MiCA (inbegriffen)"
+},
+"DORA Incident Response Plan": {
+"en": "DORA Incident Response Plan",
+"de": "DORA Incident Response Plan"
+},
+"DORA Third-Party Risk Management": {
+"en": "DORA Third-Party Risk Management",
+"de": "DORA Third-Party Risk Management"
+},
+"DORA Testing Framework (TLPT план)": {
+"en": "DORA Testing Framework (TLPT plan)",
+"de": "DORA Testing Framework (TLPT-Plan)"
+},
+"Sanctions Screening: авто-інструмент": {
+"en": "Sanctions Screening: automated tool",
+"de": "Sanctions Screening: automatisiertes Tool"
+},
+"GDPR ↔ AML Balance Policy": {
+"en": "GDPR ↔ AML Balance Policy",
+"de": "DSGVO ↔ AML Balance Policy"
+},
+"Compliance Calendar (річний план)": {
+"en": "Compliance Calendar (annual plan)",
+"de": "Compliance-Kalender (Jahresplan)"
+},
+"Q1 Retainer included (4 год/міс)": {
+"en": "Q1 Retainer included (4h/month)",
+"de": "Q1 Retainer inklusive (4 Std./Monat)"
+},
+"COMPLY Retainer €1,990/міс — щоквартальний перегляд AML-програми, оновлення policies, навчання нових співробітників. Найстабільніший recurring revenue у лінійці NEXORA.": {
+"en": "COMPLY Retainer €1,990/month — quarterly AML programme review, policy updates, training of new staff. The most stable recurring revenue in the NEXORA line.",
+"de": "COMPLY Retainer €1.990/Monat — vierteljährliche Überprüfung des AML-Programms, Policy-Aktualisierungen, Schulung neuer Mitarbeiter. Stabilstes wiederkehrendes Einkommen in der NEXORA-Linie."
+},
+"Тиждень 1–2": {
+"en": "Week 1–2",
+"de": "Woche 1–2"
+},
+"Збір інформації: ліцензійний статус, поточні policies, тип клієнтів, географія. Аналіз відповідності: що вже є, чого бракує. Risk Priority Map. Результат: Compliance Gap Report з action plan.": {
+"en": "Information gathering: licence status, current policies, client type, geography. Compliance analysis: what's in place, what's missing. Risk Priority Map. Result: Compliance Gap Report with action plan.",
+"de": "Informationserhebung: Lizenzstatus, aktuelle Richtlinien, Kundentyp, Geografie. Compliance-Analyse: was vorhanden ist, was fehlt. Risk Priority Map. Ergebnis: Compliance Gap Report mit Aktionsplan."
+},
+"Тиждень 2–5": {
+"en": "Week 2–5",
+"de": "Woche 2–5"
+},
+"AML/KYC Program Development": {
+"en": "AML/KYC Program Development",
+"de": "AML/KYC-Programmentwicklung"
+},
+"AML-програма під специфіку бізнесу. CDD/EDD процедури. Transaction Monitoring: пороги, тригери, ескалація. SAR-процедура. Sanctions Screening Policy + налаштування інструменту.": {
+"en": "AML programme tailored to the business specifics. CDD/EDD procedures. Transaction Monitoring: thresholds, triggers, escalation. SAR procedure. Sanctions Screening Policy + tool configuration.",
+"de": "AML-Programm auf die Unternehmensspezifika zugeschnitten. CDD/EDD-Verfahren. Transaction Monitoring: Schwellenwerte, Trigger, Eskalation. SAR-Verfahren. Sanctions Screening Policy + Tool-Konfiguration."
+},
+"Тиждень 3–10": {
+"en": "Week 3–10",
+"de": "Woche 3–10"
+},
+"MiCA/CASP підготовка (крипто)": {
+"en": "MiCA/CASP preparation (crypto)",
+"de": "MiCA/CASP-Vorbereitung (Krypto)"
+},
+"Gap-аналіз vs вимоги MiCA. Вибір шляху: CASP-ліцензія vs перехідний режим. Ліцензійний пакет для FMA. Перша комунікація з FMA: pre-application консультація.": {
+"en": "Gap analysis vs MiCA requirements. Path selection: CASP licence vs transitional regime. Licensing package for FMA. First FMA communication: pre-application consultation.",
+"de": "Gap-Analyse vs. MiCA-Anforderungen. Wegwahl: CASP-Lizenz vs. Übergangsregelung. Lizenzpaket für FMA. Erste FMA-Kommunikation: Vorantragsberatung."
+},
+"Тиждень 4–8": {
+"en": "Week 4–8",
+"de": "Woche 4–8"
+},
+"DORA Implementation (FULL)": {
+"en": "DORA Implementation (FULL)",
+"de": "DORA-Implementierung (FULL)"
+},
+"ICT Risk Register: ідентифікація IT-активів, загроз. Incident Response Plan. Third-Party Risk Management. DORA Testing Framework: TLPT-план.": {
+"en": "ICT Risk Register: identification of IT assets, threats. Incident Response Plan. Third-Party Risk Management. DORA Testing Framework: TLPT plan.",
+"de": "IKT-Risikoregister: Identifizierung von IT-Assets, Bedrohungen. Incident Response Plan. Third-Party Risk Management. DORA Testing Framework: TLPT-Plan."
+},
+"Тиждень 6–8": {
+"en": "Week 6–8",
+"de": "Woche 6–8"
+},
+"Training, Tools & GDPR Balance": {
+"en": "Training, Tools & GDPR Balance",
+"de": "Training, Tools & DSGVO-Balance"
+},
+"AML Awareness Training 2–3 год для команди. Sanctions screening tool: налаштування. GDPR ↔ AML Balance Policy. Compliance Calendar.": {
+"en": "AML Awareness Training 2–3 hours for the team. Sanctions screening tool: configuration. GDPR ↔ AML Balance Policy. Compliance Calendar.",
+"de": "AML Awareness Training 2–3 Std. für das Team. Sanctions Screening Tool: Konfiguration. DSGVO ↔ AML Balance Policy. Compliance-Kalender."
+},
+"DORA застосовується до всіх фін. установ ЄС: EMI, PI, CASP. Якщо є ліцензія FMA — ви під DORA. Перевірки вже йдуть з 2025.": {
+"en": "DORA applies to all EU financial institutions: EMI, PI, CASP. If you have an FMA licence — you are under DORA. Inspections have been underway since 2025.",
+"de": "DORA gilt für alle EU-Finanzinstitute: EMI, PI, CASP. Wenn Sie eine FMA-Lizenz haben — unterliegen Sie DORA. Prüfungen laufen seit 2025."
+},
+"RWR-картка за GmbH-засновником": {
+"en": "RWR card via GmbH founder",
+"de": "RWR-Karte über GmbH-Gründer"
+},
+"Niederlassungsbewilligung": {
+"en": "Niederlassungsbewilligung",
+"de": "Niederlassungsbewilligung"
+},
+"Резиденство": {
+"en": "Residency",
+"de": "Aufenthaltserlaubnis"
+},
+"Наймання персоналу": {
+"en": "Hiring staff",
+"de": "Mitarbeiter einstellen"
+},
+"Структурування AT/UA": {
+"en": "AT/UA structuring",
+"de": "AT/UA-Strukturierung"
+},
+"КІК / PE-аналіз": {
+"en": "CFC / PE analysis",
+"de": "CFC / PE-Analyse"
+},
+"Оптимізація": {
+"en": "Optimisation",
+"de": "Optimierung"
+},
+"Повний стек (SCAN + SHIELD + оптимізація)": {
+"en": "Full stack (SCAN + SHIELD + optimisation)",
+"de": "Vollpaket (SCAN + SHIELD + Optimierung)"
+},
+"Стартовий": {
+"en": "Starter",
+"de": "Starter"
+},
+"Стандарт": {
+"en": "Standard",
+"de": "Standard"
+},
+"від": {
+"en": "from",
+"de": "ab"
+},
+"/міс": {
+"en": "/month",
+"de": "/Monat"
+},
+"Блок 1 з 6 · §136 GewO": {
+"en": "Block 1 of 6 · §136 GewO",
+"de": "Block 1 von 6 · §136 GewO"
+},
+"Блок 2 з 6 · §136 GewO + §1 Steuerberatung": {
+"en": "Block 2 of 6 · §136 GewO + §1 Tax advisory",
+"de": "Block 2 von 6 · §136 GewO + §1 Steuerberatung"
+},
+"Блок 3 з 6 · §136 GewO": {
+"en": "Block 3 of 6 · §136 GewO",
+"de": "Block 3 von 6 · §136 GewO"
+},
+"Блок 4 з 6 · §136 GewO": {
+"en": "Block 4 of 6 · §136 GewO",
+"de": "Block 4 von 6 · §136 GewO"
+},
+"Блок 5 з 6 · §1 Strategisch + §3 Due Diligence + §9 Technik/Technologie": {
+"en": "Block 5 of 6 · §1 Strategic + §3 Due Diligence + §9 Technology",
+"de": "Block 5 von 6 · §1 Strategisch + §3 Due Diligence + §9 Technik/Technologie"
+},
+"Блок 6 з 6 · §1 Strategisch + §1 Compliance Beratung": {
+"en": "Block 6 of 6 · §1 Strategic + §1 Compliance Advisory",
+"de": "Block 6 von 6 · §1 Strategisch + §1 Compliance-Beratung"
+},
+"§136 GewO + §1 Strategische Unternehmensführung (WKO 2023)": {
+"en": "§136 GewO + §1 Strategic Business Management (WKO 2023)",
+"de": "§136 GewO + §1 Strategische Unternehmensführung (WKO 2023)"
+},
+"GmbH зареєстрована — тепер потрібна фінансова інфраструктура": {
+"en": "GmbH registered — financial infrastructure now needed",
+"de": "GmbH eingetragen — nun finanzielle Infrastruktur erforderlich"
+},
+"Є прибуток — потрібна стратегія зростання та виходу на DACH": {
+"en": "There is profit — growth strategy and DACH expansion needed",
+"de": "Es gibt Gewinn — Wachstumsstrategie und DACH-Expansion erforderlich"
+},
+"Відкрито рахунок — compliance-вимоги FMA вже діють": {
+"en": "Account opened — FMA compliance requirements already active",
+"de": "Konto eröffnet — FMA-Compliance-Anforderungen bereits aktiv"
+},
+"Є ліцензія — потрібний GmbH-холдинг або AT/UA структура": {
+"en": "Licence obtained — GmbH holding or AT/UA structure needed",
+"de": "Lizenz vorhanden — GmbH-Holding oder AT/UA-Struktur erforderlich"
+}
 };

@@ -1,0 +1,4 @@
+# This goes in public_html root to forward to git-deploy
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/git-deploy/
+RewriteRule ^(.*)$ /git-deploy/$1 [L]
